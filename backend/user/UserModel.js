@@ -1,19 +1,17 @@
 import crypto from "crypto";
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
 const isEmail = (string) => {
   const [name, domainWithTLD, ...rest] = string.split("@");
   if (rest.length || !name || !domainWithTLD) {
     return false;
   }
-
   const [domain, tld] = domainWithTLD.split(".");
   if (tld.length < 2 || !domain) return false;
-
   return true;
 };
 
-export const userSchema = new Schema({
+export const userSchema = new mongoose.Schema({
   name: { type: String, required: [true, "Please specify your name"] },
   email: {
     type: String,
@@ -27,13 +25,48 @@ export const userSchema = new Schema({
   },
   salt: { type: String, required: true, select: false },
   hash: { type: String, required: true, select: false },
+  profession: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+  domain: {
+    type: String,
+  },
+  amountOfPosts: {
+    type: Number,
+  },
+  amountOfFollowers: {
+    type: Number,
+  },
+  amountOfFollowing: {
+    type: Number,
+  },
+  posts: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Post",
+    },
+  ],
+  image: {
+    type: {
+      url: String,
+      imageId: String,
+    },
+  },
+  gallery: [
+    {
+      type: {
+        url: String,
+        imageId: String,
+      },
+    },
+  ],
 });
 
 userSchema.methods.setPassword = function (password) {
-  //Salt
   this.salt = crypto.randomBytes(64).toString("hex");
-
-  // Password mit salt hashen
   this.hash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, "sha512")
     .toString("hex");
@@ -43,10 +76,9 @@ userSchema.methods.verifyPassword = function (password) {
   const hash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, "sha512")
     .toString("hex");
-
   return this.hash === hash;
 };
 
-export const User = model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
 
 export default User;

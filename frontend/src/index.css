@@ -1,0 +1,78 @@
+@font-face {
+  font-family: UrbanistRegular;
+  src: url(./fonts/Urbanist-Regular.ttf);
+}
+@font-face {
+  font-family: UrbanistMedium;
+  src: url(./fonts/Urbanist-Medium.ttf);
+}
+@font-face {
+  font-family: UrbanistSemiBold;
+  src: url(./fonts/Urbanist-SemiBold.ttf);
+}
+@font-face {
+  font-family: UrbanistBold;
+  src: url(./fonts/Urbanist-Bold.ttf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --color-pink: #e98090;
+  --color-pink-bright: #ff4d67;
+  --color-light-grey: #9e9e9e;
+  --color-grey-profession: #616161;
+  --color-grey-upload: #bdbdbd;
+  --color-grey-bg: #fafafa;
+  --color-mid-grey: #424242;
+  --color-blue: #246bfd;
+  --color-blue-hashtag: #3f51b2;
+  --color-text: #212121;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "UrbanistBold";
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+.semibold-18 {
+  font-family: "UrbanistSemiBold";
+  font-size: 1.8rem;
+}
+
+.semibold-14 {
+  font-family: "UrbanistSemiBold";
+  font-size: 1.4rem;
+}
+
+p {
+  font-family: "UrbanistRegular";
+  font-size: 1.4rem;
+  line-height: 140%;
+}
