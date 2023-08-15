@@ -1,10 +1,12 @@
-import './EditProfile.css'
+import "./EditProfile.css";
+import InfoBar from "../../components/InfoBar/InfoBar";
 
 const EditProfile = () => {
-    return ( 
-        <>
-        </>
-     );
-}
- 
+  return (
+    <>
+      <InfoBar />
+    </>
+  );
+};
+
 export default EditProfile;

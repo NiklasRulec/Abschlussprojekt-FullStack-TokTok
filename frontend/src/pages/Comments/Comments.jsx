@@ -1,10 +1,12 @@
-import './Comments.css'
+import "./Comments.css";
+import InfoBar from "../../components/InfoBar/InfoBar";
 
 const Comments = () => {
-    return ( 
-        <>
-        </>
-     );
-}
- 
+  return (
+    <>
+      <InfoBar />
+    </>
+  );
+};
+
 export default Comments;

@@ -1,9 +1,13 @@
 import "./Home.css";
+import MoreMenu from "../../components/MoreMenu/MoreMenu";
+import InfoBar from "../../components/InfoBar/InfoBar";
 
 const Home = () => {
   return (
     <>
-      <h1>Home Test</h1>
+      <InfoBar />
+      <h1>Home</h1>
+      <MoreMenu />
     </>
   );
 };

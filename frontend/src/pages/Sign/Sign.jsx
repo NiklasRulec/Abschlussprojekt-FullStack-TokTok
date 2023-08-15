@@ -1,10 +1,12 @@
-import './Sign.css'
+import "./Sign.css";
+import InfoBar from "../../components/InfoBar/InfoBar";
 
 const Sign = () => {
-    return ( 
-        <>
-        </>
-     );
-}
- 
+  return (
+    <>
+      <InfoBar />
+    </>
+  );
+};
+
 export default Sign;

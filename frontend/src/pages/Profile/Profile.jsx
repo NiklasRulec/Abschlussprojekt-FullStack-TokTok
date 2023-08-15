@@ -1,10 +1,12 @@
-import './Profile.css'
+import "./Profile.css";
+import InfoBar from "../../components/InfoBar/InfoBar";
 
 const Profile = () => {
-    return ( 
-        <>
-        </>
-     );
-}
- 
+  return (
+    <>
+      <InfoBar />
+    </>
+  );
+};
+
 export default Profile;
