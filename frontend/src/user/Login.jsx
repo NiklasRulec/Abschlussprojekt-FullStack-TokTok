@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { UserContext } from "./UserContext";
+import { RefreshContext } from "../user/RefreshContext";
 
 export default function Login() {
-  const { refetch } = useContext(UserContext);
+  const { refresh, setRefresh } = useContext(RefreshContext);
   const nav = useNavigate();
   const [error, setError] = useState(null);
 
@@ -16,7 +16,7 @@ export default function Login() {
     const data = new FormData(e.currentTarget);
     try {
       await axios.post("/api/user/login", data);
-      refetch();
+      setRefresh((prev) => !prev);
     } catch (e) {
       console.log(e);
       setError("An Error occured, try again later");

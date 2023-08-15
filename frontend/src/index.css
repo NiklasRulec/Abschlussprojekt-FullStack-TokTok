@@ -76,3 +76,9 @@ p {
   font-size: 1.4rem;
   line-height: 140%;
 }
+
+.wrapper {
+  max-width: 428px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
