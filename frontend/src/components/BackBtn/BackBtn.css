@@ -1,0 +1,7 @@
+.backBtn {
+    display: flex;
+    padding: 2rem 0 0 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
