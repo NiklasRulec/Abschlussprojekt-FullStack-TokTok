@@ -1,6 +1,6 @@
 import "./MoreMenu.css";
 import Vector from "../../images/Vector.png";
-import settings from "../../images/Settings.png";
+import Settings from "../../images/Settings.png";
 import ArrowDown from "../../images/ArrowDown.png";
 import Time from "../../images/Time.png";
 import Scan from "../../images/Scan.png";
@@ -14,7 +14,7 @@ const MoreMenu = () => {
     <section className="more-menu">
       <img src={Vector} alt="vector" className="stroke" />
       <div className="set">
-        <img src={settings} alt="setting" />
+        <img src={Settings} alt="setting" />
         <h5>Settings</h5>
       </div>
       <div className="archive">

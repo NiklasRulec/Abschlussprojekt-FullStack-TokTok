@@ -14,8 +14,9 @@
 h6 {
   display: block;
   margin-left: 1.5rem;
-  font-size: 17px;
-  font-weight: 800;
-  font-family: Urbanist-Medium;
+  margin-top: 1rem;
+  font-size: 15px;
+  font-weight: 100;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: black;
 }
