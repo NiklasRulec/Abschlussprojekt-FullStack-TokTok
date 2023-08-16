@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import path from "path";
 import cookieParser from "cookie-parser";
 import { userRouter } from "./user/routes.js";
+import { postRouter } from "./user/PostRoutes.js";
+import { commentRouter } from "./user/CommentRoutes.js";
 
 dotenv.config({
   path: path.join(path.resolve(), "..", ".env"),
@@ -22,6 +24,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(ReactAppDistPath.pathname));
 app.use("/api/user", userRouter);
+app.use("/api/post", postRouter);
+app.use("/api/comment", commentRouter);
 
 /*
  * express.static matched auf jede Datei im angegebenen Ordner

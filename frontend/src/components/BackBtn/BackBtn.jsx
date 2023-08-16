@@ -1,4 +1,4 @@
-import './BackBtn.css'
+import "./BackBtn.css";
 
 import { useNavigate } from "react-router-dom";
 

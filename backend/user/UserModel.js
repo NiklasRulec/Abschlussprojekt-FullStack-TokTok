@@ -63,6 +63,18 @@ export const userSchema = new mongoose.Schema({
       },
     },
   ],
+  isLiking: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Post",
+    },
+  ],
+  isFollowing: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 userSchema.methods.setPassword = function (password) {

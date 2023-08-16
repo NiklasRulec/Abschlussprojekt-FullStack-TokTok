@@ -1,14 +1,22 @@
-import './Sign.css'
+import SearchItem from "../../components/SearchItem/SearchItem";
+import SearchList from "../../components/SearchList/SearchList";
+import Login from "../../user/Login";
+import Signup from "../../user/Signup";
+import "./Sign.css";
 
 import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 
 const Sign = () => {
-    return ( 
+  
+  return (
+    <>
+    {/* <LoadingScreen /> */}
+      <Signup />
+      <Login />
+      <SearchList />
+    </>
+  );
+};
 
-        <>
-        <LoadingScreen />
-        </>
-     );
-}
- 
 export default Sign;
+
