@@ -169,6 +169,14 @@ userRouter.put("/profile", authenticateToken, async (req, res) => {
   }
 });
 
+// add likes to account of logged in user
+
+// delete likes from account of logged in user
+
+// add following to account of logged in user
+
+// delete following from account of logged in user
+
 // reset Password ---------------------------------------------------------------------------------------------
 
 userRouter.post("/resetPassword", async (req, res) => {

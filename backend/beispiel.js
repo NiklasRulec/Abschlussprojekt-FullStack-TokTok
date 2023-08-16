@@ -25,6 +25,8 @@ const user = [
         imageId: "",
       },
     ],
+    isLiking: [], // which Posts is the User liking? -> Array of ObjectIds
+    isFollowing: [], // which other User Accounts is the User following? -> Array of ObjectIds
     posts: [
       {
         // P O S T M O D E L (über ObjectId mit dem UserModel verbunden) -> DIES IST EINE EIGENE COLLECTION "posts"
@@ -69,12 +71,16 @@ const user = [
 // falls nein, wird ein neues erstellt
 // falls ja, wird das alte ersetzt
 // im frontend mit formData arbeiten !
+const formData = new FormData(e.target);
+const { data1 } = await axios.put("/api/user/profile/img", formData);
 
 // alle anderen Infos des Users werden über folgende PUT Route aktualisiert
 // siehe routes.js unter:
 // update profile infos of logged in user -----------------------------------------------------------------------
 // userRouter.put("/profile",...
 // im frontend NICHT mit formData arbeiten ! -> z.b. useRef oder e.target...
+const newName = { name: nameRef.current.value };
+const { data2 } = await axios.put("/api/user/profile", newName);
 
 // * 2 *
 // Kommentare zu einem bestimmten Post hinzufügen:
