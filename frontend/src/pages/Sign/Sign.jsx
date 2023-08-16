@@ -4,19 +4,13 @@ import Login from "../../user/Login";
 import Signup from "../../user/Signup";
 import "./Sign.css";
 
+import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
+
 const Sign = () => {
-<<<<<<< HEAD
-    return ( 
-        <>
-        <h1>Sign</h1>
-        </>
-     );
-}
- 
-export default Sign;
-=======
+  
   return (
     <>
+    {/* <LoadingScreen /> */}
       <Signup />
       <Login />
       <SearchList />
@@ -25,4 +19,4 @@ export default Sign;
 };
 
 export default Sign;
->>>>>>> dev
+

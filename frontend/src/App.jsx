@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RefreshContext } from "./user/RefreshContext";
 import Home from "./pages/Home/Home";
 import UserProfile from "./pages/UserProfile/UserProfile";
-import Profile from "./pages/Profile/Profile";
 import ResetPassword from "./user/ResetPassword";
+import Profile from "./pages/Profile/Profile"
 import "./App.css";
 import { useState } from "react";
 import { UserProvider } from "./user/UserContext";
