@@ -17,6 +17,9 @@ function App() {
 
   return (
     <>
+      <div className="mobile-only">
+        <h2>Mobile Only</h2>
+      </div>
       <div className="wrapper">
         <BrowserRouter>
           <RefreshContext.Provider value={{ refresh, setRefresh }}>

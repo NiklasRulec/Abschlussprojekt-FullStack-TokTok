@@ -1,10 +1,7 @@
-import './BackBtn.css'
+import "./BackBtn.css";
 
 const BackBtn = () => {
-    return ( 
-        <>
-        </>
-     );
-}
- 
+  return <></>;
+};
+
 export default BackBtn;
