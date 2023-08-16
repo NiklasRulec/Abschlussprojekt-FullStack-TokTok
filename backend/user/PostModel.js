@@ -3,12 +3,14 @@ import mongoose from "mongoose";
 export const postSchema = new mongoose.Schema({
   caption: {
     type: String,
+    required: true,
   },
   image: {
     type: {
       url: String,
       imageId: String,
     },
+    required: true,
   },
   location: {
     type: String,
@@ -21,6 +23,23 @@ export const postSchema = new mongoose.Schema({
   },
   tumblr: {
     type: Boolean,
+  },
+  comments: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
+  time: {
+    type: String,
+    // type: Date,
+    // required: true,
+  },
+  amountOfLikes: {
+    type: Number,
+  },
+  amountOfComments: {
+    type: Number,
   },
 });
 

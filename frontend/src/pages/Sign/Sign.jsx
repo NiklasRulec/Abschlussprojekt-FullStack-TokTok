@@ -5,6 +5,16 @@ import Signup from "../../user/Signup";
 import "./Sign.css";
 
 const Sign = () => {
+<<<<<<< HEAD
+    return ( 
+        <>
+        <h1>Sign</h1>
+        </>
+     );
+}
+ 
+export default Sign;
+=======
   return (
     <>
       <Signup />
@@ -15,3 +25,4 @@ const Sign = () => {
 };
 
 export default Sign;
+>>>>>>> dev
