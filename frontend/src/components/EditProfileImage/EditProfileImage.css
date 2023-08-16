@@ -7,20 +7,25 @@
   justify-content: center;
 }
 
-.edit-profile-image-section .image {
+.edit-profile-image-section .image-container {
+  width: 14rem;
+  height: 14rem;
+  position: relative;
+}
+
+.edit-profile-image-section .image-container .image {
   width: 14rem;
   height: 14rem;
   border-radius: 15rem;
-  background-color: green;
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  object-fit: cover;
 }
 
-.edit-profile-image-section button {
+.edit-profile-image-section .image-container .image-edit-btn {
   width: 3rem;
   height: 3rem;
   border: none;
   background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
 }

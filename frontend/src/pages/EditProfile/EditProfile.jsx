@@ -9,7 +9,7 @@ const EditProfile = () => {
     <>
       <section className="edit-profile-section">
         <article className="edit-profile-section-top">
-          <Link to="">
+          <Link to="/profile">
             <img src={arrowleft} alt="arrowleft-icon" />
           </Link>
           <h2>Edit Profile</h2>
