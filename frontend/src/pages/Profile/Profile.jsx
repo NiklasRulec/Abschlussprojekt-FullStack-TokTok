@@ -1,4 +1,5 @@
-import "./Profile.css";
+import Navbar from '../../components/Navbar/Navbar';
+import './Profile.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -24,7 +25,6 @@ const Profile = () => {
   return (
     <>
       {userData ? (
-        <>
           <section className="profile-section">
             <article className="profile-top">
               <img src={arrowleft} alt="arrowleft-icon" />
@@ -77,10 +77,10 @@ const Profile = () => {
               </div>
             </article>
           </section>
-        </>
       ) : (
         <h2>Lädt</h2>
       )}
+      <Navbar />
     </>
   );
 };

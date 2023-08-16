@@ -3,11 +3,13 @@ import SearchList from "../../components/SearchList/SearchList";
 import Login from "../../user/Login";
 import Signup from "../../user/Signup";
 import "./Sign.css";
+import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
 
 const Sign = () => {
+
   return (
     <>
-    <h1>Sign</h1>
+    {/* <LoadingScreen /> */}
       <Signup />
       <Login />
       <SearchList />
