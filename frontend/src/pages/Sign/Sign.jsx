@@ -1,28 +1,16 @@
-import SearchItem from "../../components/SearchItem/SearchItem";
-import SearchList from "../../components/SearchList/SearchList";
 import Login from "../../user/Login";
 import Signup from "../../user/Signup";
+import EditProfile from "../EditProfile/EditProfile";
 import "./Sign.css";
 
 const Sign = () => {
-<<<<<<< HEAD
-    return ( 
-        <>
-        <h1>Sign</h1>
-        </>
-     );
-}
- 
-export default Sign;
-=======
   return (
     <>
       <Signup />
       <Login />
-      <SearchList />
+      <EditProfile />
     </>
   );
 };
 
 export default Sign;
->>>>>>> dev
