@@ -17,6 +17,17 @@ userRouter.get("/", async (req, res) => {
   res.send(users);
 });
 
+userRouter.get("/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const userData = await User.find({ _id: userId });
+    res.json(userData);
+  } catch (err) {
+    console.log(err);
+    res.send("there was an error");
+  }
+});
+
 userRouter.post("/resetPassword", async (req, res) => {
   const { email } = req.body;
   try {

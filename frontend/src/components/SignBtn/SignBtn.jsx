@@ -1,10 +1,7 @@
-import './SignBtn.css'
+import "./SignBtn.css";
 
 const SignBtn = () => {
-    return ( 
-        <>
-        </>
-     );
-}
- 
+  return <></>;
+};
+
 export default SignBtn;
