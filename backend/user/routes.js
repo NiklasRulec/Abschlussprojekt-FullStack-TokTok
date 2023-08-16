@@ -90,6 +90,19 @@ userRouter.get("/profile", authenticateToken, async (req, res) => {
   }
 });
 
+// get user profile by id --------------------------------------------------------------------------------------
+
+userRouter.get("/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const userData = await User.find({ _id: userId }).populate("posts");
+    res.json(userData);
+  } catch (err) {
+    console.log(err);
+    res.send("there was an error");
+  }
+});
+
 // upload & edit profile pic of logged in user ------------------------------------------------------------------
 
 userRouter.put(

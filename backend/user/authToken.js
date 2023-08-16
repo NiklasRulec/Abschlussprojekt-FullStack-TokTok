@@ -11,6 +11,7 @@ export function authenticateToken(req, res, next) {
   let token = null;
   if (req?.cookies?.auth) {
     token = req.cookies.auth;
+    console.log({ token });
   }
 
   if (!token) {
