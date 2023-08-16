@@ -13,7 +13,7 @@ const multerMiddleware = multer();
 // get all users -------------------------------------------------------------------------------------------
 
 userRouter.get("/", async (req, res) => {
-  const users = await User.find();
+  const users = await User.find().populate("posts");
   res.send(users);
 });
 
@@ -95,7 +95,8 @@ userRouter.get("/profile", authenticateToken, async (req, res) => {
 userRouter.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    const userData = await User.find({ _id: userId }).populate("posts");
+    // const userData = await User.find({ _id: userId }).populate("posts");
+    const userData = await User.find({ _id: userId });
     res.json(userData);
   } catch (err) {
     console.log(err);

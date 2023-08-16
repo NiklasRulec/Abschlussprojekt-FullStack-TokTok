@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 export const postSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
   caption: {
     type: String,
     required: true,
