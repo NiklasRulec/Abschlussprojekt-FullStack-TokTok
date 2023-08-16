@@ -17,8 +17,8 @@ const SearchInput = () => {
     const [safeSearch, setSafeSearch] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
-    const handleSearch = (event) => {
-        const safeSearch = event.target.value;
+    const search = (e) => {
+        const safeSearch = e.target.value;
         setSafeSearch(safeSearch);
     
         const filteredResults = data.filter((name) =>
@@ -38,7 +38,7 @@ const SearchInput = () => {
                 type='text'
                 placeholder='Suche nach Namen'
                 value={safeSearch}
-                onChange={handleSearch}
+                onChange={search}
             />
 
         </div>

@@ -1,7 +1,7 @@
 import './LoadingScreen.css'
 
 import Logo from "../../images/Logo.png"
-import LoadingImg from "../../images/LoadingAnimation.png"
+// import LoadingImg from "../../images/LoadingAnimation.png"
 
 import leaf1 from "../../images/LoadingLeafs/Vector.png"
 import leaf2 from "../../images/LoadingLeafs/Vector1.png"
@@ -25,30 +25,28 @@ const LoadingScreen = () => {
     return ( 
         <>
         <section className='loader'>
-            <div className='splash-center'>
+            <div className='splash'>
                 <div className='top-splash'>
                     <img src={leaf1} alt=""/>
                     <img src={leaf2} alt=""/>
                     <img src={leaf3} alt=""/>
                     <img src={leaf4} alt=""/>
                 </div>
-                <div className='mid-splash'>
-                    <img src={leaf5} alt=""/>
-                    <img src={Logo} alt="" />
-                </div>
-                <div>
-                    <img src={leaf6} alt=""/>
+                <img src={Logo} className='splash-logo' alt="" />
+                <div className='bottom-splash'>
                     <img src={leaf7} alt=""/>
+                    <img src={leaf6} alt=""/>
+                    <img src={leaf5} alt=""/>
                     <img src={leaf8} alt=""/>                    
+
                 </div>
             </div>
-            <div className='bottom-splash'>
-                {/* <img src={LoadingImg} alt="" /> */}
-                <div class="loading-img"></div>
-            </div>            
+                <div className='bottom-splash'>
+                    {/* <img src={LoadingImg} alt="" /> */}
+                    <div class="loading-img"></div>
+                </div>                
         </section>
-
-
+            
         </>
      );
 }
