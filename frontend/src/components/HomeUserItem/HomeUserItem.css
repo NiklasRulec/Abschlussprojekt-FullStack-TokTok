@@ -1,0 +1,14 @@
+.post-image {
+  max-width: 100%;
+  border-radius: 10%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.likes-wrapper {
+  display: flex;
+}
+
+.comments-wrapper {
+  display: flex;
+}
