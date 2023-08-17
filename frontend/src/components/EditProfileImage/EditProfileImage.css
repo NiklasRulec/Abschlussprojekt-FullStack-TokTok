@@ -1,7 +1,7 @@
 .edit-profile-image-section {
   width: 100%;
   height: 14rem;
-  margin-bottom: 2rem;
+  margin-bottom: 30rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,5 +27,20 @@
   background-color: rgba(255, 255, 255, 0);
   position: absolute;
   bottom: 0;
-  right: 1rem;
+  right: 0.7rem;
+}
+
+.edit-profile-image-section .image-container .image-edit-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.edit-profile-image-section .image-container .inputfile {
+  width: 30rem;
+  height: 5rem;
+  margin-bottom: 2rem;
+  /* position: absolute;
+  left: 0;
+  z-index: 1;
+  opacity: 1; */
 }
