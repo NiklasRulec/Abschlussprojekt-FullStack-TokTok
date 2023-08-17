@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Niklas",
+    "email": "niklas@gmail.com",
+    "profession": "Frontend Developer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "niklasrulec.de",
+    "amountOfPosts": 5,
+    "amountOfFollowers": 100,
+    "amountOfFollowing": 50
+  },
+  {
+    "name": "Anna",
+    "email": "anna@example.com",
+    "profession": "Graphic Designer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "annadesigns.com",
+    "amountOfPosts": 12,
+    "amountOfFollowers": 500,
+    "amountOfFollowing": 200
+  },
+  {
+    "name": "Max",
+    "email": "max@yahoo.com",
+    "profession": "Software Engineer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "maxcodes.net",
+    "amountOfPosts": 8,
+    "amountOfFollowers": 300,
+    "amountOfFollowing": 150
+  },
+  {
+    "name": "Linda",
+    "email": "linda@example.com",
+    "profession": "Photographer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "lindalens.com",
+    "amountOfPosts": 30,
+    "amountOfFollowers": 800,
+    "amountOfFollowing": 300
+  },
+  {
+    "name": "Sophie",
+    "email": "sophie@example.com",
+    "profession": "Marketing Manager",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "sophiemarketing.com",
+    "amountOfPosts": 20,
+    "amountOfFollowers": 700,
+    "amountOfFollowing": 250
+  },
+  {
+    "name": "David",
+    "email": "david@gmail.com",
+    "profession": "Travel Blogger",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "davidthetraveler.com",
+    "amountOfPosts": 50,
+    "amountOfFollowers": 1500,
+    "amountOfFollowing": 800
+  },
+  {
+    "name": "Julia",
+    "email": "julia@yahoo.com",
+    "profession": "Fitness Instructor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "juliafitlife.com",
+    "amountOfPosts": 15,
+    "amountOfFollowers": 600,
+    "amountOfFollowing": 200
+  },
+  {
+    "name": "Robert",
+    "email": "robert@example.com",
+    "profession": "Chef",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "robertskitchen.com",
+    "amountOfPosts": 25,
+    "amountOfFollowers": 900,
+    "amountOfFollowing": 400
+  },
+  {
+    "name": "Elena",
+    "email": "elena@gmail.com",
+    "profession": "Artist",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "elenacreatives.com",
+    "amountOfPosts": 10,
+    "amountOfFollowers": 400,
+    "amountOfFollowing": 150
+  },
+  {
+    "name": "Liam",
+    "email": "liam@example.com",
+    "profession": "Teacher",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "liamteaches.com",
+    "amountOfPosts": 18,
+    "amountOfFollowers": 550,
+    "amountOfFollowing": 180
+  },
+  {
+    "name": "Emma",
+    "email": "emma@gmail.com",
+    "profession": "Writer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "emmaauthor.com",
+    "amountOfPosts": 22,
+    "amountOfFollowers": 800,
+    "amountOfFollowing": 300
+  },
+  {
+    "name": "Oliver",
+    "email": "oliver@yahoo.com",
+    "profession": "Engineer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "oliverengineers.com",
+    "amountOfPosts": 12,
+    "amountOfFollowers": 450,
+    "amountOfFollowing": 200
+  },
+  {
+    "name": "Ava",
+    "email": "ava@example.com",
+    "profession": "Fashion Designer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "avafashions.com",
+    "amountOfPosts": 30,
+    "amountOfFollowers": 1200,
+    "amountOfFollowing": 400
+  },
+  {
+    "name": "Noah",
+    "email": "noah@gmail.com",
+    "profession": "Architect",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "noahdesigns.com",
+    "amountOfPosts": 8,
+    "amountOfFollowers": 300,
+    "amountOfFollowing": 150
+  },
+  {
+    "name": "Mason",
+    "email": "mason@gmail.com",
+    "profession": "Musician",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "masonmusic.com",
+    "amountOfPosts": 15,
+    "amountOfFollowers": 600,
+    "amountOfFollowing": 250
+  },
+  {
+    "name": "Isabella",
+    "email": "isabella@yahoo.com",
+    "profession": "Chef",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "isabellacooking.com",
+    "amountOfPosts": 20,
+    "amountOfFollowers": 700,
+    "amountOfFollowing": 350
+  },
+  {
+    "name": "Logan",
+    "email": "logan@example.com",
+    "profession": "Fitness Trainer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "loganfitlife.com",
+    "amountOfPosts": 10,
+    "amountOfFollowers": 400,
+    "amountOfFollowing": 150
+  },
+  {
+    "name": "Ella",
+    "email": "ella@gmail.com",
+    "profession": "Interior Designer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "ellainteriors.com",
+    "amountOfPosts": 25,
+    "amountOfFollowers": 900,
+    "amountOfFollowing": 400
+  },
+  {
+    "name": "Jackson",
+    "email": "jackson@example.com",
+    "profession": "Software Developer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "jacksoncodes.com",
+    "amountOfPosts": 30,
+    "amountOfFollowers": 800,
+    "amountOfFollowing": 400
+  },
+  {
+    "name": "Mia",
+    "email": "mia@gmail.com",
+    "profession": "Artist",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "miaartworks.com",
+    "amountOfPosts": 12,
+    "amountOfFollowers": 350,
+    "amountOfFollowing": 180
+  },
+  {
+    "name": "William",
+    "email": "william@yahoo.com",
+    "profession": "Entrepreneur",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    "domain": "williamventures.com",
+    "amountOfPosts": 50,
+    "amountOfFollowers": 1200,
+    "amountOfFollowing": 600
+  }
+]

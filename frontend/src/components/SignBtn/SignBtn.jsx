@@ -1,10 +1,11 @@
 import "./SignBtn.css";
 
 const SignBtn = () => {
+
   return (
     <>
       <div>
-        <button classname="up">Sign up</button>
+        <button className="up">Sign up</button>
       </div>
     </>
   );

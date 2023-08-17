@@ -14,15 +14,14 @@ export const UserProvider = ({ children }) => {
 
   // logout backend route aufrufen -> cookie wird im BA gelöscht
   const logout = async () => {
-    await axios.get("/api/users/logout");
+    await axios.get("/api/user/logout");
     setUser(null);
     nav("/");
   };
 
   // secure backend route aufrufen -> BA gibt user email zurück, wenn token authentifiziert ist
   useEffect(() => {
-    axios
-      .get("/api/users/secure")
+    axios.get("/api/user/secure")
       .then(({ data }) => setUser(data))
       .catch((e) => {
         setUser(null);
