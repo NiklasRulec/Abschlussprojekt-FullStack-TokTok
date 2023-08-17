@@ -1,3 +1,5 @@
+// import SearchItem from "../../components/SearchItem/SearchItem";
+// import SearchList from "../../components/SearchList/SearchList";
 import InfoBar from "../../components/InfoBar/InfoBar";
 import Logo from "../../images/Logo.png";
 import SignBtn from "../../components/SignBtn/SignBtn";

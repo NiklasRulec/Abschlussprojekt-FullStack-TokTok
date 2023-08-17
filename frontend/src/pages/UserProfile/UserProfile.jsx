@@ -10,6 +10,7 @@ import moremenu from "../../images/MoreMenu.png";
 import edit from "../../images/Edit.png";
 import plus from "../../images/Plus.svg";
 import { Link } from "react-router-dom";
+import BackBtn from "../../components/BackBtn/BackBtn";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
@@ -31,7 +32,7 @@ const UserProfile = () => {
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
-              <img src={arrowleft} alt="arrowleft-icon" />
+              <BackBtn/>
               <h2>{loggedUser.name}</h2>
               <div className="user-profile-top-buttons">
                 <img src={plus} alt="plus-icon" />

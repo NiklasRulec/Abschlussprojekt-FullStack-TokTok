@@ -31,28 +31,31 @@ const Navbar = () => {
     }, [location]);
 
     return (
-        <nav className='navBar'>
-            <article className="navHome">
-                <NavLink to="/home">
-                    <img src={active === "home" ? HomeActive : HomeInactive} alt="" />
-                </NavLink>
-            </article>
-            <article className="navSearch">
-                <NavLink to="/search">
-                    <img src={active === "search" ? SearchActive : SearchInactive} alt="" />
-                </NavLink>
-            </article>
-            <article className="navUpload">
-                <NavLink to="/upload">
-                    <img src={active === "upload" ? UploadActive : UploadInactive} alt="" />
-                </NavLink>
-            </article>
-            <article className="navProfile">
-                <NavLink to="/profile">
-                    <img src={active === "profile" ? ProfileActive : ProfileInactive} alt="" />
-                </NavLink>
-            </article>
-        </nav>
+        <section className='navBar'>
+            <nav>
+                <article className="navHome">
+                    <NavLink to="/home">
+                        <img src={active === "home" ? HomeActive : HomeInactive} alt="" />
+                    </NavLink>
+                </article>
+                <article className="navSearch">
+                    <NavLink to="/search">
+                        <img src={active === "search" ? SearchActive : SearchInactive} alt="" />
+                    </NavLink>
+                </article>
+                <article className="navUpload">
+                    <NavLink to="/upload">
+                        <img src={active === "upload" ? UploadActive : UploadInactive} alt="" />
+                    </NavLink>
+                </article>
+                <article className="navProfile">
+                    <NavLink to="/profile">
+                        <img src={active === "profile" ? ProfileActive : ProfileInactive} alt="" />
+                    </NavLink>
+                </article>
+            </nav>            
+        </section>
+
     );
 }
 

@@ -4,7 +4,7 @@ import profile from "../../images/Profile.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const SearchList = () => {
+const SearchList = ({ searchQuery }) => {
   const [usersData, setUsersData] = useState();
 
   useEffect(() => {
@@ -16,6 +16,12 @@ const SearchList = () => {
     fetchUser();
   }, []);
 
+  const filteredUsers = usersData?.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.profession.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
       <article className="search-list">
@@ -23,7 +29,7 @@ const SearchList = () => {
           <img src={profile} alt="profile-icon" />
         </div>
         <div>
-          {usersData?.map((item, index) => (
+          {filteredUsers?.map((item, index) => (
             <SearchItem
               key={index}
               name={item.name}
