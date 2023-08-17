@@ -7,7 +7,7 @@ import CancelBtn from "../../components/CancelBtn/CancelBtn";
 import BackArrow from "../../images/ArrowLeft.png";
 import Cam from "../../images/Camera.png";
 import Category from "../../images/Category.png";
-import Arrowdown from "../../images/Arrowdown2.png";
+import Arrowdown from "../../images/ArrowDown2.png";
 import Location from "../../images/Location.png";
 import ToggleActive from "../../images/ToggleActive.png";
 import ToggleInactive from "../../images/ToggleInactive.png";
