@@ -1,0 +1,11 @@
+.single-comment {
+  margin: 0 0 2rem 0;
+}
+.comment-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.comment-text {
+  margin: 0 0 1rem 0;
+}

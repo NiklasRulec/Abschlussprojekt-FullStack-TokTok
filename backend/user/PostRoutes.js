@@ -24,7 +24,9 @@ postRouter.get("/", async (req, res) => {
 
 postRouter.get("/:id", async (req, res) => {
   try {
-    const dbRes = await Post.findById(req.params.id).populate("comments");
+    const dbRes = await Post.findById(req.params.id)
+      .populate("comments")
+      .populate("user");
     res.json(dbRes);
   } catch (err) {
     console.log(err);
