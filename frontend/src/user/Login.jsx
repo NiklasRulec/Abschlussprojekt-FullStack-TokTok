@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
 import { RefreshContext } from "../user/RefreshContext";
 
 export default function Login() {
@@ -11,20 +10,21 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+
   const submit = async (e) => {
     e.preventDefault();
     setError(null);
 
     const loginInput = {
       email: email,
-      password: password
-    }
+      password: password,
+    };
 
     try {
-      const {data} = await axios.post("/api/user/login", loginInput);
-      if (data){
+      const { data } = await axios.post("/api/user/login", loginInput);
+      if (data) {
         setRefresh((prev) => !prev);
-        navigate("/profile")
+        navigate("/profile");
       }
     } catch (e) {
       console.log(e);
