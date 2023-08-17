@@ -3,6 +3,7 @@ import InfoBar from "../../components/InfoBar/InfoBar";
 import Logo from "../../images/Logo.png";
 import SignBtn from "../../components/SignBtn/SignBtn";
 import { Link } from "react-router-dom";
+import Hide from "../../images/Hide.png";
 
 const Sign = () => {
   return (
@@ -18,6 +19,9 @@ const Sign = () => {
         <input type="text" id="email" placeholder="Email"></input>
         <br></br>
         <input type="text" id="password" placeholder="Password"></input>
+        <div className="hide">
+          <img src={Hide} />
+        </div>
       </form>
       <SignBtn />
       <div className="sign-in-user">
