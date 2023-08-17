@@ -1,6 +1,6 @@
 import './Likes.css'
 import HeartActive from '../../images/HeartActive.png'
-import HeartInActive from '../../images/HeartInActive.png'
+import HeartInActive from '../../images/HeartInactive.png'
 import { useEffect, useState } from 'react'
 
 const Likes = ({amountOfLikes}) => {
