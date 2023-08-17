@@ -1,13 +1,16 @@
 import "./EditProfileImage.css";
+import React, { useContext, useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import edit from "../../images/Edit Square.png";
-import { useContext, useEffect, useState } from "react";
 import { RefreshContext } from "../../user/RefreshContext";
 
 const EditProfileImage = () => {
+  const navigate = useNavigate();
   const [loggedUser, setLoggedUser] = useState();
   const [email, setEmail] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -19,17 +22,20 @@ const EditProfileImage = () => {
     fetchUser();
   }, [refresh]);
 
-  const imageFunction = async (e) => {
+  const imageFunction = async (formData) => {
     try {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      console.log(formData);
       const { data } = await axios.put("/api/user/profile/img", formData);
-      console.log(data);
-      setRefresh((prev) => !prev);
+      // setRefresh((prev) => !prev);
+      navigate("/profile");
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleFileChange = () => {
+    const formData = new FormData();
+    formData.append("image", fileInputRef.current.files[0]);
+    imageFunction(formData);
   };
 
   return (
@@ -37,15 +43,21 @@ const EditProfileImage = () => {
       {loggedUser ? (
         <article className="edit-profile-image-section">
           <div className="image-container">
-            <form onSubmit={imageFunction}>
+            <form>
               <img
                 src={loggedUser.image.url}
                 alt="user-image"
-                className="image"
+                className="user-image"
               />
-              <img src={edit} alt="edit-icon" />
-              <input type="file" name="image" id="file" className="inputfile" />
-              <button type="submit"> SUBMIT </button>
+              <img src={edit} alt="edit-icon" className="image-edit-btn" />
+              <input
+                type="file"
+                name="image"
+                id="file"
+                className="inputfile"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+              />
             </form>
           </div>
         </article>

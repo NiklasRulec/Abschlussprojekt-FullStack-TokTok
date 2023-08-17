@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./EditProfileInfo.css";
 import axios from "axios";
 
 const EditProfileInfo = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [profession, setProfession] = useState();
@@ -46,6 +48,7 @@ const EditProfileInfo = () => {
       const { data } = await axios.put("/api/user/profile", userInfo);
       console.log("updated");
       console.log(userInfo);
+      navigate("/profile");
     } catch (e) {
       console.log(e);
     }
