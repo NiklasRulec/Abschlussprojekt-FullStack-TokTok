@@ -3,7 +3,7 @@ import path from "path";
 import { v2 as cloudinary } from "cloudinary";
 
 dotenv.config({
-  path: path.join(path.resolve(), "..", "..", ".env"),
+  path: path.join(path.resolve(), "..", ".env"),
 });
 
 cloudinary.config({
