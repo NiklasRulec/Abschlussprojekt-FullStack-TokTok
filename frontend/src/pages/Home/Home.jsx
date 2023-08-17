@@ -1,9 +1,16 @@
+import HomeUserList from '../../components/HomeUserList/HomeUserList';
 import './Home.css'
+import Navbar from '../../components/Navbar/Navbar';
 
 const Home = () => {
   return ( 
     <>
-    <h1>Home test</h1>
+    <div>
+    {/* <img src="" alt="logo" /> */}
+    <h1>TokTok</h1>
+    </div>
+    <HomeUserList/>
+    <Navbar />
     </>
    );
 }
