@@ -1,18 +1,31 @@
 import './Likes.css'
 import HeartActive from '../../images/HeartActive.png'
 import HeartInActive from '../../images/HeartInActive.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Likes = ({amountOfLikes}) => {
     const [isLiking, setIsLiking] = useState(false)
+    console.log(isLiking);
+    const [numberOfLikes, setNumberOfLikes] = useState(amountOfLikes)
 
+    useEffect(() => {
+        if(isLiking === true){
+            setNumberOfLikes(numberOfLikes + 1)
+        } else if(isLiking === false){
+            setNumberOfLikes(amountOfLikes)
+        }
+    },[isLiking])
 
     return ( 
         <div className='likes-wrapper'>
-        <img src={HeartInActive} alt="Likes" className='heart-icon' />
-        <p className='semibold-14'>{amountOfLikes}</p>
+            {isLiking ? (
+        <img src={HeartActive} alt="Likes" className='heart-icon' onClick={() => setIsLiking(prev => !prev)}/>
+            ):(
+        <img src={HeartInActive} alt="Likes" className='heart-icon' onClick={() => setIsLiking(prev => !prev)}/>
+            )}
+        <p className='semibold-14'>{numberOfLikes}</p>
         </div>
-     );
+    );
 }
  
 export default Likes;

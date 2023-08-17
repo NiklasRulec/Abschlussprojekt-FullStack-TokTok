@@ -16,7 +16,6 @@ const HomeUserItem = (props) => {
         const fetchData = async () => {
             const { data } = await axios.get(`/api/post/${postId}`)
             setPostData(data)
-            console.log(data);
         }
         fetchData()
     },[refresh])

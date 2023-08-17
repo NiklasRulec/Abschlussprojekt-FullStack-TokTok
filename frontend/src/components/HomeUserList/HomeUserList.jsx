@@ -11,12 +11,10 @@ const HomeUserList = () => {
     useEffect(() => {
         const fetchData = async () => {
             const { data } = await axios.get("/api/post/")
-            console.log(data);
             setPostData(data)
         }
         fetchData()
     },[refresh])
-
 
     return ( 
         <section className="HomeUserList">
