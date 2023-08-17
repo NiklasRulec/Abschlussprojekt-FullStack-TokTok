@@ -12,7 +12,7 @@ const isEmail = (string) => {
 };
 
 export const userSchema = new mongoose.Schema({
-  name: { type: String, required: [true, "Please specify your name"] },
+  name: { type: String },
   email: {
     type: String,
     unique: true,

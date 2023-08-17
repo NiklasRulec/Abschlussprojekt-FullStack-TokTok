@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 
 const Likes = ({amountOfLikes}) => {
     const [isLiking, setIsLiking] = useState(false)
-    console.log(isLiking);
     const [numberOfLikes, setNumberOfLikes] = useState(amountOfLikes)
 
     useEffect(() => {

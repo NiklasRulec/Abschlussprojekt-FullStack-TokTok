@@ -20,15 +20,15 @@ userRouter.get("/", async (req, res) => {
 // signup --------------------------------------------------------------------------------------------------
 
 userRouter.post("/signup", multerMiddleware.none(), async (req, res) => {
-  const { name, email } = req.body;
-  const newUser = new User({ name, email });
+  const { email } = req.body;
+  const newUser = new User({ email });
   newUser.setPassword(req.body.password);
   try {
     await newUser.save();
     return res.send({
       data: {
         message: "New user created",
-        user: { name, email },
+        user: { email },
       },
     });
   } catch (e) {

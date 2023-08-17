@@ -1,7 +1,5 @@
 import "./BackBtn.css";
-
 import { useNavigate } from "react-router-dom";
-
 import BackArrow from "../../images/ArrowLeft.png"
 
 const BackBtn = () => {

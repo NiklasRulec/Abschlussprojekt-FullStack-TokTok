@@ -86,10 +86,26 @@ p {
   color: var(--color-text);
 }
 
+input {
+  font-family: "UrbanistRegular";
+}
+
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
   padding: 1rem 2rem;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 428px) {

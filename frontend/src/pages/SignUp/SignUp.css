@@ -1,12 +1,6 @@
-@font-face {
-  font-family: UrbanistMedium;
-  src: url(./fonts/Urbanist-Medium.ttf);
-}
-
 .headline {
-  margin-top: 2rem;
-  margin-left: 1rem;
-  margin-bottom: 8rem;
+  width: 80%;
+  margin: 2rem 0 8rem 1rem;
 }
 
 .logo {
@@ -21,7 +15,8 @@ form {
   margin-right: 1rem;
 }
 
-#email {
+#email,
+#name {
   margin-bottom: 1rem;
   padding: 1.3rem;
   font-size: 10px;
@@ -31,7 +26,6 @@ form {
   background-color: #fafafa;
   border: none;
   width: 100%;
-
   text-indent: 2rem;
 }
 
@@ -69,6 +63,19 @@ form {
   margin-top: 2px;
 }
 
-p {
+.login-signup-question {
   color: #bdbdbd;
+}
+
+.sign-btn {
+  margin-left: 1rem;
+  margin-right: 2rem;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  width: 94%;
+  background-color: #e98090;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
