@@ -13,6 +13,7 @@ import Search from "./pages/Search/Search";
 import Upload from "./pages/Upload/Upload";
 import EditProfile from "./pages/EditProfile/EditProfile";
 
+
 function App() {
   const [refresh, setRefresh] = useState(true);
 

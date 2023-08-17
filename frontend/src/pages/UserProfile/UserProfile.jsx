@@ -1,10 +1,10 @@
 import "./UserProfile.css";
+import InfoBar from "../../components/InfoBar/InfoBar";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../../user/UserContext";
 import follow from "../../images/Follow.png";
 import feeds from "../../images/Feeds.png";
-import rectangle from "../../images/Rectangle.png";
 import arrowleft from "../../images/ArrowLeft.png";
 import moremenu from "../../images/MoreMenu.png";
 import edit from "../../images/Edit.png";
@@ -26,6 +26,7 @@ const UserProfile = () => {
 
   return (
     <>
+    <InfoBar />
       {loggedUser ? (
         <>
           <section className="user-profile-section">

@@ -1,7 +1,14 @@
 import "./SignBtn.css";
 
 const SignBtn = () => {
-  return <></>;
+
+  return (
+    <>
+      <div>
+        <button className="up">Sign up</button>
+      </div>
+    </>
+  );
 };
 
 export default SignBtn;

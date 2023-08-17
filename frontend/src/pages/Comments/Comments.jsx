@@ -1,3 +1,4 @@
+import InfoBar from "../../components/InfoBar/InfoBar";
 import { useEffect, useState, useContext } from 'react';
 import './Comments.css'
 import { useParams } from 'react-router-dom';
@@ -26,6 +27,7 @@ const Comments = () => {
 
     return ( 
         <>
+        <InfoBar />
         <div className='comments-header'>
             <div className='comments-header-left'>
                 <BackBtn/>

@@ -21,8 +21,7 @@ export const UserProvider = ({ children }) => {
 
   // secure backend route aufrufen -> BA gibt user email zurück, wenn token authentifiziert ist
   useEffect(() => {
-    axios
-      .get("/api/user/secure")
+    axios.get("/api/user/secure")
       .then(({ data }) => setUser(data))
       .catch((e) => {
         setUser(null);
