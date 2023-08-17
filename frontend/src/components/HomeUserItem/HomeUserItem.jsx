@@ -1,48 +1,37 @@
-import axios from 'axios'
 import './HomeUserItem.css'
-import { useEffect, useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
+import UserInfoBar from '../UserInfoBar/UserInfoBar'
+import { useState, useEffect, useContext } from 'react'
 import { RefreshContext } from '../../user/RefreshContext'
+import axios from 'axios'
+import Likes from '../Likes/Likes'
+import CommentsNumber from '../CommentsNumber/CommentsNumber'
 
 const HomeUserItem = (props) => {
-    const userId = props.post.user
-    const [userData, setUserData] = useState()
+    const postId = props.post._id
+    const [postData, setPostData] = useState()
     const {refresh, setRefresh} = useContext(RefreshContext)
 
     useEffect(() => {
         const fetchData = async () => {
-            const { data } = await axios.get(`/api/user/${userId}`)
-            setUserData(data)
+            const { data } = await axios.get(`/api/post/${postId}`)
+            setPostData(data)
         }
         fetchData()
     },[refresh])
 
     return ( 
         <article className='HomeUserItem'>
-            { userData ? (
-                <figure className='user-info-bar'>
-                <div>
-                <img className="profile-avatar" src="" alt="" />
-                <div>
-                    <h4>{userData[0].name}</h4>
-                    <p>{userData[0].profession}</p>
-                </div>
-                </div>
-            </figure>
+            {postData ? (
+            <UserInfoBar post={postData} />
             ) : (
-                <p>Lädt..</p>
+                <p></p>
             )}
-
+            <Link to={`/home/${props.post._id}`}>
             <img className='post-image' src={props.post.image.url} alt="" />
-
-            <div className='likes-wrapper'>
-            {/* icon */}
-            <p className='semibold-14'>{props.post.amountOfLikes}</p>
-            </div>
-            <div className='comments-wrapper'>
-            {/* icon */}
-            <p className='semibold-14'>{props.post.amountOfComments}</p>
-            </div>
-
+            </Link>
+            <Likes amountOfLikes={props.post.amountOfLikes} />
+            <CommentsNumber amountOfComments={props.post.amountOfComments} />
         </article>
      );
 }

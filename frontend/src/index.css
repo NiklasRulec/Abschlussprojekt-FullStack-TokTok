@@ -36,6 +36,7 @@ html {
   --color-blue: #246bfd;
   --color-blue-hashtag: #3f51b2;
   --color-text: #212121;
+  --color-stroke: #eeeeee;
 }
 
 h1,
@@ -71,16 +72,24 @@ h4 {
   font-size: 1.4rem;
 }
 
+.profession {
+  font-family: "UrbanistMedium";
+  font-size: 1.2rem;
+  color: var(--color-grey-profession);
+  padding: 0.4rem 0 0 0;
+}
+
 p {
   font-family: "UrbanistRegular";
   font-size: 1.4rem;
   line-height: 140%;
+  color: var(--color-text);
 }
 
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
 }
 
 @media only screen and (max-width: 428px) {

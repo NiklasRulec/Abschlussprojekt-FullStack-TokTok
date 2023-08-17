@@ -1,0 +1,12 @@
+.sign-up-btn {
+  margin-left: 1rem;
+  margin-right: 2rem;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  width: 94%;
+  background-color: #e98090;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

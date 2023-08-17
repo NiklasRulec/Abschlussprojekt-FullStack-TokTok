@@ -2,9 +2,8 @@ import "./Upload.css";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../user/UserContext";
 import axios from "axios";
-
+import InfoBar from "../../components/InfoBar/InfoBar";
 import CancelBtn from "../../components/CancelBtn/CancelBtn";
-
 import BackArrow from "../../images/ArrowLeft.png";
 import Cam from "../../images/Camera.png";
 import Category from "../../images/Category.png";
@@ -20,7 +19,6 @@ const Upload = () => {
   const [newImage, setNewImage] = useState();
   const [captionExpanded, setCaptionExpanded] = useState(false);
   //   const {user, setUser} = useContext(UserContext);
-
   const [facebookToggle, setFacebookToggle] = useState(false);
   const [twitterToggle, setTwitterToggle] = useState(false);
   const [tumblrToggle, setTumblrToggle] = useState(false);
@@ -67,6 +65,7 @@ const Upload = () => {
 
   return (
     <>
+    <InfoBar />
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">

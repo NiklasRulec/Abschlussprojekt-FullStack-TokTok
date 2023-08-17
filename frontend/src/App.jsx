@@ -11,6 +11,8 @@ import Sign from "./pages/Sign/Sign";
 import Comments from "./pages/Comments/Comments";
 import Search from "./pages/Search/Search";
 import Upload from "./pages/Upload/Upload";
+import EditProfile from "./pages/EditProfile/EditProfile";
+
 
 function App() {
   const [refresh, setRefresh] = useState(true);
@@ -30,6 +32,7 @@ function App() {
                 <Route path="/home/:id" element={<Comments />} />
                 <Route path="/profile" element={<UserProfile />} />
                 <Route path="/profile/:id" element={<Profile />} />
+                <Route path="/profile/edit" element={<EditProfile />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/upload" element={<Upload />} />
                 <Route path="/passwordReset" element={<ResetPassword />} />

@@ -1,0 +1,18 @@
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.4rem 0;
+}
+.comments-header-left {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.post-detail-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 0.1rem solid var(--color-stroke);
+  padding: 1.2rem 0 0 0;
+}

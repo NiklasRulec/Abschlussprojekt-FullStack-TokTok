@@ -104,6 +104,38 @@ userRouter.get("/:id", async (req, res) => {
   }
 });
 
+// add profile pic to fake user
+
+userRouter.put("/:id", img_upload.single("image"), async (req, res) => {
+  try {
+    cloudinary.uploader
+      .upload_stream(
+        {
+          resource_type: "image",
+          folder: "TokTok_Users",
+        },
+        async (err, result) => {
+          if (err) {
+            res.status(500).send({ message: "image upload failed", err });
+          }
+          const dbRes = await User.findByIdAndUpdate(
+            req.params.id,
+            {
+              ...req.body,
+              image: { url: result.secure_url, imageId: result.public_id },
+            },
+            { new: true }
+          );
+          res.json(dbRes);
+        }
+      )
+      .end(req.file.buffer);
+  } catch (err) {
+    console.log(err);
+    res.send("there was an error");
+  }
+});
+
 // upload & edit profile pic of logged in user ------------------------------------------------------------------
 
 userRouter.put(

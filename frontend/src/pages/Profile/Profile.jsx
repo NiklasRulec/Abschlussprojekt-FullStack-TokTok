@@ -1,3 +1,4 @@
+import InfoBar from "../../components/InfoBar/InfoBar";
 import Navbar from '../../components/Navbar/Navbar';
 import './Profile.css'
 import { useEffect, useState } from "react";
@@ -5,7 +6,6 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import follow from "../../images/Follow.png";
 import feeds from "../../images/Feeds.png";
-import rectangle from "../../images/Rectangle.png";
 import arrowleft from "../../images/ArrowLeft.png";
 import moremenu from "../../images/MoreMenu.png";
 
@@ -24,6 +24,7 @@ const Profile = () => {
 
   return (
     <>
+    <InfoBar />
       {userData ? (
           <section className="profile-section">
             <article className="profile-top">
