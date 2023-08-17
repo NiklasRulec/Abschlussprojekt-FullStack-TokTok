@@ -11,8 +11,8 @@
 
 .upload-window {
     margin: 0 auto;
-    height: 35rem;
-    width: 35rem;
+    height: 37.5rem;
+    width: 37.5rem;
     background-color:var(--color-grey-upload);
     border-radius: 32px;
     border: solid black 2px;
@@ -78,7 +78,7 @@ input[type=file]::file-selector-button {
 
 .img-gallery img {
     height: 12rem;
-    width: 11rem;
+    width: 12rem;
     object-fit: cover;
     border-radius: 10% / 10%;
 }
@@ -94,6 +94,10 @@ input[type=file]::file-selector-button {
 
 /* pop-up window */
 
+.popup {
+    padding: 1rem;
+}
+
 .backBtn-popup {
     display: flex;
     justify-content: center;
@@ -106,3 +110,95 @@ input[type=file]::file-selector-button {
 .hidden-upload {
     display: none;
 }
+
+.caption-upload-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-upload-img {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.caption-input {
+    height: 6rem;
+    /* width: 30rem; */
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.074);
+    border-radius: 1.5rem;
+    border: 0;
+    text-indent: 2rem;
+    outline: none;
+    font-family: "UrbanistSemiBold";
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.caption-input[type=text]:focus {
+    border: 2px solid rgba(128, 128, 128, 0.074);
+}
+.new-post-img {
+    width: 12rem;
+    height: 7.5rem;
+    border-radius: 1rem;
+    object-fit: cover;
+    margin-left: 0.5rem;
+}
+
+.stroke-upload {
+    height: 0.1rem;
+    width: 90%;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    margin: 2rem auto;
+    background-color: rgba(128, 128, 128, 0.135);
+}
+
+.location-upload {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.location-img {
+    margin: 1rem 1.5rem 1rem 2.5rem;
+}
+
+.post-to {
+    margin-left: 2rem;
+}
+
+.facebook-post,
+.twitter-post,
+.tumblr-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0 3rem 2rem
+}
+
+.toggle-img {
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+  
+.toggle-img.active {
+    transform: scale(1.02);
+}
+
+.advanced-settings {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    cursor: pointer;
+}
+

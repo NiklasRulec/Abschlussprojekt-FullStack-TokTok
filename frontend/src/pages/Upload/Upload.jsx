@@ -9,11 +9,31 @@ import BackArrow from "../../images/ArrowLeft.png";
 import Cam from "../../images/Camera.png";
 import Category from "../../images/Category.png";
 import Arrowdown from "../../images/Arrowdown2.png";
+import Location from "../../images/Location.png";
+import ToggleActive from "../../images/ToggleActive.png";
+import ToggleInactive from "../../images/ToggleInactive.png";
+import Settings from "../../images/Settings.png";
 
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loggedUser, setLoggedUser] = useState();
+  const [newImage, setNewImage] = useState();
+  const [captionExpanded, setCaptionExpanded] = useState(false);
   //   const {user, setUser} = useContext(UserContext);
+
+  const [facebookToggle, setFacebookToggle] = useState(false);
+  const [twitterToggle, setTwitterToggle] = useState(false);
+  const [tumblrToggle, setTumblrToggle] = useState(false);
+
+  const toggleClick = (toggleType) => {
+    if (toggleType === "facebook") {
+      setFacebookToggle(!facebookToggle);
+    } else if (toggleType === "twitter") {
+      setTwitterToggle(!twitterToggle);
+    } else if (toggleType === "tumblr") {
+      setTumblrToggle(!tumblrToggle);
+    }
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,12 +44,22 @@ const Upload = () => {
     fetchUser();
   }, []);
 
-  const handleFileUpload = () => {
-    setShowPopup(true);
+  const handleFileUpload = async () => {
+    const { data } = await axios.get(`/api/user/profile`);
+    console.log(data);
+    setLoggedUser(data);
+
+    if (data.posts && data.posts.length > 0) {
+      const latestImage = data.posts[data.posts.length - 1].image.url;
+      setNewImage(latestImage);
+      setShowPopup(true);
+    }
   };
+
   const closePopup = () => {
     setShowPopup(false);
   };
+
   const closeBtnClick = () => {
     closePopup();
     window.location.reload();
@@ -87,7 +117,60 @@ const Upload = () => {
             </button>
             <h2>New Post</h2>
           </article>
-          <article className="caption-upload-img"></article>
+          <article className="caption-upload-img">
+            <img
+              className="profile-upload-img"
+              src={loggedUser.image.url}
+              alt=""
+            />
+            <input
+              type="text"
+              className="caption-input"
+              placeholder="Write a caption..."
+            />
+            {newImage && (
+              <img src={newImage} alt="" className="new-post-img" />
+            )}
+          </article>
+          <div className="stroke-upload"></div>
+          <article className="location-upload">
+            <img src={Location} alt="" className="location-img" />
+            <h2 className="semibold-18">Add Location</h2>
+          </article>
+          <div className="stroke-upload"></div>
+          <p className="semibold-18 post-to">Also post to</p>
+          <div className="facebook-post">
+            <p className="semibold-18">Facebook</p>
+            <img
+              className={`toggle-img ${facebookToggle ? "active" : ""}`}
+              src={facebookToggle ? ToggleActive : ToggleInactive}
+              alt=""
+              onClick={() => toggleClick("facebook")}
+            />
+          </div>
+          <div className="twitter-post">
+            <p className="semibold-18">Twitter</p>
+            <img
+              className={`toggle-img ${twitterToggle ? "active" : ""}`}
+              src={twitterToggle ? ToggleActive : ToggleInactive}
+              alt=""
+              onClick={() => toggleClick("twitter")}
+            />
+          </div>
+          <div className="tumblr-post">
+            <p className="semibold-18">Tumblr</p>
+            <img
+              className={`toggle-img ${tumblrToggle ? "active" : ""}`}
+              src={tumblrToggle ? ToggleActive : ToggleInactive}
+              alt=""
+              onClick={() => toggleClick("tumblr")}
+            />
+          </div>
+          <div className="stroke-upload"></div>
+          <div className="advanced-settings">
+            <img src={Settings} alt="" />
+            <p className="semibold-18">Advanced Settings</p>
+          </div>
         </section>
       )}
     </>
