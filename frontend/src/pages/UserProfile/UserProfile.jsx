@@ -9,17 +9,17 @@ import arrowleft from "../../images/ArrowLeft.svg";
 import moremenu from "../../images/MoreMenu.svg";
 import edit from "../../images/Edit.svg";
 import plus from "../../images/Plus.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn/BackBtn";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
+  const nav = useNavigate()
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      console.log(data);
       setLoggedUser(data);
     };
     fetchUser();
@@ -35,7 +35,9 @@ const UserProfile = () => {
               <BackBtn/>
               <h2>{loggedUser.name}</h2>
               <div className="user-profile-top-buttons">
+                <Link to="/upload">
                 <img src={plus} alt="plus-icon" />
+                </Link>
                 <Link to="edit">
                   <img src={edit} alt="edit-icon" />
                 </Link>
@@ -85,7 +87,7 @@ const UserProfile = () => {
                     src={item.image.url}
                     alt=""
                     key={index}
-                    className="post-image"
+                    className="post-image" onClick={() => nav(`/home/${item._id}`)}
                   />
                 ))}
               </div>

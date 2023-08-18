@@ -13,6 +13,7 @@ const isEmail = (string) => {
 
 export const userSchema = new mongoose.Schema({
   name: { type: String },
+  nickname: { type: String },
   email: {
     type: String,
     unique: true,

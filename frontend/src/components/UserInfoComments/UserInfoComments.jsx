@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState, useContext } from 'react';
 import MoreMenu from '../../images/MoreMenu.svg'
 import { RefreshContext } from '../../user/RefreshContext'
+import { Link } from 'react-router-dom'
 
 const UserInfoComments = (props) => {
     const {refresh, setRefresh} = useContext(RefreshContext)
@@ -22,7 +23,9 @@ const UserInfoComments = (props) => {
             { userData ? (
                 <figure className='user-info-bar'>
                 <div className='user-info-left'>
-                <img className="profile-avatar" src={userData[0].image.url} alt="profile-avatar" />
+                <Link to={`/profile/${userId}`}>
+                    <img className="profile-avatar" src={userData[0].image.url} alt="profile-avatar" />
+                </Link>
                 <div className='user-info-text'>
                     <h4>{userData[0].name}</h4>
                     <p className='profession'>{userData[0].profession}</p>

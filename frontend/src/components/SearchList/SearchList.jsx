@@ -35,6 +35,7 @@ const SearchList = ({ searchQuery }) => {
               name={item.name}
               profession={item.profession}
               img={item.image?.url}
+              id={item._id}
             />
           ))}
         </div>

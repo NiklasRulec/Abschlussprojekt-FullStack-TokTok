@@ -95,8 +95,7 @@ userRouter.get("/profile", authenticateToken, async (req, res) => {
 userRouter.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    // const userData = await User.find({ _id: userId }).populate("posts");
-    const userData = await User.find({ _id: userId });
+    const userData = await User.find({ _id: userId }).populate("posts");
     res.json(userData);
   } catch (err) {
     console.log(err);

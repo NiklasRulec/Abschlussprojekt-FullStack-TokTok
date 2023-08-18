@@ -148,10 +148,9 @@
   .user-profile-bottom
   .user-profile-bottom-gallery
   .post-image {
-  /* width: 12.4rem;
-  height: 12.4rem; */
   width: 32.3%;
   border-radius: 0.5rem;
   object-fit: cover;
   aspect-ratio: 1;
+  cursor: pointer;
 }
