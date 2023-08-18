@@ -6,7 +6,6 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 0 2.5rem;
   margin: 2rem 0;
 }
 .cancelBtn {
@@ -15,11 +14,10 @@
 
 .upload-window {
   margin: 0 auto;
-  height: 37.5rem;
-  width: 37.5rem;
+  aspect-ratio: 1;
+  width: 100%;
   background-color: var(--color-grey-upload);
   border-radius: 32px;
-  border: solid black 2px;
   display: flex;
   margin-bottom: 1rem;
 }
@@ -53,11 +51,10 @@ input[type="file"]::file-selector-button {
   flex-direction: column;
 }
 .img-gallery {
-  /* background-color: rgb(203, 184, 184); */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   margin: 2.5rem auto;
 }
@@ -80,8 +77,8 @@ input[type="file"]::file-selector-button {
 }
 
 .img-gallery img {
-  height: 12rem;
-  width: 12rem;
+  width: 32.32%;
+  aspect-ratio: 1;
   object-fit: cover;
   border-radius: 10% / 10%;
 }

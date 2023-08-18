@@ -1,11 +1,11 @@
-import "./Likes.css";
-import HeartActive from "../../images/HeartActive.png";
-import HeartInActive from "../../images/HeartInActive.png";
+import './Likes.css'
+import HeartActive from '../../images/HeartActive.svg'
+import HeartInActive from '../../images/HeartInactive.svg'
 import { useEffect, useState } from "react";
 
 const Likes = ({ amountOfLikes }) => {
-  const [isLiking, setIsLiking] = useState(false);
-  const [numberOfLikes, setNumberOfLikes] = useState(amountOfLikes);
+    const [isLiking, setIsLiking] = useState(false)
+    const [numberOfLikes, setNumberOfLikes] = useState(amountOfLikes)
 
   useEffect(() => {
     if (isLiking === true) {

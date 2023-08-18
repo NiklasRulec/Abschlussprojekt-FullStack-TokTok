@@ -1,10 +1,10 @@
 // import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import InfoBar from "../../components/InfoBar/InfoBar";
-import HomeUserList from "../../components/HomeUserList/HomeUserList";
-import "./Home.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Logo from "../../images/Logo.png";
-import heart from "../../images/HeartInactive.png";
+import heart from "../../images/HeartInactive.svg";
+import HomeUserList from '../../components/HomeUserList/HomeUserList';
+import './Home.css'
+import Navbar from '../../components/Navbar/Navbar';
+import Logo from '../../images/Logo.svg'
 
 const Home = () => {
   return (

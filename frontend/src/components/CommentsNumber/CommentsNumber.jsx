@@ -1,5 +1,5 @@
-import "./CommentsNumber.css";
-import CommentsIcon from "../../images/Comments.png";
+import './CommentsNumber.css'
+import CommentsIcon from '../../images/Comments.svg'
 
 const CommentsNumber = ({ amountOfComments }) => {
   return (

@@ -10,7 +10,7 @@
   border-radius: 1.5rem;
   height: 5rem;
   width: 39rem;
-  background: url(../../images//Searchlogo.png) no-repeat left;
+  background: url(../../images//Searchlogo.svg) no-repeat left;
   background-position: 15px center;
   text-indent: 5rem;
   background-color: rgba(128, 128, 128, 0.136);
@@ -18,7 +18,7 @@
   font-size: 1.4rem;
   color: var(--color-text);
   outline: none;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
 }
 
 .searchInput[type="text"]:focus {

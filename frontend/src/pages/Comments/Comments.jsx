@@ -1,16 +1,17 @@
 import InfoBar from "../../components/InfoBar/InfoBar";
-import { useEffect, useState, useContext } from "react";
-import "./Comments.css";
-import { useParams } from "react-router-dom";
-import BackBtn from "../../components/BackBtn/BackBtn";
-import { RefreshContext } from "../../user/RefreshContext";
-import axios from "axios";
-import UserInfoBar from "../../components/UserInfoBar/UserInfoBar";
-import Message from "../../images/Message.png";
-import CommentInput from "../../components/CommentInput/CommentInput";
-import CommentList from "../../components/CommentList/CommentList";
-import Likes from "../../components/Likes/Likes";
-import CommentsNumber from "../../components/CommentsNumber/CommentsNumber";
+import { useEffect, useState, useContext } from 'react';
+import './Comments.css'
+import { useParams } from 'react-router-dom';
+import BackBtn from '../../components/BackBtn/BackBtn';
+import { RefreshContext } from '../../user/RefreshContext'
+import axios from 'axios';
+import UserInfoBar from '../../components/UserInfoBar/UserInfoBar';
+import Message from '../../images/Message.svg'
+import CommentInput from '../../components/CommentInput/CommentInput';
+import CommentList from '../../components/CommentList/CommentList';
+import Likes from '../../components/Likes/Likes';
+import CommentsNumber from '../../components/CommentsNumber/CommentsNumber';
+
 
 const Comments = () => {
   const params = useParams();

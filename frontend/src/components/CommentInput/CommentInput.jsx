@@ -33,7 +33,7 @@ const CommentInput = ({ postId }) => {
     <>
       <form onSubmit={PostComment} className="comment-input-form">
         <img
-          src={userData?.image.url}
+          src={userData?.image?.url}
           alt="profile-avatar"
           className="profile-avatar"
         />

@@ -20,15 +20,15 @@ userRouter.get("/", async (req, res) => {
 // signup --------------------------------------------------------------------------------------------------
 
 userRouter.post("/signup", multerMiddleware.none(), async (req, res) => {
-  const { name, email } = req.body;
-  const newUser = new User({ name, email });
+  const { email } = req.body;
+  const newUser = new User({ email });
   newUser.setPassword(req.body.password);
   try {
     await newUser.save();
     return res.send({
       data: {
         message: "New user created",
-        user: { name, email },
+        user: { email },
       },
     });
   } catch (e) {
@@ -95,41 +95,8 @@ userRouter.get("/profile", authenticateToken, async (req, res) => {
 userRouter.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    // const userData = await User.find({ _id: userId }).populate("posts");
-    const userData = await User.find({ _id: userId });
+    const userData = await User.find({ _id: userId }).populate("posts");
     res.json(userData);
-  } catch (err) {
-    console.log(err);
-    res.send("there was an error");
-  }
-});
-
-// add profile pic to fake user
-
-userRouter.put("/:id", img_upload.single("image"), async (req, res) => {
-  try {
-    cloudinary.uploader
-      .upload_stream(
-        {
-          resource_type: "image",
-          folder: "TokTok_Users",
-        },
-        async (err, result) => {
-          if (err) {
-            res.status(500).send({ message: "image upload failed", err });
-          }
-          const dbRes = await User.findByIdAndUpdate(
-            req.params.id,
-            {
-              ...req.body,
-              image: { url: result.secure_url, imageId: result.public_id },
-            },
-            { new: true }
-          );
-          res.json(dbRes);
-        }
-      )
-      .end(req.file.buffer);
   } catch (err) {
     console.log(err);
     res.send("there was an error");

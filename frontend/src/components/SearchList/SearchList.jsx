@@ -1,6 +1,6 @@
 import SearchItem from "../SearchItem/SearchItem";
 import "./SearchList.css";
-import profile from "../../images/Profile.png";
+import profile from "../../images/Profile.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -16,15 +16,11 @@ const SearchList = ({ searchQuery }) => {
     fetchUser();
   }, []);
 
-  const filteredUsers = usersData?.filter((item) => {
-    if (item.name && item.profession) {
-      return (
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.profession.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-    return false;
-  });
+  const filteredUsers = usersData?.filter(
+    (item) =>
+      item.name?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
+      item.profession?.toLowerCase().includes(searchQuery?.toLowerCase())
+  );
 
   return (
     <>
@@ -33,12 +29,14 @@ const SearchList = ({ searchQuery }) => {
           <img src={profile} alt="profile-icon" />
         </div>
         <div>
-          {filteredUsers?.map((item) => (
+          {filteredUsers?.map((item, index) => (
             <SearchItem
-              key={item.id}
+              key={index}
               name={item.name}
+              nickname={item.nickname}
               profession={item.profession}
               img={item.image?.url}
+              id={item._id}
             />
           ))}
         </div>

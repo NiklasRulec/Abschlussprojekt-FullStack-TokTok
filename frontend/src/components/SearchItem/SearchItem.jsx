@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./SearchItem.css";
+import { Link } from 'react-router-dom'
 
 const SearchItem = (props) => {
   const [followStatus, setFollowStatus] = useState(false);
@@ -11,14 +12,16 @@ const SearchItem = (props) => {
   return (
     <>
       <article className="search-item">
+        <Link to={`/profile/${props.id}`}>
         {props.img ? (
           <img src={props.img} alt="user-img" />
         ) : (
           <div className="image">IMG</div>
         )}
+        </Link>
 
         <div className="search-item-text">
-          <h3>{props.name}</h3>
+          <h3>{props.nickname}</h3>
           <p>{props.profession}</p>
         </div>
         {followStatus ? (
