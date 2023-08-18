@@ -1,0 +1,12 @@
+.comments-wrapper {
+  width: 8rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.comments-wrapper .comments-icon {
+  margin-right: 1rem;
+  width: 2.4rem;
+}

@@ -21,13 +21,15 @@ const HomeUserItem = (props) => {
   }, [refresh]);
 
   return (
-    <article className="HomeUserItem">
+    <article className="home-user-item">
       {postData ? <UserInfoBar post={postData} /> : <p></p>}
       <Link to={`/home/${props.post._id}`}>
         <img className="post-image" src={props.post.image.url} alt="" />
       </Link>
-      <Likes amountOfLikes={props.post.amountOfLikes} />
-      <CommentsNumber amountOfComments={props.post.amountOfComments} />
+      <div className="home-user-item-bottom">
+        <Likes amountOfLikes={props.post.amountOfLikes} />
+        <CommentsNumber amountOfComments={props.post.amountOfComments} />
+      </div>
     </article>
   );
 };

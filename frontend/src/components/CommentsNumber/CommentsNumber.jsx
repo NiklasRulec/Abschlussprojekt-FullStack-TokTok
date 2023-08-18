@@ -1,13 +1,13 @@
-import './CommentsNumber.css'
-import CommentsIcon from '../../images/Comments.png'
+import "./CommentsNumber.css";
+import CommentsIcon from "../../images/Comments.png";
 
-const CommentsNumber = ({amountOfComments}) => {
-    return ( 
-        <div className='comments-wrapper'>
-        <img src={CommentsIcon} alt="Comments" className='comments-icon'/>
-        <p className='semibold-14'>{amountOfComments}</p>
-        </div>
-     );
-}
- 
+const CommentsNumber = ({ amountOfComments }) => {
+  return (
+    <div className="comments-wrapper">
+      <img src={CommentsIcon} alt="Comments" className="comments-icon" />
+      <p className="semibold-14">{amountOfComments}</p>
+    </div>
+  );
+};
+
 export default CommentsNumber;

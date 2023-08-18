@@ -1,204 +1,206 @@
+.upload-page {
+  animation: fade-in 1s;
+}
+
 .new-post {
-    display: flex;
-    justify-content:left;
-    align-items:center;
-    padding: 0 2.5rem;
-    margin: 2rem 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 2.5rem;
+  margin: 2rem 0;
 }
 .cancelBtn {
-    padding-right: 2rem
+  padding-right: 2rem;
 }
 
 .upload-window {
-    margin: 0 auto;
-    height: 37.5rem;
-    width: 37.5rem;
-    background-color:var(--color-grey-upload);
-    border-radius: 32px;
-    border: solid black 2px;
-    display: flex;
-    margin-bottom: 1rem;
+  margin: 0 auto;
+  height: 37.5rem;
+  width: 37.5rem;
+  background-color: var(--color-grey-upload);
+  border-radius: 32px;
+  border: solid black 2px;
+  display: flex;
+  margin-bottom: 1rem;
 }
 .custom-file-upload {
-    display: flex;
-    align-self: center;
-    margin: 0 auto;
-    width: 160px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    color: transparent;
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+  width: 160px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  color: transparent;
 }
 
-input[type=file]::file-selector-button {
-    padding: 0.8rem .4em;
-    border-radius: 20rem;
-    width: 160px;
-    background-color: var(--color-pink-bright);
-    color: white;
-    cursor: pointer;
-    border: none;
+input[type="file"]::file-selector-button {
+  padding: 0.8rem 0.4em;
+  border-radius: 20rem;
+  width: 160px;
+  background-color: var(--color-pink-bright);
+  color: white;
+  cursor: pointer;
+  border: none;
 }
 
 /* gallery */
 
 .gallery-list {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .img-gallery {
-    /* background-color: rgb(203, 184, 184); */
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 2.5rem auto;
+  /* background-color: rgb(203, 184, 184); */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2.5rem auto;
 }
 
 .gallery-top {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2.5rem;
-    align-items: center;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .gallery-arrow {
-    display: flex;
-    gap: 1rem
+  display: flex;
+  gap: 1rem;
 }
 
 .gallery-arrow img {
-    object-fit: contain;
+  object-fit: contain;
 }
 
 .img-gallery img {
-    height: 12rem;
-    width: 12rem;
-    object-fit: cover;
-    border-radius: 10% / 10%;
+  height: 12rem;
+  width: 12rem;
+  object-fit: cover;
+  border-radius: 10% / 10%;
 }
 
 .cam-category {
-    display: flex;
-    gap: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .gallery-top img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* pop-up window */
 
 .popup {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .backBtn-popup {
-    display: flex;
-    justify-content: center;
-    padding-right: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding-right: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .hidden-upload {
-    display: none;
+  display: none;
 }
 
 .caption-upload-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .profile-upload-img {
-    width: 7.5rem;
-    height: 7.5rem;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
 }
 
 .caption-input {
-    height: 6rem;
-    /* width: 30rem; */
-    width: 100%;
-    background-color: rgba(128, 128, 128, 0.074);
-    border-radius: 1.5rem;
-    border: 0;
-    text-indent: 2rem;
-    outline: none;
-    font-family: "UrbanistSemiBold";
-    font-size: 1.4rem;
-    cursor: pointer;
+  height: 6rem;
+  /* width: 30rem; */
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.074);
+  border-radius: 1.5rem;
+  border: 0;
+  text-indent: 2rem;
+  outline: none;
+  font-family: "UrbanistSemiBold";
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
-.caption-input[type=text]:focus {
-    border: 2px solid rgba(128, 128, 128, 0.074);
+.caption-input[type="text"]:focus {
+  border: 2px solid rgba(128, 128, 128, 0.074);
 }
 .new-post-img {
-    width: 12rem;
-    height: 7.5rem;
-    border-radius: 1rem;
-    object-fit: cover;
-    margin-left: 0.5rem;
+  width: 12rem;
+  height: 7.5rem;
+  border-radius: 1rem;
+  object-fit: cover;
+  margin-left: 0.5rem;
 }
 
 .stroke-upload {
-    height: 0.1rem;
-    width: 90%;
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    margin: 2rem auto;
-    background-color: rgba(128, 128, 128, 0.135);
+  height: 0.1rem;
+  width: 90%;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  margin: 2rem auto;
+  background-color: rgba(128, 128, 128, 0.135);
 }
 
 .location-upload {
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
 }
 
 .location-img {
-    margin: 1rem 1.5rem 1rem 2.5rem;
+  margin: 1rem 1.5rem 1rem 2.5rem;
 }
 
 .post-to {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 .facebook-post,
 .twitter-post,
 .tumblr-post {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 0 3rem 2rem
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 3rem 2rem;
 }
 
 .toggle-img {
-    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
-    cursor: pointer;
-    margin-right: 2rem;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  cursor: pointer;
+  margin-right: 2rem;
 }
-  
+
 .toggle-img.active {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .advanced-settings {
-    display: flex;
-    justify-content:flex-start;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  cursor: pointer;
 }
-

@@ -27,12 +27,12 @@ const UserProfile = () => {
 
   return (
     <>
-    <InfoBar />
+      <InfoBar />
       {loggedUser ? (
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
-              <BackBtn/>
+              <BackBtn />
               <h2>{loggedUser.name}</h2>
               <div className="user-profile-top-buttons">
                 <img src={plus} alt="plus-icon" />
@@ -93,7 +93,7 @@ const UserProfile = () => {
           </section>
         </>
       ) : (
-        <h2>Lädt</h2>
+        <h2></h2>
       )}
     </>
   );

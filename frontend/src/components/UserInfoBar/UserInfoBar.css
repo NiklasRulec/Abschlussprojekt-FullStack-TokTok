@@ -1,4 +1,5 @@
 .user-info-bar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,4 +24,5 @@
 }
 .more-menu {
   width: 2.5rem;
+  margin-right: 0.1rem;
 }

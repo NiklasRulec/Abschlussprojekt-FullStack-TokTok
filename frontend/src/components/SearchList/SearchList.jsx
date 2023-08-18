@@ -16,11 +16,15 @@ const SearchList = ({ searchQuery }) => {
     fetchUser();
   }, []);
 
-  const filteredUsers = usersData?.filter(
-    (item) =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.profession.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredUsers = usersData?.filter((item) => {
+    if (item.name && item.profession) {
+      return (
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.profession.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    return false;
+  });
 
   return (
     <>
@@ -29,9 +33,9 @@ const SearchList = ({ searchQuery }) => {
           <img src={profile} alt="profile-icon" />
         </div>
         <div>
-          {filteredUsers?.map((item, index) => (
+          {filteredUsers?.map((item) => (
             <SearchItem
-              key={index}
+              key={item.id}
               name={item.name}
               profession={item.profession}
               img={item.image?.url}

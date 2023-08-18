@@ -9,7 +9,7 @@ import Login from "../../user/Login";
 import Signup from "../../user/Signup";
 import UserProfile from "../UserProfile/UserProfile";
 import "./Sign.css";
-import LoadingScreen from '../../components/LoadingScreen/LoadingScreen';
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +39,6 @@ const Sign = () => {
   //     }
   //   }
   // };
-
 
   return (
     <>
@@ -73,8 +72,7 @@ const Sign = () => {
         </Link>
       </div> */}
 
-
-        {/* <LoadingScreen /> */}
+      {/* <LoadingScreen /> */}
       <Signup />
       <Login />
       {/* <UserProfile /> */}
