@@ -3,25 +3,26 @@ import InfoBar from "../../components/InfoBar/InfoBar";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../../user/UserContext";
-import follow from "../../images/Follow.png";
-import feeds from "../../images/Feeds.png";
-import arrowleft from "../../images/ArrowLeft.png";
-import moremenu from "../../images/MoreMenu.png";
-import edit from "../../images/Edit.png";
+import follow from "../../images/Follow.svg";
+import feeds from "../../images/Feeds.svg";
+import arrowleft from "../../images/ArrowLeft.svg";
+import moremenu from "../../images/MoreMenu.svg";
+import edit from "../../images/Edit.svg";
 import plus from "../../images/Plus.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import MoreMenu from "../../components/MoreMenu/MoreMenu";
+import Navbar from "../../components/Navbar/Navbar";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const nav = useNavigate()
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      console.log(data);
       setLoggedUser(data);
     };
     fetchUser();
@@ -39,29 +40,29 @@ const UserProfile = () => {
     window.location.href = "/home";
   };
 
-  const plusUpload = () => {
-    window.location.href = "/upload";
-  }
 
   return (
     <>
     <div className={` ${showMoreMenu ? "gray-background" : ""}`}> 
     </div>
     <InfoBar />
+
       {loggedUser ? (
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
-              {/* <BackBtn/> */}
+              <div className="user-profile-header-left">
               <img
                 src={arrowleft}
                 alt="arrow-left-icon"
                 onClick={arrowHome}
               />
-              <h2>{loggedUser.name}</h2>
+              <h2>{loggedUser.nickname}</h2>
+              </div>
               <div className="user-profile-top-buttons">
-                <img src={plus} alt="plus-icon" 
-                onClick={plusUpload}/>
+                <Link to="/upload">
+                <img src={plus} alt="plus-icon"/>
+                </Link>
                 <Link to="edit">
                 <img src={edit} alt="edit-icon" />
                 </Link>
@@ -97,10 +98,6 @@ const UserProfile = () => {
                 <p>Following</p>
               </div>
             </article>
-            <button className="follow-btn">
-              <img src={follow} alt="follow-icon" />
-              Follow
-            </button>
             <div className="horizontal-line"></div>
             <article className="user-profile-bottom">
               <div className="user-profile-bottom-buttons">
@@ -115,7 +112,7 @@ const UserProfile = () => {
                     src={item.image.url}
                     alt=""
                     key={index}
-                    className="post-image"
+                    className="post-image" onClick={() => nav(`/home/${item._id}`)}
                   />
                 ))}
               </div>
@@ -124,8 +121,9 @@ const UserProfile = () => {
           {showMoreMenu && <MoreMenu onClose={closeMoreMenu} />}
         </>
       ) : (
-        <h2>Lädt</h2>
+        <h2></h2>
       )}
+      <Navbar/>
     </>
   );
 };

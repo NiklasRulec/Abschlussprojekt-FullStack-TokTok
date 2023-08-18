@@ -1,13 +1,13 @@
 import "./MoreMenu.css";
-import Vector from "../../images/Vector.png";
-import Settings from "../../images/Settings.png";
-import ArrowDown from "../../images/ArrowDown.png";
-import Time from "../../images/Time.png";
-import Scan from "../../images/Scan.png";
-import Bookmark from "../../images/Bookmark.png";
-import Friends from "../../images/Friends.png";
-import HeartInactive from "../../images/HeartInactive.png";
-import Info from "../../images/Info.png";
+import Vector from "../../images/Vector.svg";
+import Settings from "../../images/Settings.svg";
+import ArrowDown from "../../images/ArrowDown.svg";
+import Time from "../../images/Time.svg";
+import Scan from "../../images/Scan.svg";
+import Bookmark from "../../images/Bookmark.svg";
+import Friends from "../../images/Friends.svg";
+import HeartInactive from "../../images/HeartInactive.svg";
+import Info from "../../images/Info.svg";
 
 const MoreMenu = ({ onClose }) => {
   const handleStrokeClick = () => {

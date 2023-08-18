@@ -7,11 +7,12 @@ import Profile from "./pages/Profile/Profile"
 import "./App.css";
 import { useState } from "react";
 import { UserProvider } from "./user/UserContext";
-import Sign from "./pages/Sign/Sign";
 import Comments from "./pages/Comments/Comments";
 import Search from "./pages/Search/Search";
 import Upload from "./pages/Upload/Upload";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/SignUp";
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
           <RefreshContext.Provider value={{ refresh, setRefresh }}>
             <UserProvider>
               <Routes>
-                <Route path="/" element={<Sign />} />
+                <Route path="/" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/home/:id" element={<Comments />} />
                 <Route path="/profile" element={<UserProfile />} />

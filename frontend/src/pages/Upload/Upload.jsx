@@ -1,16 +1,16 @@
 import "./Upload.css";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import InfoBar from "../../components/InfoBar/InfoBar";
 import CancelBtn from "../../components/CancelBtn/CancelBtn";
-import BackArrow from "../../images/ArrowLeft.png";
-import Cam from "../../images/Camera.png";
-import Category from "../../images/Category.png";
-import Arrowdown from "../../images/Arrowdown2.png";
-import Location from "../../images/Location.png";
-import ToggleActive from "../../images/ToggleActive.png";
-import ToggleInactive from "../../images/ToggleInactive.png";
-import Settings from "../../images/Settings.png";
+import BackArrow from "../../images/ArrowLeft.svg";
+import Cam from "../../images/Camera.svg";
+import Category from "../../images/Category.svg";
+import Arrowdown from "../../images/ArrowDown2.svg";
+import Location from "../../images/Location.svg";
+import ToggleActive from "../../images/ToggleActive.svg";
+import ToggleInactive from "../../images/ToggleInactive.svg";
+import Settings from "../../images/Settings.svg";
 
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -75,7 +75,7 @@ const handleFileUpload = (event) => {
 
   return (
     <>
-    <InfoBar />
+      <InfoBar />
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">
@@ -116,7 +116,7 @@ const handleFileUpload = (event) => {
           </div>
         </section>
       ) : (
-        <h2>wird geladen...</h2>
+        <h2></h2>
       )}
       {showPopup && (
         <section className="popup">

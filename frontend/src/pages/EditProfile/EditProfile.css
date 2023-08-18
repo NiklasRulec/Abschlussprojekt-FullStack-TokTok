@@ -2,6 +2,7 @@
   padding: 2rem 0;
   width: 90%;
   margin: 0 auto;
+  animation: fade-in 1s;
 }
 
 .edit-profile-section .edit-profile-section-top {

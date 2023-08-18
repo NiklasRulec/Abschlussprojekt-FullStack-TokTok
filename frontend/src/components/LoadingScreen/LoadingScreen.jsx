@@ -1,8 +1,6 @@
 import './LoadingScreen.css'
-
-import Logo from "../../images/Logo.png"
-// import LoadingImg from "../../images/LoadingAnimation.png"
-
+import Logo from "../../images/Logo.svg"
+// import LoadingImg from "../../images/LoadingAnimation.svg"
 import leaf1 from "../../images/LoadingLeafs/Vector.png"
 import leaf2 from "../../images/LoadingLeafs/Vector1.png"
 import leaf3 from "../../images/LoadingLeafs/Vector2.png"

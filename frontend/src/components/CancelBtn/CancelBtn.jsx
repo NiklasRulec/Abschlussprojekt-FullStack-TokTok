@@ -1,8 +1,6 @@
 import './CancelBtn.css'
-
 import { useNavigate } from "react-router-dom";
-
-import Cancel from "../../images/Cancel.png"
+import Cancel from "../../images/Cancel.svg"
 
 const CancelBtn = () => {
     const navigate = useNavigate();

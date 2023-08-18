@@ -3,7 +3,7 @@ import InfoBar from "../../components/InfoBar/InfoBar";
 import { Link } from "react-router-dom";
 import EditProfileImage from "../../components/EditProfileImage/EditProfileImage";
 import EditProfileInfo from "../../components/EditProfileInfo/EditProfileInfo";
-import arrowleft from "../../images/ArrowLeft.png";
+import arrowleft from "../../images/ArrowLeft.svg";
 
 const EditProfile = () => {
   return (
