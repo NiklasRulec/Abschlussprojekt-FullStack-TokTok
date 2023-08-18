@@ -11,11 +11,13 @@ import edit from "../../images/Edit.svg";
 import plus from "../../images/Plus.svg";
 import { Link, useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn/BackBtn";
+import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import Navbar from "../../components/Navbar/Navbar";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
   const nav = useNavigate()
 
   useEffect(() => {
@@ -26,26 +28,49 @@ const UserProfile = () => {
     fetchUser();
   }, []);
 
+  const toggleMoreMenu = () => {
+    setShowMoreMenu(!showMoreMenu);
+  };
+
+  const closeMoreMenu = () => {
+    setShowMoreMenu(false);
+  };
+
+  const arrowHome = () => {
+    window.location.href = "/home";
+  };
+
+
   return (
     <>
-      <InfoBar />
+    <div className={` ${showMoreMenu ? "gray-background" : ""}`}> 
+    </div>
+    <InfoBar />
+
       {loggedUser ? (
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
               <div className="user-profile-header-left">
-              <BackBtn/>
+              <img
+                src={arrowleft}
+                alt="arrow-left-icon"
+                onClick={arrowHome}
+              />
               <h2>{loggedUser.nickname}</h2>
               </div>
-
               <div className="user-profile-top-buttons">
                 <Link to="/upload">
-                <img src={plus} alt="plus-icon" />
+                <img src={plus} alt="plus-icon"/>
                 </Link>
                 <Link to="edit">
-                  <img src={edit} alt="edit-icon" />
+                <img src={edit} alt="edit-icon" />
                 </Link>
-                <img src={moremenu} alt="moremenu-icon" />
+                <img
+                  src={moremenu}
+                  alt="moremenu-icon"
+                  onClick={toggleMoreMenu}
+                />
               </div>
             </article>
             <img
@@ -73,10 +98,6 @@ const UserProfile = () => {
                 <p>Following</p>
               </div>
             </article>
-            <button className="follow-btn">
-              <img src={follow} alt="follow-icon" />
-              Follow
-            </button>
             <div className="horizontal-line"></div>
             <article className="user-profile-bottom">
               <div className="user-profile-bottom-buttons">
@@ -97,6 +118,7 @@ const UserProfile = () => {
               </div>
             </article>
           </section>
+          {showMoreMenu && <MoreMenu onClose={closeMoreMenu} />}
         </>
       ) : (
         <h2></h2>

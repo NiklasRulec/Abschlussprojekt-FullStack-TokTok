@@ -1,6 +1,5 @@
 import "./Upload.css";
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../user/UserContext";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import InfoBar from "../../components/InfoBar/InfoBar";
 import CancelBtn from "../../components/CancelBtn/CancelBtn";
@@ -16,12 +15,11 @@ import Settings from "../../images/Settings.svg";
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [loggedUser, setLoggedUser] = useState();
-  const [newImage, setNewImage] = useState();
-  const [captionExpanded, setCaptionExpanded] = useState(false);
-  //   const {user, setUser} = useContext(UserContext);
+  const [uploadedImage, setUploadedImage] = useState();
   const [facebookToggle, setFacebookToggle] = useState(false);
   const [twitterToggle, setTwitterToggle] = useState(false);
   const [tumblrToggle, setTumblrToggle] = useState(false);
+  const caption = useRef()
 
   const toggleClick = (toggleType) => {
     if (toggleType === "facebook") {
@@ -42,23 +40,35 @@ const Upload = () => {
     fetchUser();
   }, []);
 
-  const handleFileUpload = async () => {
-    const { data } = await axios.get(`/api/user/profile`);
-    console.log(data);
-    setLoggedUser(data);
-
-    if (data.posts && data.posts.length > 0) {
-      const latestImage = data.posts[data.posts.length - 1].image.url;
-      setNewImage(latestImage);
-      setShowPopup(true);
+  const postImage = async () => {
+    const formData = new FormData();
+    formData.append("image", uploadedImage)
+    formData.append("caption", caption.current.value)
+    try {
+      const response = await axios.post("/api/post", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+      console.log(response.data);
+      window.location.href = "/home";
+    } catch (error) {
+      console.log(error);
     }
-  };
+  }
+
+const handleFileUpload = (event) => {
+  const uploadedFile = event.target.files[0];
+  setUploadedImage(uploadedFile);
+  setShowPopup(true);
+}
 
   const closePopup = () => {
     setShowPopup(false);
   };
 
   const closeBtnClick = () => {
+    setUploadedImage()
     closePopup();
     window.location.reload();
   };
@@ -76,7 +86,7 @@ const Upload = () => {
             <article className="upload-window">
               <input
                 type="file"
-                className="custom-file-upload"
+                className="custom-file-upload semibold-18"
                 title="Upload"
                 onChange={handleFileUpload}
               />
@@ -122,12 +132,20 @@ const Upload = () => {
               src={loggedUser.image.url}
               alt=""
             />
-            <input
+            <textarea
               type="text"
               className="caption-input"
               placeholder="Write a caption..."
+              ref={caption}
+              onChange={(e) => {
+                const element = e.target;
+                element.style.height = "auto";
+                element.style.height = `${element.scrollHeight}px`;
+              }}
             />
-            {newImage && <img src={newImage} alt="" className="new-post-img" />}
+            {uploadedImage && (
+              <img src={URL.createObjectURL(uploadedImage)} alt="" className="new-post-img" />
+            )}
           </article>
           <div className="stroke-upload"></div>
           <article className="location-upload">
@@ -167,6 +185,9 @@ const Upload = () => {
           <div className="advanced-settings">
             <img src={Settings} alt="" />
             <p className="semibold-18">Advanced Settings</p>
+          </div>
+          <div className="post-upload-button">
+              <button className="semibold-18 post-btn-upload" onClick={postImage}>Post</button>
           </div>
         </section>
       )}

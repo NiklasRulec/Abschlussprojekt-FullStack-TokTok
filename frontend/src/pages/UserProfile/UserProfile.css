@@ -160,3 +160,15 @@
   display: flex;
   gap: 1rem;
 }
+
+.gray-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 60rem;
+  height: 100%;
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  animation: fade-in 0.5s;
+}

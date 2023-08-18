@@ -5,6 +5,9 @@ import { Post } from "./PostModel.js";
 import { Comment } from "./CommentModel.js";
 import { v2 as cloudinary } from "cloudinary";
 
+import { authenticateToken, generateAccessToken } from "./authToken.js";
+import User from "./UserModel.js";
+
 export const postRouter = express.Router();
 const img_upload = multer({ storage: multer.memoryStorage() });
 
@@ -36,16 +39,25 @@ postRouter.get("/:id", async (req, res) => {
 
 // create new post -------------------------------------------------------------------------------------------------------------
 
-postRouter.post("/", img_upload.single("image"), async (req, res) => {
+postRouter.post("/", img_upload.single("image"),authenticateToken, async (req, res) => {
   try {
+    const user = await User.findOne({ email: req.userEmail });
     cloudinary.uploader
       .upload_stream(
         { resource_type: "image", folder: "TokTok" },
         async (err, result) => {
           const dbRes = await Post.create({
-            ...req.body,
+            user:user,
+            caption:req.body.caption,
+            amountOfComments: 0,
+            amountOfLikes: 0,
+            time: "1 minute ago",
             image: { url: result.secure_url, imageId: result.public_id },
           });
+          console.log(await Post.find());
+          user.posts.push(dbRes)
+          user.amountOfPosts = user.posts.length;
+          await user.save();
           res.json(dbRes);
         }
       )
