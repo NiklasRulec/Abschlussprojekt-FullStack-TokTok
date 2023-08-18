@@ -28,7 +28,7 @@ export default function Login() {
       const { data } = await axios.post("/api/user/login", loginInput);
       if (data) {
         setRefresh((prev) => !prev);
-        navigate("/profile");
+        navigate("/home");
       }
     } catch (e) {
       console.log(e);
@@ -41,7 +41,7 @@ export default function Login() {
     <InfoBar />
     <div className="headline">
         <h1>
-          Create your Account
+          Login to your Account
         </h1>
       </div>
       <img src={Logo} className="logo" />
@@ -53,8 +53,8 @@ export default function Login() {
       <div className="hide">
           <img src={Hide} />
         </div>
-      {error && <small style={{ color: "red" }}>{error}</small>}
       <button type="submit" className="sign-btn">Login</button>
+      {error && <small style={{ color: "red" }}>{error}</small>}
     </form>
 
     <div className="sign-in-user">

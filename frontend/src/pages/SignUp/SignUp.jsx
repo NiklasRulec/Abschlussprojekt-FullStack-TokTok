@@ -9,6 +9,13 @@ import Hide from "../../images/Hide.svg";
 export default function SignUp() {
   const [error, setError] = useState(null);
   const nav = useNavigate();
+  const [success, setSuccess] = useState(false)
+  let waitForNavigation;
+
+  const goToLogin = () => {
+    nav("/login");
+    clearTimeout(waitForNavigation)
+  }
 
   const submit = async (e) => {
     e.preventDefault();
@@ -17,7 +24,8 @@ export default function SignUp() {
 
     try {
       await axios.post("/api/user/signup", data);
-      nav("/login");
+      setSuccess(true)
+      waitForNavigation = setTimeout(goToLogin, 2000);
     } catch (e) {
       if (e?.response?.data?.error?.message) {
         setError(e?.response?.data?.error?.message);
@@ -45,8 +53,10 @@ export default function SignUp() {
           <img src={Hide} />
         </div>
       {error && <small style={{ color: "red" }}>{error}</small>}
+
       <button type="submit" className="sign-btn">Sign up</button>
     </form>
+    {success && <small>Sign up was successful. Forwarding to Login..</small>}
     
     <div className="sign-in-user">
         <p>Already have an account?</p>

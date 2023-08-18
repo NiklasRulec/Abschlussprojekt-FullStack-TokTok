@@ -11,6 +11,7 @@ import edit from "../../images/Edit.svg";
 import plus from "../../images/Plus.svg";
 import { Link, useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn/BackBtn";
+import Navbar from "../../components/Navbar/Navbar";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
@@ -100,6 +101,7 @@ const UserProfile = () => {
       ) : (
         <h2>Lädt</h2>
       )}
+      <Navbar/>
     </>
   );
 };

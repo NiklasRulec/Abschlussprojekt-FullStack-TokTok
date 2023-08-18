@@ -91,6 +91,14 @@ p {
   color: var(--color-text);
 }
 
+small {
+  font-family: "UrbanistRegular";
+  font-size: 1.2rem;
+  margin: 3rem 0 0 0;
+  text-align: center;
+  display: block;
+}
+
 input {
   font-family: "UrbanistRegular";
 }
