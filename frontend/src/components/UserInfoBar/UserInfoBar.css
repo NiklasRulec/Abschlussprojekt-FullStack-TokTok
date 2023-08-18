@@ -1,0 +1,28 @@
+.user-info-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.profile-avatar {
+  width: 4.8rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 5rem;
+}
+
+.user-info-left {
+  display: flex;
+  gap: 1.6rem;
+}
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.more-menu {
+  width: 2.5rem;
+  margin-right: 0.1rem;
+}

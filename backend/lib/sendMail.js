@@ -2,7 +2,7 @@ import formData from "form-data";
 import Mailgun from "mailgun.js";
 
 // Configure Mailgun Client
-const mailgun = new Mailgun(FormData);
+const mailgun = new Mailgun(formData);
 
 // Our sandbox domain form mailgun
 const sandbox = "sandbox4772d961c0324582bf788c1be8b528d7.mailgun.org";

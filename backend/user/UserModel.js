@@ -12,7 +12,8 @@ const isEmail = (string) => {
 };
 
 export const userSchema = new mongoose.Schema({
-  name: { type: String, required: [true, "Please specify your name"] },
+  name: { type: String },
+  nickname: { type: String },
   email: {
     type: String,
     unique: true,
@@ -61,6 +62,18 @@ export const userSchema = new mongoose.Schema({
         url: String,
         imageId: String,
       },
+    },
+  ],
+  isLiking: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Post",
+    },
+  ],
+  isFollowing: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
     },
   ],
 });

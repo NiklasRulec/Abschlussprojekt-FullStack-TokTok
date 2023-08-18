@@ -1,0 +1,34 @@
+
+.more-menu-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white ;
+  width: 100%;
+  height: 38rem;
+  border-radius: 5% 5% 0 0;
+  z-index: 5;
+  animation: fade-in 0.5s;
+}
+
+.stroke {
+  display: flex;
+  margin: 1.5rem auto;
+  width: 12%;
+  height: 3px;
+}
+
+.set,
+.archive,
+.activity,
+.code-scan,
+.mark,
+.closing,
+.heart,
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 2rem;
+  margin: 1.5rem 0 0 2rem ;
+}

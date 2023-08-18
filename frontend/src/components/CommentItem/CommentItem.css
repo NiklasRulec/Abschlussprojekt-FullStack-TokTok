@@ -1,0 +1,14 @@
+.single-comment {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.single-comment .comment-text {
+  margin-bottom: 1rem;
+}
+
+.single-comment .comment-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
