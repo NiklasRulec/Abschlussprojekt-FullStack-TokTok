@@ -1,16 +1,14 @@
 import './Navbar.css'
-
 import { useState, useEffect } from "react"
 import { NavLink, useLocation } from "react-router-dom"
-
-import HomeActive from "../../images/HomeActive.png"
-import HomeInactive from "../../images/HomeInactive.png"
-import SearchActive from "../../images/SearchActive.png"
-import SearchInactive from "../../images/SearchInactive.png"
-import UploadActive from "../../images/UploadActive.png"
-import UploadInactive from "../../images/UploadInactive.png"
-import ProfileActive from "../../images/ProfileActive.png"
-import ProfileInactive from "../../images/ProfileInactive.png"
+import HomeActive from "../../images/HomeActive.svg"
+import HomeInactive from "../../images/HomeInactive.svg"
+import SearchActive from "../../images/SearchActive.svg"
+import SearchInactive from "../../images/SearchInactive.svg"
+import UploadActive from "../../images/UploadActive.svg"
+import UploadInactive from "../../images/UploadInactive.svg"
+import ProfileActive from "../../images/ProfileActive.svg"
+import ProfileInactive from "../../images/ProfileInactive.svg"
 
 
 const Navbar = () => {

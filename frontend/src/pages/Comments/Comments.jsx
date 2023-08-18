@@ -6,7 +6,7 @@ import BackBtn from '../../components/BackBtn/BackBtn';
 import { RefreshContext } from '../../user/RefreshContext'
 import axios from 'axios';
 import UserInfoBar from '../../components/UserInfoBar/UserInfoBar';
-import Message from '../../images/Message.png'
+import Message from '../../images/Message.svg'
 import CommentInput from '../../components/CommentInput/CommentInput';
 import CommentList from '../../components/CommentList/CommentList';
 import Likes from '../../components/Likes/Likes';

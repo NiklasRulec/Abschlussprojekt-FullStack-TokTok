@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Logo from "../images/Logo.png";
-import Hide from "../images/Hide.png";
+import Logo from "../images/Logo.svg";
+import Hide from "../images/Hide.svg";
+import SignUpBtn from "../components/SignUpBtn/SignUpBtn";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -42,17 +43,20 @@ export default function Signup() {
     <form onSubmit={submit}>
       <input name="name" type="text" placeholder="Your name" />
       <input name="email" type="text" placeholder="your email" />
+      <br></br>
       <input name="password" type="password" placeholder="***********" />
       <div className="hide">
           <img src={Hide} />
         </div>
       {error && <small style={{ color: "red" }}>{error}</small>}
-      <button>Signup</button>
+      <button type="submit">Signup</button>
     </form>
+    
+    <SignUpBtn/>
 
     <div className="sign-in-user">
         <p>Already have an account?</p>
-        <Link to="/signin" className="sign-in">
+        <Link to="/login" className="sign-in">
           Sign in
         </Link>
       </div>

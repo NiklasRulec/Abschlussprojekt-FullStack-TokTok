@@ -1,6 +1,6 @@
 import SearchItem from "../SearchItem/SearchItem";
 import "./SearchList.css";
-import profile from "../../images/Profile.png";
+import profile from "../../images/Profile.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -18,8 +18,8 @@ const SearchList = ({ searchQuery }) => {
 
   const filteredUsers = usersData?.filter(
     (item) =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.profession.toLowerCase().includes(searchQuery.toLowerCase())
+      item.name?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
+      item.profession?.toLowerCase().includes(searchQuery?.toLowerCase())
   );
 
   return (
@@ -33,8 +33,10 @@ const SearchList = ({ searchQuery }) => {
             <SearchItem
               key={index}
               name={item.name}
+              nickname={item.nickname}
               profession={item.profession}
               img={item.image?.url}
+              id={item._id}
             />
           ))}
         </div>

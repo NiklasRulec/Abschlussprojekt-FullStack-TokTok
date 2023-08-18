@@ -67,6 +67,11 @@ h4 {
   font-size: 1.8rem;
 }
 
+.semibold-16 {
+  font-family: "UrbanistSemiBold";
+  font-size: 1.6rem;
+}
+
 .semibold-14 {
   font-family: "UrbanistSemiBold";
   font-size: 1.4rem;
@@ -86,10 +91,34 @@ p {
   color: var(--color-text);
 }
 
+small {
+  font-family: "UrbanistRegular";
+  font-size: 1.2rem;
+  margin: 3rem 0 0 0;
+  text-align: center;
+  display: block;
+}
+
+input {
+  font-family: "UrbanistRegular";
+}
+
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.8rem 7rem 1.8rem;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 428px) {

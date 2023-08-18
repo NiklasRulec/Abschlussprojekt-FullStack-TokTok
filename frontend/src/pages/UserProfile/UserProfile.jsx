@@ -3,23 +3,24 @@ import InfoBar from "../../components/InfoBar/InfoBar";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../../user/UserContext";
-import follow from "../../images/Follow.png";
-import feeds from "../../images/Feeds.png";
-import arrowleft from "../../images/ArrowLeft.png";
-import moremenu from "../../images/MoreMenu.png";
-import edit from "../../images/Edit.png";
+import follow from "../../images/Follow.svg";
+import feeds from "../../images/Feeds.svg";
+import arrowleft from "../../images/ArrowLeft.svg";
+import moremenu from "../../images/MoreMenu.svg";
+import edit from "../../images/Edit.svg";
 import plus from "../../images/Plus.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn/BackBtn";
+import Navbar from "../../components/Navbar/Navbar";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
+  const nav = useNavigate()
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      console.log(data);
       setLoggedUser(data);
     };
     fetchUser();
@@ -32,10 +33,15 @@ const UserProfile = () => {
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
+              <div className="user-profile-header-left">
               <BackBtn/>
-              <h2>{loggedUser.name}</h2>
+              <h2>{loggedUser.nickname}</h2>
+              </div>
+
               <div className="user-profile-top-buttons">
+                <Link to="/upload">
                 <img src={plus} alt="plus-icon" />
+                </Link>
                 <Link to="edit">
                   <img src={edit} alt="edit-icon" />
                 </Link>
@@ -85,7 +91,7 @@ const UserProfile = () => {
                     src={item.image.url}
                     alt=""
                     key={index}
-                    className="post-image"
+                    className="post-image" onClick={() => nav(`/home/${item._id}`)}
                   />
                 ))}
               </div>
@@ -95,6 +101,7 @@ const UserProfile = () => {
       ) : (
         <h2>Lädt</h2>
       )}
+      <Navbar/>
     </>
   );
 };

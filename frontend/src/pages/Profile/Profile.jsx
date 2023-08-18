@@ -3,15 +3,17 @@ import Navbar from '../../components/Navbar/Navbar';
 import './Profile.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import follow from "../../images/Follow.png";
-import feeds from "../../images/Feeds.png";
-import arrowleft from "../../images/ArrowLeft.png";
-import moremenu from "../../images/MoreMenu.png";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import follow from "../../images/Follow.svg";
+import feeds from "../../images/Feeds.svg";
+import arrowleft from "../../images/ArrowLeft.svg";
+import moremenu from "../../images/MoreMenu.svg";
+import BackBtn from "../../components/BackBtn/BackBtn";
 
 const Profile = () => {
   const params = useParams();
   const [userData, setUserData] = useState();
+  const nav = useNavigate()
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,11 +30,13 @@ const Profile = () => {
       {userData ? (
           <section className="profile-section">
             <article className="profile-top">
-              <img src={arrowleft} alt="arrowleft-icon" />
-              <h2>{userData.name}</h2>
+              <div className="profile-header-left">
+              <BackBtn/>
+              <h2>{userData.nickname}</h2>
+              </div>
               <img src={moremenu} alt="moremenu-icon" />
             </article>
-            <div className="image">Image</div>
+            <img src={userData.image.url} alt="profilepic" className="profile-image"/>
             <h2>{userData.name}</h2>
             <h4>{userData.profession}</h4>
             <p>{userData.description}</p>
@@ -66,15 +70,16 @@ const Profile = () => {
                 </div>
               </div>
               <div className="profile-bottom-gallery">
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
-                <div className="placeholder-image">Placeholder</div>
+                {userData ? (
+                  userData.posts?.map((post, index) => (
+                    
+                    <img src={post.image?.url} alt="post" key={index} className="post-image" onClick={() => nav(`/home/${post._id}`)}/>
+                    
+                  ))
+                ) : (
+                  <p>Lädt..</p>
+                )}
+     
               </div>
             </article>
           </section>
