@@ -18,7 +18,7 @@ const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -40,31 +40,29 @@ const UserProfile = () => {
     window.location.href = "/home";
   };
 
-
   return (
     <>
-    <div className={` ${showMoreMenu ? "gray-background" : ""}`}> 
-    </div>
-    <InfoBar />
+      <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
+      <InfoBar />
 
       {loggedUser ? (
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
               <div className="user-profile-header-left">
-              <img
-                src={arrowleft}
-                alt="arrow-left-icon"
-                onClick={arrowHome}
-              />
-              <h2>{loggedUser.nickname}</h2>
+                <img
+                  src={arrowleft}
+                  alt="arrow-left-icon"
+                  onClick={arrowHome}
+                />
+                <h2>{loggedUser.nickname}</h2>
               </div>
               <div className="user-profile-top-buttons">
                 <Link to="/upload">
-                <img src={plus} alt="plus-icon"/>
+                  <img src={plus} alt="plus-icon" />
                 </Link>
                 <Link to="edit">
-                <img src={edit} alt="edit-icon" />
+                  <img src={edit} alt="edit-icon" />
                 </Link>
                 <img
                   src={moremenu}
@@ -112,7 +110,8 @@ const UserProfile = () => {
                     src={item.image.url}
                     alt=""
                     key={index}
-                    className="post-image" onClick={() => nav(`/home/${item._id}`)}
+                    className="post-image"
+                    onClick={() => nav(`/home/${item._id}`)}
                   />
                 ))}
               </div>
@@ -123,7 +122,7 @@ const UserProfile = () => {
       ) : (
         <h2></h2>
       )}
-      <Navbar/>
+      <Navbar />
     </>
   );
 };
