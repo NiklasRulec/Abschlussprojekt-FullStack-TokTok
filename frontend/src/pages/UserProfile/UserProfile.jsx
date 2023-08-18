@@ -10,11 +10,13 @@ import moremenu from "../../images/MoreMenu.png";
 import edit from "../../images/Edit.png";
 import plus from "../../images/Plus.svg";
 import { Link } from "react-router-dom";
-import BackBtn from "../../components/BackBtn/BackBtn";
+// import BackBtn from "../../components/BackBtn/BackBtn";
+import MoreMenu from "../../components/MoreMenu/MoreMenu";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -25,21 +27,49 @@ const UserProfile = () => {
     fetchUser();
   }, []);
 
+  const toggleMoreMenu = () => {
+    setShowMoreMenu(!showMoreMenu);
+  };
+
+  const closeMoreMenu = () => {
+    setShowMoreMenu(false);
+  };
+
+  const arrowHome = () => {
+    window.location.href = "/home";
+  };
+
+  const plusUpload = () => {
+    window.location.href = "/upload";
+  }
+
   return (
     <>
+    <div className={` ${showMoreMenu ? "gray-background" : ""}`}> 
+    </div>
     <InfoBar />
       {loggedUser ? (
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
-              <BackBtn/>
+              {/* <BackBtn/> */}
+              <img
+                src={arrowleft}
+                alt="arrow-left-icon"
+                onClick={arrowHome}
+              />
               <h2>{loggedUser.name}</h2>
               <div className="user-profile-top-buttons">
-                <img src={plus} alt="plus-icon" />
+                <img src={plus} alt="plus-icon" 
+                onClick={plusUpload}/>
                 <Link to="edit">
-                  <img src={edit} alt="edit-icon" />
+                <img src={edit} alt="edit-icon" />
                 </Link>
-                <img src={moremenu} alt="moremenu-icon" />
+                <img
+                  src={moremenu}
+                  alt="moremenu-icon"
+                  onClick={toggleMoreMenu}
+                />
               </div>
             </article>
             <img
@@ -91,6 +121,7 @@ const UserProfile = () => {
               </div>
             </article>
           </section>
+          {showMoreMenu && <MoreMenu onClose={closeMoreMenu} />}
         </>
       ) : (
         <h2>Lädt</h2>

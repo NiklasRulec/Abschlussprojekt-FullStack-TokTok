@@ -149,8 +149,20 @@
   .user-profile-bottom
   .user-profile-bottom-gallery
   .post-image {
-  width: 12.4rem;
-  height: 12.4rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 0.5rem;
   object-fit: cover;
+}
+
+.gray-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 60rem;
+  height: 100%;
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  animation: fade-in 0.5s;
 }
