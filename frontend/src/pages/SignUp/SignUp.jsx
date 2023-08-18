@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../images/Logo.svg";
 import Hide from "../../images/Hide.svg";
+import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 export default function SignUp() {
   const [error, setError] = useState(null);
@@ -37,7 +38,7 @@ export default function SignUp() {
 
   return (
     <>
-    {/* <LoadingScreen /> */}
+    <LoadingScreen/>
     <InfoBar />
     <div className="headline">
         <h1>
