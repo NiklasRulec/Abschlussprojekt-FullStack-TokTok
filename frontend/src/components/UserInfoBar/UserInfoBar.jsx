@@ -3,8 +3,9 @@ import { useState } from 'react';
 import MoreMenu from '../../images/MoreMenu.svg'
 import { Link } from 'react-router-dom'
 
+
 const UserInfoBar = (props) => {
-    const [userData, setUserData] = useState(props.post.user)
+  const [userData, setUserData] = useState(props.post.user);
 
     return ( 
         <>

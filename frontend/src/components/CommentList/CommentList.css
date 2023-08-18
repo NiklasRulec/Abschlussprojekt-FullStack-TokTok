@@ -1,0 +1,8 @@
+.comments-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  animation: fade-in 1s;
+}

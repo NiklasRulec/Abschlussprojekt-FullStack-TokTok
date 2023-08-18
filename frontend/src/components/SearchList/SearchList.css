@@ -1,6 +1,7 @@
 .search-list {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  animation: fade-in 1s;
 }
 
 .search-list .search-list-top {

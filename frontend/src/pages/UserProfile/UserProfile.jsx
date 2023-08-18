@@ -28,7 +28,7 @@ const UserProfile = () => {
 
   return (
     <>
-    <InfoBar />
+      <InfoBar />
       {loggedUser ? (
         <>
           <section className="user-profile-section">
@@ -99,7 +99,7 @@ const UserProfile = () => {
           </section>
         </>
       ) : (
-        <h2>Lädt</h2>
+        <h2></h2>
       )}
       <Navbar/>
     </>

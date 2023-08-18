@@ -65,7 +65,7 @@ const Upload = () => {
 
   return (
     <>
-    <InfoBar />
+      <InfoBar />
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">
@@ -106,7 +106,7 @@ const Upload = () => {
           </div>
         </section>
       ) : (
-        <h2>wird geladen...</h2>
+        <h2></h2>
       )}
       {showPopup && (
         <section className="popup">
@@ -127,9 +127,7 @@ const Upload = () => {
               className="caption-input"
               placeholder="Write a caption..."
             />
-            {newImage && (
-              <img src={newImage} alt="" className="new-post-img" />
-            )}
+            {newImage && <img src={newImage} alt="" className="new-post-img" />}
           </article>
           <div className="stroke-upload"></div>
           <article className="location-upload">
