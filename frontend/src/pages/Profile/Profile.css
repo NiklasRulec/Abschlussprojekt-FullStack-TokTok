@@ -136,3 +136,7 @@
   aspect-ratio: 1;
   cursor: pointer;
 }
+.profile-header-left {
+  display: flex;
+  gap: 1rem;
+}

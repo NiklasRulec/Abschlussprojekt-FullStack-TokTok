@@ -30,8 +30,10 @@ const Profile = () => {
       {userData ? (
           <section className="profile-section">
             <article className="profile-top">
+              <div className="profile-header-left">
               <BackBtn/>
-              <h2>{userData.name}</h2>
+              <h2>{userData.nickname}</h2>
+              </div>
               <img src={moremenu} alt="moremenu-icon" />
             </article>
             <img src={userData.image.url} alt="profilepic" className="profile-image"/>

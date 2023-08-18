@@ -33,6 +33,7 @@ const SearchList = ({ searchQuery }) => {
             <SearchItem
               key={index}
               name={item.name}
+              nickname={item.nickname}
               profession={item.profession}
               img={item.image?.url}
               id={item._id}

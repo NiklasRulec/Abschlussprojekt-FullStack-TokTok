@@ -32,8 +32,11 @@ const UserProfile = () => {
         <>
           <section className="user-profile-section">
             <article className="user-profile-top">
+              <div className="user-profile-header-left">
               <BackBtn/>
-              <h2>{loggedUser.name}</h2>
+              <h2>{loggedUser.nickname}</h2>
+              </div>
+
               <div className="user-profile-top-buttons">
                 <Link to="/upload">
                 <img src={plus} alt="plus-icon" />

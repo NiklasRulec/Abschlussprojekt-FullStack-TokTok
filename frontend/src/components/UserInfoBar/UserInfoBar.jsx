@@ -15,7 +15,7 @@ const UserInfoBar = (props) => {
                         <img className="profile-avatar" src={userData.image.url} alt="profile-avatar" />
                     </Link>
                 <div className='user-info-text'>
-                    <h4>{userData.name}</h4>
+                    <h4>{userData.nickname}</h4>
                     <p className='profession'>{userData.profession}</p>
                 </div>
                 </div>

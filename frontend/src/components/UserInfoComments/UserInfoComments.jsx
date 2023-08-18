@@ -27,7 +27,7 @@ const UserInfoComments = (props) => {
                     <img className="profile-avatar" src={userData[0].image.url} alt="profile-avatar" />
                 </Link>
                 <div className='user-info-text'>
-                    <h4>{userData[0].name}</h4>
+                    <h4>{userData[0].nickname}</h4>
                     <p className='profession'>{userData[0].profession}</p>
                 </div>
                 </div>

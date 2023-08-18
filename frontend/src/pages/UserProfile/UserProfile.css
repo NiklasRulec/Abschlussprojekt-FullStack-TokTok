@@ -20,7 +20,7 @@
 }
 
 .user-profile-section .user-profile-top .user-profile-top-buttons {
-  width: 12.5rem;
+  width: 10rem;
   height: 3rem;
   display: flex;
   align-items: center;
@@ -153,4 +153,9 @@
   object-fit: cover;
   aspect-ratio: 1;
   cursor: pointer;
+}
+
+.user-profile-header-left {
+  display: flex;
+  gap: 1rem;
 }

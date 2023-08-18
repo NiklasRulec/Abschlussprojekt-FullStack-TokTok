@@ -21,7 +21,7 @@ const SearchItem = (props) => {
         </Link>
 
         <div className="search-item-text">
-          <h3>{props.name}</h3>
+          <h3>{props.nickname}</h3>
           <p>{props.profession}</p>
         </div>
         {followStatus ? (
