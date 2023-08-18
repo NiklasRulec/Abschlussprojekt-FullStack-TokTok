@@ -35,7 +35,7 @@
 }
 
 input[type=file]::file-selector-button {
-    padding: 0.8rem .4em;
+    padding: 1.2rem 0.4em;
     border-radius: 20rem;
     width: 160px;
     background-color: var(--color-pink-bright);

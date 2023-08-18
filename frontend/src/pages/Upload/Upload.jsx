@@ -86,7 +86,7 @@ const handleFileUpload = (event) => {
             <article className="upload-window">
               <input
                 type="file"
-                className="custom-file-upload"
+                className="custom-file-upload semibold-18"
                 title="Upload"
                 onChange={handleFileUpload}
               />

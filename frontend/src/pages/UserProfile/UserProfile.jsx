@@ -10,7 +10,7 @@ import moremenu from "../../images/MoreMenu.png";
 import edit from "../../images/Edit.png";
 import plus from "../../images/Plus.svg";
 import { Link } from "react-router-dom";
-// import BackBtn from "../../components/BackBtn/BackBtn";
+import BackBtn from "../../components/BackBtn/BackBtn";
 import MoreMenu from "../../components/MoreMenu/MoreMenu";
 
 const UserProfile = () => {
