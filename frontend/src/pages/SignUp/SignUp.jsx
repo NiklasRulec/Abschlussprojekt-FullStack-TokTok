@@ -3,8 +3,8 @@ import "./SignUp.css";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Logo from "../../images/Logo.png";
-import Hide from "../../images/Hide.png";
+import Logo from "../../images/Logo.svg";
+import Hide from "../../images/Hide.svg";
 
 export default function SignUp() {
   const [error, setError] = useState(null);

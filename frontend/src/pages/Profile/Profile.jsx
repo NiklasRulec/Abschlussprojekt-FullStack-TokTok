@@ -4,10 +4,10 @@ import './Profile.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import follow from "../../images/Follow.png";
-import feeds from "../../images/Feeds.png";
-import arrowleft from "../../images/ArrowLeft.png";
-import moremenu from "../../images/MoreMenu.png";
+import follow from "../../images/Follow.svg";
+import feeds from "../../images/Feeds.svg";
+import arrowleft from "../../images/ArrowLeft.svg";
+import moremenu from "../../images/MoreMenu.svg";
 
 const Profile = () => {
   const params = useParams();

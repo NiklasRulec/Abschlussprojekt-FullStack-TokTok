@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Logo from "../images/Logo.png";
-import Hide from "../images/Hide.png";
+import Logo from "../images/Logo.svg";
+import Hide from "../images/Hide.svg";
 import SignUpBtn from "../components/SignUpBtn/SignUpBtn";
 
 const isProd = process.env.NODE_ENV === "production";

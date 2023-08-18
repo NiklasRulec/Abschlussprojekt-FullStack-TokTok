@@ -3,8 +3,8 @@ import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { RefreshContext } from "../../user/RefreshContext";
 import './Login.css'
-import Logo from "../../images/Logo.png";
-import Hide from "../../images/Hide.png";
+import Logo from "../../images/Logo.svg";
+import Hide from "../../images/Hide.svg";
 import InfoBar from "../../components/InfoBar/InfoBar";
 
 export default function Login() {

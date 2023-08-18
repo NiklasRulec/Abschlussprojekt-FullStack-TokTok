@@ -1,6 +1,5 @@
 .user-profile-section {
   margin: 0 auto;
-  padding-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,8 +148,10 @@
   .user-profile-bottom
   .user-profile-bottom-gallery
   .post-image {
-  width: 12.4rem;
-  height: 12.4rem;
+  /* width: 12.4rem;
+  height: 12.4rem; */
+  width: 32.3%;
   border-radius: 0.5rem;
   object-fit: cover;
+  aspect-ratio: 1;
 }

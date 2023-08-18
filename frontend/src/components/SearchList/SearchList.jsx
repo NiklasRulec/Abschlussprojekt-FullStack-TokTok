@@ -1,6 +1,6 @@
 import SearchItem from "../SearchItem/SearchItem";
 import "./SearchList.css";
-import profile from "../../images/Profile.png";
+import profile from "../../images/Profile.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 

@@ -1,6 +1,6 @@
 import './UserInfoBar.css'
 import { useState } from 'react';
-import MoreMenu from '../../images/MoreMenu.png'
+import MoreMenu from '../../images/MoreMenu.svg'
 
 const UserInfoBar = (props) => {
     const [userData, setUserData] = useState(props.post.user)

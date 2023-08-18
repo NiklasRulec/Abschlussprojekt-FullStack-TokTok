@@ -1,7 +1,7 @@
 import './UserInfoComments.css'
 import axios from 'axios'
 import { useEffect, useState, useContext } from 'react';
-import MoreMenu from '../../images/MoreMenu.png'
+import MoreMenu from '../../images/MoreMenu.svg'
 import { RefreshContext } from '../../user/RefreshContext'
 
 const UserInfoComments = (props) => {

@@ -21,7 +21,7 @@ form {
   padding: 1.3rem;
   font-size: 10px;
   border-radius: 10px;
-  background: url(../../images/Email2.png) no-repeat left;
+  background: url(../../images/Email2.svg) no-repeat left;
   background-position: 1vh 2vw;
   background-color: #fafafa;
   border: none;
@@ -33,7 +33,7 @@ form {
   padding: 1.3rem;
   font-size: 10px;
   border-radius: 10px;
-  background: url(../../images/Lock.png) no-repeat left;
+  background: url(../../images/Lock.svg) no-repeat left;
   background-position: 1vh 1.6vw;
   background-color: #fafafa;
   border: none;
@@ -59,7 +59,7 @@ form {
   font-size: 13px;
   color: #ff4d67;
   text-decoration: none;
-  font-family: UrbanistMedium;
+  font-family: "UrbanistMedium";
   margin-top: 2px;
 }
 

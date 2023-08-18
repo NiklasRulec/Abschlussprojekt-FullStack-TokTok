@@ -3,7 +3,7 @@ import InfoBar from "../../components/InfoBar/InfoBar";
 import HomeUserList from '../../components/HomeUserList/HomeUserList';
 import './Home.css'
 import Navbar from '../../components/Navbar/Navbar';
-import Logo from '../../images/Logo.png'
+import Logo from '../../images/Logo.svg'
 
 
 const Home = () => {

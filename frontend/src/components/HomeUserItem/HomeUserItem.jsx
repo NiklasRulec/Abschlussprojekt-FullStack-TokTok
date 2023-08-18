@@ -28,7 +28,7 @@ const HomeUserItem = (props) => {
                 <p></p>
             )}
             <Link to={`/home/${props.post._id}`}>
-            <img className='post-image' src={props.post.image.url} alt="" />
+            <img className='home-post-image' src={props.post.image.url} alt="" />
             </Link>
             <Likes amountOfLikes={props.post.amountOfLikes} />
             <CommentsNumber amountOfComments={props.post.amountOfComments} />

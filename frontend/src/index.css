@@ -67,6 +67,11 @@ h4 {
   font-size: 1.8rem;
 }
 
+.semibold-16 {
+  font-family: "UrbanistSemiBold";
+  font-size: 1.6rem;
+}
+
 .semibold-14 {
   font-family: "UrbanistSemiBold";
   font-size: 1.4rem;
@@ -93,7 +98,7 @@ input {
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.8rem;
 }
 
 @keyframes fade-in {
