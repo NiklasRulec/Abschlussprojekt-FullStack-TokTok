@@ -10,8 +10,10 @@ const InfoBar = () => {
   useEffect(() => {
     let now = new Date();
     let hours = now.getHours();
+    let hours2 = hours < 10 ? "0" : "";
     let minutes = now.getMinutes();
-    setTime(`${hours}:${minutes}`);
+    let minutes2 = minutes < 10 ? ":0" : ":";
+    setTime(`${hours2}${hours}${minutes2}${minutes}`);
   }, []);
 
   return (

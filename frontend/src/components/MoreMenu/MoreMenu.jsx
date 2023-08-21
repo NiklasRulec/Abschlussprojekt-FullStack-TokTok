@@ -15,7 +15,12 @@ const MoreMenu = ({ onClose }) => {
   };
   return (
     <section className="more-menu-menu">
-      <img src={Vector} alt="vector" className="stroke" onClick={handleStrokeClick} />
+      <img
+        src={Vector}
+        alt="vector"
+        className="stroke"
+        onClick={handleStrokeClick}
+      />
       <div className="set">
         <img src={Settings} alt="setting" />
         <h5 className="semibold-18">Settings</h5>
