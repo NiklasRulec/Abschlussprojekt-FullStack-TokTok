@@ -14,6 +14,11 @@ const Profile = () => {
   const params = useParams();
   const [userData, setUserData] = useState();
   const nav = useNavigate();
+  const [following, setFollowing] = useState(false);
+
+  const followingToggle = () => {
+    setFollowing((prev) => !prev);
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -61,10 +66,18 @@ const Profile = () => {
               <p>Following</p>
             </div>
           </article>
-          <button className="follow-btn">
-            <img src={follow} alt="follow-icon" />
-            Follow
-          </button>
+
+          {following ? (
+            <button className="following-btn" onClick={followingToggle}>
+              Following
+            </button>
+          ) : (
+            <button className="follow-btn" onClick={followingToggle}>
+              <img src={follow} alt="follow-icon" />
+              Follow
+            </button>
+          )}
+
           <div className="horizontal-line"></div>
           <article className="profile-bottom">
             <div className="profile-bottom-buttons">
