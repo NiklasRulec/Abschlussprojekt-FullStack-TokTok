@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./SearchItem.css";
 import { Link } from 'react-router-dom'
+import Avatar from '../../images/Avatar.svg'
 
 const SearchItem = (props) => {
   const [followStatus, setFollowStatus] = useState(false);
@@ -16,7 +17,7 @@ const SearchItem = (props) => {
         {props.img ? (
           <img src={props.img} alt="user-img" />
         ) : (
-          <div className="image">IMG</div>
+          <img src={Avatar} alt="user-img" />
         )}
         </Link>
 

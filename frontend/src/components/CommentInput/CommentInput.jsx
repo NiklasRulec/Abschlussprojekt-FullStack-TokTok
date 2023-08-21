@@ -2,6 +2,7 @@ import "./CommentInput.css";
 import { RefreshContext } from "../../user/RefreshContext";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import Avatar from '../../images/Avatar.svg'
 
 const CommentInput = ({ postId }) => {
   const { refresh, setRefresh } = useContext(RefreshContext);
@@ -32,11 +33,19 @@ const CommentInput = ({ postId }) => {
   return (
     <>
       <form onSubmit={PostComment} className="comment-input-form">
-        <img
-          src={userData?.image?.url}
+        {userData?.image ? (
+          <img
+            src={userData?.image?.url}
+            alt="profile-avatar"
+            className="profile-avatar"
+          />
+        ) : (
+          <img
+          src={Avatar}
           alt="profile-avatar"
           className="profile-avatar"
         />
+        )}
         <input
           type="text"
           className="comment-input"
