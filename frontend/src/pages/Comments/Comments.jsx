@@ -39,7 +39,6 @@ const Comments = () => {
           </div>
           <img src={Message} alt="Message" className="share-img" />
         </div>
-
       </div>
 
       {postData ? (
