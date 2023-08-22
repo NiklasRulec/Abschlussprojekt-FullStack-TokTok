@@ -1,13 +1,13 @@
-
 .more-menu-menu {
   position: fixed;
+  transition: bottom 0.04s ease-in-out;
   bottom: 0;
   left: 0;
-  background-color: white ;
+  background-color: white;
   width: 100%;
-  height: 38rem;
+  height: 47.5rem;
   border-radius: 5% 5% 0 0;
-  z-index: 5;
+  z-index: 12;
   animation: fade-in 0.5s;
 }
 
@@ -26,9 +26,45 @@
 .closing,
 .heart,
 .info {
+  width: 38rem;
+  height: 2.8rem;
+  margin-left: 2rem;
+  margin-bottom: 2.25rem;
   display: flex;
   align-items: center;
-  justify-content: left;
-  gap: 2rem;
-  margin: 1.5rem 0 0 2rem ;
+  justify-content: flex-start;
+}
+
+.more-menu-menu .more-menu-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 2rem;
+  object-fit: contain;
+}
+
+.more-menu-menu {
+  animation: slideIn ease-in-out 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    bottom: -400px;
+  }
+  100% {
+    bottom: -25px;
+  }
+}
+.slide-out-menu {
+  animation: slideOut ease-in-out 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideOut {
+  0% {
+    bottom: -25px;
+  }
+  100% {
+    bottom: -400px;
+  }
 }

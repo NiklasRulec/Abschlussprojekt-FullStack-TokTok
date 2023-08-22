@@ -1,91 +1,30 @@
-
-.loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
+.loadingscreen-wrapper {
+  margin-top: 20rem;
 }
 
-.bottom-splash {
-    margin-top: 5rem;
-}
-.top-splash {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15rem;
-}
-.top-splash img:nth-of-type(1) {
-    margin-left: -13rem;
-    margin-top: -2rem
-}
-.top-splash img:nth-of-type(2) {
-    margin-left: -1rem;
-    margin-top: -7rem
-}
-.top-splash img:nth-of-type(3) {
-    margin-left: -1rem;
-    margin-top: -10rem
-}
-.top-splash img:nth-of-type(4) {
-    margin-right: -7rem;
-    margin-top: -2rem
+.landing {
+  display: block;
+  margin: auto;
+  height: 36rem;
+  width: 36rem;
+  /* height: 260px; */
 }
 
-.bottom-splash img:nth-of-type(1) {
-    margin-right: -30rem;
-    margin-bottom: -2rem
-}
-.bottom-splash img:nth-of-type(2) {
-    /* margin-left: -5rem; */
-    margin-bottom: -7rem
-}
-.bottom-splash img:nth-of-type(3) {
-    margin-left: 5rem;
-    margin-bottom: 4rem
-}
-.bottom-splash img:nth-of-type(4) {
-    margin-right: -5rem;
-    margin-bottom: 0rem
+.loading {
+  display: block;
+  margin: auto;
+  margin-top: 15rem;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  animation: rotate 1s linear infinite;
 }
 
-.bottom-splash {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.loading-img {
-   width: 44.8px;
-   height: 44.8px;
-   border-radius: 50%;
-   margin-bottom: 6rem;
-   display: flex;
-   justify-content: center;
-   overflow: hidden;
-   transform-origin: 50% 116.5%;
-   animation: loading-img-253w2v 2s infinite linear;
-}
-
-.loading-img:before {
-   content: "";
-   min-width: 233%;
-   height: 233%;
-   background: radial-gradient(farthest-side,#e98090 90%,#0000 ) top,
-          radial-gradient(farthest-side,#e98090 90%,#0000 ) left,
-          radial-gradient(farthest-side,#e98090 90%,#0000 ) bottom,
-          radial-gradient(farthest-side,#e98090 90%,#0000 ) right;
-   background-size: 43% 43%;
-   background-repeat: no-repeat;
-   animation: inherit;
-   animation-direction: reverse;
-}
-
-@keyframes loading-img-253w2v {
-   100% {
-      transform: rotate(360deg);
-   }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

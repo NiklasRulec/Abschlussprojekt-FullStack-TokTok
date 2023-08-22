@@ -1,10 +1,30 @@
+.info-bar-wrapper {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+}
+
 .info-bar {
   display: flex;
   justify-content: space-between;
   margin: 0 0 1.5rem 0;
+  height: 4.5rem;
+  /* padding-right: 4rem; */
+  padding: 0 2rem;
 }
-.info-bar-left {
+.info-bar p {
+  align-self: center;
+  height: 17.5px;
+  padding-left: 0.5rem;
+}
+.info-bar-right {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+}
+.info-bar-right img {
+  width: 2rem;
 }

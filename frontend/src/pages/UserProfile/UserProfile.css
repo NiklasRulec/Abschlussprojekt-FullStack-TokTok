@@ -5,6 +5,10 @@
   justify-content: center;
   flex-direction: column;
   animation: fade-in 1s;
+  margin-top: 12rem;
+}
+.user-profile-top {
+  padding: 0 2rem;
 }
 
 .user-profile-section .user-profile-top {
@@ -21,7 +25,7 @@
 }
 
 .user-profile-section .user-profile-top .user-profile-top-buttons {
-  width: 10rem;
+  width: 12rem;
   height: 3rem;
   display: flex;
   align-items: center;
@@ -171,4 +175,5 @@
   bottom: 0;
   z-index: 4;
   animation: fade-in 0.5s;
+  z-index: 11;
 }

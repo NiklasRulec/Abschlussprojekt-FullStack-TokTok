@@ -10,7 +10,7 @@ const SearchList = ({ searchQuery }) => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user`);
-      console.log(data);
+      // console.log(data);
       setUsersData(data);
     };
     fetchUser();
@@ -18,7 +18,7 @@ const SearchList = ({ searchQuery }) => {
 
   const filteredUsers = usersData?.filter(
     (item) =>
-      item.name?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
+      item.nickname?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
       item.profession?.toLowerCase().includes(searchQuery?.toLowerCase())
   );
 

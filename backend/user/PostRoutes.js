@@ -39,34 +39,40 @@ postRouter.get("/:id", async (req, res) => {
 
 // create new post -------------------------------------------------------------------------------------------------------------
 
-postRouter.post("/", img_upload.single("image"),authenticateToken, async (req, res) => {
-  try {
-    const user = await User.findOne({ email: req.userEmail });
-    cloudinary.uploader
-      .upload_stream(
-        { resource_type: "image", folder: "TokTok" },
-        async (err, result) => {
-          const dbRes = await Post.create({
-            user:user,
-            caption:req.body.caption,
-            amountOfComments: 0,
-            amountOfLikes: 0,
-            time: "1 minute ago",
-            image: { url: result.secure_url, imageId: result.public_id },
-          });
-          console.log(await Post.find());
-          user.posts.push(dbRes)
-          user.amountOfPosts = user.posts.length;
-          await user.save();
-          res.json(dbRes);
-        }
-      )
-      .end(req.file.buffer);
-  } catch (err) {
-    console.log(err);
-    res.send("there was an error");
+postRouter.post(
+  "/",
+  img_upload.single("image"),
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const user = await User.findOne({ email: req.userEmail });
+      cloudinary.uploader
+        .upload_stream(
+          { resource_type: "image", folder: "TokTok" },
+          async (err, result) => {
+            const dbRes = await Post.create({
+              user: user._id,
+              caption: req.body.caption,
+              amountOfComments: 0,
+              amountOfLikes: 0,
+              time: "1 minute ago",
+              image: { url: result.secure_url, imageId: result.public_id },
+            });
+            // console.log(await Post.find());
+            // user.posts.push(dbRes);
+            user.posts.splice(0, 0, dbRes);
+            user.amountOfPosts = user.posts.length;
+            await user.save();
+            res.json(dbRes);
+          }
+        )
+        .end(req.file.buffer);
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
   }
-});
+);
 
 // update post by id -> add comments ----------------------------------------------------------------------------------------------
 
