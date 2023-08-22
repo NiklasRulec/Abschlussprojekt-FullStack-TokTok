@@ -12,15 +12,17 @@ const SearchInput = ({ onSearch }) => {
 
   return (
     <>
+    <div className="nav-fixed-wrapper">
       <div className="searchBar">
         <input
           className="searchInput"
           type="text"
-          placeholder="Suche nach Namen"
+          placeholder="Search..."
           value={safeSearch}
           onChange={search}
         />
       </div>
+    </div>
     </>
   );
 };

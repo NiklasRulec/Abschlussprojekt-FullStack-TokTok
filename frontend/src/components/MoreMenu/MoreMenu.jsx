@@ -8,13 +8,27 @@ import Bookmark from "../../images/Bookmark.svg";
 import Friends from "../../images/Friends.svg";
 import HeartInactive from "../../images/HeartInactive.svg";
 import Info from "../../images/Info.svg";
+import {useState, useEffect} from "react"
 
 const MoreMenu = ({ onClose }) => {
+  const [slideOut, setSlideOut] = useState(false);
+
+  useEffect(() => {
+    if (slideOut) {
+      const animationTimeout = setTimeout(() => {
+        onClose();
+      }, 350);
+      return () => clearTimeout(animationTimeout);
+    }
+  }, [slideOut, onClose]);
+
   const handleStrokeClick = () => {
-    onClose();
+    setSlideOut(true);
   };
+
+
   return (
-    <section className="more-menu-menu">
+    <section className={`more-menu-menu ${slideOut ? 'slide-out-menu' : ''}`}>
       <img src={Vector} alt="vector" className="stroke" onClick={handleStrokeClick} />
       <div className="set">
         <img src={Settings} alt="setting" />

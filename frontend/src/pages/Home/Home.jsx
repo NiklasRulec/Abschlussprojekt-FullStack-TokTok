@@ -9,13 +9,15 @@ const Home = () => {
   return (
     <>
       <InfoBar />
-      <div className="home-section-top">
-        <div className="home-section-top-left">
-          <img src={Logo} alt="logo" className="toktok-logo" />
-          <h1>TokTok</h1>
-        </div>
-        <img src={heart} alt="heart-icon" className="heart-icon" />
+      <div className="nav-fixed-wrapper">
+        <div className="home-section-top">
+          <div className="home-section-top-left">
+            <img src={Logo} alt="logo" className="toktok-logo" />
+            <h1>TokTok</h1>
+          </div>
+          <img src={heart} alt="heart-icon" className="heart-icon" />
       </div>
+    </div>
       <HomeUserList />
       <Navbar />
     </>

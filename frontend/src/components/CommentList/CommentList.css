@@ -5,4 +5,5 @@
   justify-content: flex-start;
   flex-direction: column;
   animation: fade-in 1s;
+  margin-bottom: 3rem;
 }

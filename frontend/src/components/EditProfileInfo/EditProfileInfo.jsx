@@ -72,6 +72,7 @@ const EditProfileInfo = () => {
               type="text"
               placeholder="name"
               id="name"
+              className="name-input-field"
               onChange={(e) => setName(e.target.value)}
             />
           ) : (

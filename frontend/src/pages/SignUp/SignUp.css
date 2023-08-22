@@ -1,12 +1,15 @@
+.sign-up-page {
+  animation: fade-in 1s;
+}
 .headline {
   width: 80%;
-  margin: 2rem 0 8rem 1rem;
+  margin: 6rem 0 12rem 1rem;
 }
 
 .logo {
   display: block;
   margin: auto;
-  margin-bottom: 7rem;
+  margin-bottom: 10rem;
 }
 
 form {
@@ -15,36 +18,46 @@ form {
   margin-right: 1rem;
 }
 
-#email,
-#name {
+#email {
   margin-bottom: 1rem;
-  padding: 1.3rem;
-  font-size: 10px;
+  padding: 1.8rem;
+  font-size: 16px;
   border-radius: 10px;
   background: url(../../images/Email2.svg) no-repeat left;
-  background-position: 1vh 2vw;
+  background-position: 1.5rem 1.6rem;
   background-color: #fafafa;
   border: none;
   width: 100%;
-  text-indent: 2rem;
+  text-indent: 3rem;
+  outline: none;
 }
 
 #password {
-  padding: 1.3rem;
-  font-size: 10px;
+  padding: 1.8rem;
+  font-size: 16px;
   border-radius: 10px;
   background: url(../../images/Lock.svg) no-repeat left;
-  background-position: 1vh 1.6vw;
+  background-position: 1.5rem 1.6rem;
   background-color: #fafafa;
   border: none;
   width: 100%;
-  margin-bottom: 2rem;
-  text-indent: 2rem;
+  margin: 0.5rem 0 2rem 0;
+  text-indent: 3rem;
+  outline: none;
+}
+
+#password:focus,
+#email:focus {
+  border: 2px solid var(--color-pink);
 }
 
 .hide {
-  margin-left: 30rem;
-  margin-top: -5rem;
+  margin-left: 33rem;
+  margin-top: -6rem;
+}
+.hide img {
+  width: 2.5rem;
+  /* height: 4rem; */
 }
 
 .sign-in-user {
@@ -56,7 +69,7 @@ form {
 }
 
 .sign-in {
-  font-size: 13px;
+  font-size: 1.6rem;
   color: #ff4d67;
   text-decoration: none;
   font-family: "UrbanistMedium";
@@ -65,19 +78,24 @@ form {
 
 .login-signup-question {
   color: #bdbdbd;
+  font-size: 1.6rem;
 }
 
 .sign-btn {
-  margin-left: 1rem;
-  margin-right: 2rem;
   margin-top: 3rem;
   padding: 1.5rem;
-  border-radius: 20px;
-  width: 94%;
+  border-radius: 30px;
+  width: 100%;
   background-color: #e98090;
   border: none;
   color: white;
   cursor: pointer;
+  font-family: "UrbanistRegular";
+  font-size: 1.6rem;
+}
+.sign-in-user p {
+  color: #bdbdbd;
+  font-size: 1.6rem;
 }
 
 .sign-up-info-text {

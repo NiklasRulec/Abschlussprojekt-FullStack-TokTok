@@ -32,12 +32,15 @@ const Comments = () => {
   return (
     <>
       <InfoBar />
-      <div className="comments-header">
-        <div className="comments-header-left">
-          <BackBtn />
-          <h2>Comments</h2>
+      <div className="nav-fixed-wrapper">
+        <div className="comments-header">
+          <div className="comments-header-left">
+            <BackBtn />
+            <h2>Comments</h2>
+          </div>
+          <img src={Message} alt="Message" className="share-img" />
         </div>
-        <img src={Message} alt="Message" />
+
       </div>
 
       {postData ? (

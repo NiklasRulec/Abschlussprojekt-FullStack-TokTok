@@ -46,8 +46,7 @@ const CommentInput = ({ postId }) => {
           className="profile-avatar"
         />
         )}
-        <input
-          type="text"
+        <textarea
           className="comment-input"
           placeholder="Your comment..."
           onChange={(e) => setCommentInput(e.target.value)}

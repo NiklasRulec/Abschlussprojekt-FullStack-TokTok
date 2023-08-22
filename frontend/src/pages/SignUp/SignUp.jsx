@@ -11,6 +11,8 @@ import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 export default function SignUp() {
   const { refresh, setRefresh } = useContext(RefreshContext);
   const [error, setError] = useState(null);
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const nav = useNavigate();
   const [success, setSuccess] = useState(false)
   const [email, setEmail] = useState("")
@@ -63,11 +65,26 @@ export default function SignUp() {
     }
   };
 
+  useEffect(() => {
+    const signUpTimer = setTimeout(() => {
+      setShowSignUp(true);
+      setShowLoading(false);
+    }, 5000);
+
+    return () => {
+      clearTimeout(signUpTimer);
+      setShowLoading(true);
+    };
+  }, []);
+
   return (
     <>
-    <LoadingScreen/>
-    <InfoBar />
-    <div className="headline">
+      {showLoading && <LoadingScreen />}
+      <InfoBar />
+      {showSignUp && (
+        <>
+        <div className="sign-up-page">
+        <div className="headline">
         <h1>
           Create your Account
         </h1>
@@ -86,13 +103,16 @@ export default function SignUp() {
     </form>
     {success && <p className="sign-up-info-text">Sign up was successful. Logging in and forwarding to edit your Profile..</p>}
     
-    <div className="sign-in-user">
+      <div className="sign-in-user">
         <p>Already have an account?</p>
         <Link to="/login" className="sign-in">
           Sign in
         </Link>
       </div>
+
+      </div>
+        </>
+      )}
     </>
   );
 }
-

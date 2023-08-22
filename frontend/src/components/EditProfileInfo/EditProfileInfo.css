@@ -20,11 +20,11 @@
   border-radius: 1rem;
   background-color: var(--color-grey-bg);
   color: black;
+  outline: none;
 }
 
 .edit-profile-info-section form .update-btn {
   padding: 0;
-  width: 8.8rem;
   height: 5.6rem;
   margin: 0 auto;
   border-radius: 50rem;
@@ -34,6 +34,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "UrbanistRegular";
+}
+
+.edit-profile-info-section form input:focus {
+  border: 3px solid var(--color-pink);
 }
 
 .edit-profile-info-section .edit-profile-info-text {

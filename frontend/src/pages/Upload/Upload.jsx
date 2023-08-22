@@ -80,10 +80,13 @@ const handleFileUpload = (event) => {
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">
-            <article className="new-post">
-              <CancelBtn />
-              <h2>New Post</h2>
-            </article>
+            <div className="nav-fixed-wrapper">
+              <article className="new-post">
+                <CancelBtn />
+                <h2>New Post</h2>
+              </article>
+
+            </div>
             <article className="upload-window">
               <input
                 type="file"
@@ -121,12 +124,15 @@ const handleFileUpload = (event) => {
       )}
       {showPopup && (
         <section className="popup">
-          <article className="new-post">
-            <button className="backBtn-popup" onClick={closeBtnClick}>
-              <img src={BackArrow} alt="back" />
-            </button>
-            <h2>New Post</h2>
-          </article>
+          <div className="nav-fixed-wrapper">
+            <article className="new-post">
+              <button className="backBtn-popup" onClick={closeBtnClick}>
+                <img src={BackArrow} alt="back" />
+              </button>
+              <h2>New Post</h2>
+            </article>
+
+          </div>
           <article className="caption-upload-img">
             {loggedUser.image ? (
               <img

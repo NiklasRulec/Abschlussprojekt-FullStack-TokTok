@@ -16,13 +16,15 @@ const InfoBar = () => {
 
   return (
     <>
-      <div className="info-bar">
-        <p className="semibold-16">{time}</p>
-      <div className="info-bar-left">
-        <img src={Empfang} alt="empfang" className="reception" />
-        <img src={Wifi} alt="wlan" className="wlan" />
-        <img src={Accu} alt="akku" className="accu" />
-      </div>
+      <div className="info-bar-wrapper">
+        <div className="info-bar">
+          <p className="semibold-16">{time}</p>
+          <div className="info-bar-right">
+            <img src={Empfang} alt="empfang" className="reception" />
+            <img src={Wifi} alt="wlan" className="wlan" />
+            <img src={Accu} alt="akku" className="accu" />
+          </div>
+        </div>
       </div>
     </>
   );
