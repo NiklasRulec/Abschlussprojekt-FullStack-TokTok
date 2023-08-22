@@ -8,7 +8,6 @@ const LoadingScreen = () => {
     <div className="loadingscreen-wrapper">
       <img src={Landing} className="landing" />
       <img src={LoadingAnimation} className="loading" />
-
     </div>
     </>
   );

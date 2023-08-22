@@ -11,6 +11,7 @@ import plus from "../../images/Plus.svg";
 import { Link, useNavigate } from "react-router-dom";
 import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import Navbar from "../../components/Navbar/Navbar";
+import Avatar from '../../images/Avatar.svg'
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
@@ -72,18 +73,26 @@ const UserProfile = () => {
                     onClick={toggleMoreMenu}
                   />
                 </div>
-              </article>
-
+            </article>
             </div>
-            <img
-              src={loggedUser.image.url}
-              alt=""
-              className="user-profile-image"
-            />
+            {loggedUser.image ? (
+              <img
+                src={loggedUser.image.url}
+                alt=""
+                className="user-profile-image"
+              />
+            ) : (
+              <img
+                src={Avatar}
+                alt=""
+                className="user-profile-image"
+              />
+            )}
+
             <h2>{loggedUser.name}</h2>
-            <h4>{loggedUser.profession}</h4>
-            <p>{loggedUser.description}</p>
-            <a href={loggedUser.domain}>{loggedUser.domain}</a>
+            {loggedUser.profession && <h4>{loggedUser.profession}</h4>}
+            {loggedUser.description && <p>{loggedUser.description}</p>}
+            {loggedUser.description && <a href={loggedUser.domain}>{loggedUser.domain}</a>}
             <article className="user-profile-numbers">
               <div className="user-profile-numbers-block">
                 <h2>{loggedUser.posts.length}</h2>

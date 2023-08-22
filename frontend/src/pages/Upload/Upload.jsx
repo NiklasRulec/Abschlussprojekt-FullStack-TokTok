@@ -11,6 +11,7 @@ import Location from "../../images/Location.svg";
 import ToggleActive from "../../images/ToggleActive.svg";
 import ToggleInactive from "../../images/ToggleInactive.svg";
 import Settings from "../../images/Settings.svg";
+import Avatar from '../../images/Avatar.svg'
 
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -107,11 +108,11 @@ const handleFileUpload = (event) => {
                 </div>
               </div>
               <div className="img-gallery">
-                {loggedUser.posts.map((post, index) => (
+                {loggedUser?.gallery?.map((pic, index) => (
                   <img
                     key={index}
-                    src={post.image.url}
-                    alt={`{post ${index}}`}
+                    src={pic.url}
+                    alt={`{pic ${index}}`}
                   />
                 ))}
               </div>
@@ -133,11 +134,19 @@ const handleFileUpload = (event) => {
 
           </div>
           <article className="caption-upload-img">
+            {loggedUser.image ? (
+              <img
+                className="profile-upload-img"
+                src={loggedUser.image?.url}
+                alt=""
+              />
+            ) : (
             <img
               className="profile-upload-img"
-              src={loggedUser.image.url}
+              src={Avatar}
               alt=""
             />
+            )}
             <textarea
               type="text"
               className="caption-input"

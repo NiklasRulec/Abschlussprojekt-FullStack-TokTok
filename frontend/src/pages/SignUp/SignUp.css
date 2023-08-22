@@ -97,3 +97,10 @@ form {
   color: #bdbdbd;
   font-size: 1.6rem;
 }
+
+.sign-up-info-text {
+  width: 80%;
+  text-align: center;
+  color: var(--color-grey-profession);
+  margin: 1rem auto;
+}

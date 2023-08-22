@@ -13,11 +13,13 @@ const EditProfileInfo = () => {
   const [phone, setPhone] = useState();
   const [gender, setGender] = useState();
   const [website, setWebsite] = useState();
+  const [hasNickname, setHasNickname] = useState(false)
+  const [hasName, setHasName] = useState(false)
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      console.log(data);
+      // console.log(data);
       // setName(data.name);
       // setUsername(data.username);
       // setProfession(data.profession);
@@ -26,6 +28,12 @@ const EditProfileInfo = () => {
       // setPhone(data.phone);
       // setGender(data.gender);
       // setWebsite(data.domain);
+      if (data.nickname){
+        setHasNickname(true)
+      }
+      if (data.name){
+        setHasName(true)
+      }
     };
     fetchUser();
   }, []);
@@ -35,7 +43,7 @@ const EditProfileInfo = () => {
 
     const userInfo = {
       name: name,
-      username: username,
+      nickname: username,
       profession: profession,
       birthday: birthday,
       email: email,
@@ -57,20 +65,41 @@ const EditProfileInfo = () => {
   return (
     <>
       <article className="edit-profile-info-section">
+        {!hasName && <p className="edit-profile-info-text">Please enter username and name.</p>}
         <form onSubmit={submitFunction}>
-          <input
-            type="text"
-            placeholder="name"
-            id="name"
-            className="name-input-field"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="username"
-            id="username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          {hasName ? (
+            <input
+              type="text"
+              placeholder="name"
+              id="name"
+              className="name-input-field"
+              onChange={(e) => setName(e.target.value)}
+            />
+          ) : (
+            <input
+              type="text"
+              placeholder="name"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          )}
+          {hasNickname ? (
+            <input
+              type="text"
+              placeholder="username"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          ) : (
+            <input
+              type="text"
+              placeholder="username"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          )}
           <input
             type="text"
             placeholder="profession"

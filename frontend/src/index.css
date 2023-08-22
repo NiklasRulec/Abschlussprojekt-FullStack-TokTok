@@ -99,6 +99,11 @@ small {
   display: block;
 }
 
+button {
+  font-family: "UrbanistSemiBold";
+  font-size: 1.6rem;
+}
+
 input {
   font-family: "UrbanistRegular";
 }

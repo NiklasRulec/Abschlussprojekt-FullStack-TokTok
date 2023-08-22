@@ -41,3 +41,9 @@
   border: 3px solid var(--color-pink);
 }
 
+.edit-profile-info-section .edit-profile-info-text {
+  width: 100%;
+  text-align: left;
+  color: var(--color-pink-bright);
+  margin: 0 0 1rem 0;
+}
