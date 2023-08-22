@@ -22,9 +22,6 @@ const ReactAppIndex = path.join(
   "index.html"
 );
 
-console.log(ReactAppDistPath);
-console.log(ReactAppIndex);
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(ReactAppDistPath));

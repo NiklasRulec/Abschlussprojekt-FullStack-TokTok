@@ -6,6 +6,9 @@
   flex-direction: column;
   animation: fade-in 1s;
 }
+.profile-top {
+  padding: 0 2rem;
+}
 
 .profile-section .profile-top {
   width: 100%;
@@ -20,6 +23,9 @@
   margin-bottom: 0;
 }
 
+.profile-image {
+  margin-top: 12rem;
+}
 .profile-section .profile-image {
   width: 12rem;
   height: 12rem;

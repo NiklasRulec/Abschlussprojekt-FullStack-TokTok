@@ -2,12 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.4rem 0;
+  padding: 2.4rem 0rem 1.6rem 0rem;
   animation: fade-in 1s;
+  
+}
+
+.comments-header-left {
+  padding: 0 2rem;
+}
+
+.comments-header .share-img{
+  position: absolute;
+  left: 375px;
+  width: 3.5rem;
 }
 .comments-header .comments-header-left {
   display: flex;
   gap: 1.6rem;
+  /* padding-left: 2rem; */
 }
 
 .post-detail-section {
@@ -18,6 +30,7 @@
   justify-content: center;
   flex-direction: column;
   animation: fade-in 1s;
+  margin-top: 12rem;
 }
 
 .post-detail-section .post-detail-article {

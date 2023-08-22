@@ -10,6 +10,39 @@ const img_upload = multer({ storage: multer.memoryStorage() });
 
 const multerMiddleware = multer();
 
+// create fake gallery
+
+// userRouter.put("/gallery/:id", img_upload.single("image"), async (req, res) => {
+//   try {
+//     cloudinary.uploader
+//       .upload_stream(
+//         {
+//           resource_type: "image",
+//           folder: "TokTok_Gallery",
+//         },
+//         async (err, result) => {
+//           if (err) {
+//             return res
+//               .status(500)
+//               .send({ message: "image upload failed", err });
+//           }
+//           const user = await User.findById(req.params.id);
+//           console.log(user);
+//           user.gallery.push({
+//             url: result.secure_url,
+//             imageId: result.public_id,
+//           });
+//           await user.save();
+//           res.send(user);
+//         }
+//       )
+//       .end(req.file.buffer);
+//   } catch (err) {
+//     console.log(err);
+//     res.send("there was an error");
+//   }
+// });
+
 // get all users -------------------------------------------------------------------------------------------
 
 userRouter.get("/", async (req, res) => {
@@ -17,11 +50,88 @@ userRouter.get("/", async (req, res) => {
   res.send(users);
 });
 
+// fake gallery
+
+const gallery = [
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604354/TokTok_Gallery/h3vwomv85w1wy90jljbz.jpg",
+    imageId: "TokTok_Gallery/h3vwomv85w1wy90jljbz",
+    _id: "64e317c31a219d5165693316",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604377/TokTok_Gallery/aqxuv4zlapxxc4hbxnei.jpg",
+    imageId: "TokTok_Gallery/aqxuv4zlapxxc4hbxnei",
+    _id: "64e317d91a219d516569331c",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604444/TokTok_Gallery/kij7pepbgoakoh4qe7vj.jpg",
+    imageId: "TokTok_Gallery/kij7pepbgoakoh4qe7vj",
+    _id: "64e3181c1a219d5165693321",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604472/TokTok_Gallery/fguedcaoz3bk55mle5u5.jpg",
+    imageId: "TokTok_Gallery/fguedcaoz3bk55mle5u5",
+    _id: "64e318391a219d516569332d",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604486/TokTok_Gallery/nnok7km7exn8td86dqfp.jpg",
+    imageId: "TokTok_Gallery/nnok7km7exn8td86dqfp",
+    _id: "64e318471a219d5165693334",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604499/TokTok_Gallery/l9wbfif8kszuaa9dx87f.jpg",
+    imageId: "TokTok_Gallery/l9wbfif8kszuaa9dx87f",
+    _id: "64e318541a219d516569333c",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604509/TokTok_Gallery/xgphhs9ojdgxnhbzpivs.jpg",
+    imageId: "TokTok_Gallery/xgphhs9ojdgxnhbzpivs",
+    _id: "64e3185e1a219d5165693345",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604521/TokTok_Gallery/wneav7syndox5oualyca.jpg",
+    imageId: "TokTok_Gallery/wneav7syndox5oualyca",
+    _id: "64e318691a219d516569334f",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604533/TokTok_Gallery/vyuambinwqxaacepzn0t.jpg",
+    imageId: "TokTok_Gallery/vyuambinwqxaacepzn0t",
+    _id: "64e318751a219d516569335a",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604544/TokTok_Gallery/vyjdnbbhbe2fpoey53zh.jpg",
+    imageId: "TokTok_Gallery/vyjdnbbhbe2fpoey53zh",
+    _id: "64e318801a219d5165693366",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604553/TokTok_Gallery/pl034yscsrmb6t0dprqk.jpg",
+    imageId: "TokTok_Gallery/pl034yscsrmb6t0dprqk",
+    _id: "64e318891a219d5165693373",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604562/TokTok_Gallery/ndd9ftns22zozoxgwmgg.jpg",
+    imageId: "TokTok_Gallery/ndd9ftns22zozoxgwmgg",
+    _id: "64e318921a219d5165693381",
+  },
+  {
+    url: "https://res.cloudinary.com/dryqtwdls/image/upload/v1692604573/TokTok_Gallery/kylprrpjakptyjqq9scp.jpg",
+    imageId: "TokTok_Gallery/kylprrpjakptyjqq9scp",
+    _id: "64e3189e1a219d5165693390",
+  },
+];
+
 // signup --------------------------------------------------------------------------------------------------
 
 userRouter.post("/signup", multerMiddleware.none(), async (req, res) => {
   const { email } = req.body;
-  const newUser = new User({ email });
+  const amountOfFollowers = 0;
+  const amountOfFollowing = 0;
+  const newUser = new User({
+    email,
+    gallery,
+    amountOfFollowers,
+    amountOfFollowing,
+  });
   newUser.setPassword(req.body.password);
   try {
     await newUser.save();
@@ -74,7 +184,7 @@ userRouter.post("/login", async (req, res) => {
 // secure ------------------------------------------------------------------------------------------------------
 
 userRouter.get("/secure", authenticateToken, async (req, res) => {
-  console.log(req.userEmail);
+  // console.log(req.userEmail);
   res.send({ email: req.userEmail });
 });
 
