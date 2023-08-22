@@ -17,7 +17,7 @@ const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user, setUser } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
-  const nav = useNavigate()
+  const nav = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -40,12 +40,10 @@ const UserProfile = () => {
     window.location.href = "/home";
   };
 
-
   return (
     <>
-    <div className={` ${showMoreMenu ? "gray-background" : ""}`}> 
-    </div>
-    <InfoBar />
+      <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
+      <InfoBar />
 
       {loggedUser ? (
         <>
@@ -123,7 +121,8 @@ const UserProfile = () => {
                     src={item.image.url}
                     alt=""
                     key={index}
-                    className="post-image" onClick={() => nav(`/home/${item._id}`)}
+                    className="post-image"
+                    onClick={() => nav(`/home/${item._id}`)}
                   />
                 ))}
               </div>
@@ -134,7 +133,7 @@ const UserProfile = () => {
       ) : (
         <h2></h2>
       )}
-      <Navbar/>
+      <Navbar />
     </>
   );
 };

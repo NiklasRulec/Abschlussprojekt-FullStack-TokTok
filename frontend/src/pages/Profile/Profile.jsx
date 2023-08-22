@@ -1,6 +1,6 @@
 import InfoBar from "../../components/InfoBar/InfoBar";
-import Navbar from '../../components/Navbar/Navbar';
-import './Profile.css'
+import Navbar from "../../components/Navbar/Navbar";
+import "./Profile.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -13,7 +13,12 @@ import BackBtn from "../../components/BackBtn/BackBtn";
 const Profile = () => {
   const params = useParams();
   const [userData, setUserData] = useState();
-  const nav = useNavigate()
+  const nav = useNavigate();
+  const [following, setFollowing] = useState(false);
+
+  const followingToggle = () => {
+    setFollowing((prev) => !prev);
+  };
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -26,7 +31,7 @@ const Profile = () => {
 
   return (
     <>
-    <InfoBar />
+      <InfoBar />
       {userData ? (
           <section className="profile-section">
             <div className="nav-fixed-wrapper">
@@ -59,34 +64,47 @@ const Profile = () => {
                 <p>Following</p>
               </div>
             </article>
-            <button className="follow-btn">
+
+
+            {following ? (
+            <button className="following-btn" onClick={followingToggle}>
+              Following
+            </button>
+          ) : (
+            <button className="follow-btn" onClick={followingToggle}>
               <img src={follow} alt="follow-icon" />
               Follow
             </button>
-            <div className="horizontal-line"></div>
-            <article className="profile-bottom">
-              <div className="profile-bottom-buttons">
-                <div className="feeds-btn">
-                  <img src={feeds} alt="feeds-icon" />
-                  <h5>Feeds</h5>
-                </div>
+          )}
+
+
+          <div className="horizontal-line"></div>
+          <article className="profile-bottom">
+            <div className="profile-bottom-buttons">
+              <div className="feeds-btn">
+                <img src={feeds} alt="feeds-icon" />
+                <h5>Feeds</h5>
               </div>
-              <div className="profile-bottom-gallery">
-                {userData ? (
-                  userData.posts?.map((post, index) => (
-                    
-                    <img src={post.image?.url} alt="post" key={index} className="post-image" onClick={() => nav(`/home/${post._id}`)}/>
-                    
-                  ))
-                ) : (
-                  <p>Lädt..</p>
-                )}
-     
-              </div>
-            </article>
-          </section>
+            </div>
+            <div className="profile-bottom-gallery">
+              {userData ? (
+                userData.posts?.map((post, index) => (
+                  <img
+                    src={post.image?.url}
+                    alt="post"
+                    key={index}
+                    className="post-image"
+                    onClick={() => nav(`/home/${post._id}`)}
+                  />
+                ))
+              ) : (
+                <p></p>
+              )}
+            </div>
+          </article>
+        </section>
       ) : (
-        <h2>Lädt</h2>
+        <h2></h2>
       )}
       <Navbar />
     </>
