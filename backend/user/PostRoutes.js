@@ -59,7 +59,8 @@ postRouter.post(
               image: { url: result.secure_url, imageId: result.public_id },
             });
             // console.log(await Post.find());
-            user.posts.push(dbRes);
+            // user.posts.push(dbRes);
+            user.posts.splice(0, 0, dbRes);
             user.amountOfPosts = user.posts.length;
             await user.save();
             res.json(dbRes);

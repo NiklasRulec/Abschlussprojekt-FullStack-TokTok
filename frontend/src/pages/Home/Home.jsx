@@ -1,4 +1,3 @@
-// import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import InfoBar from "../../components/InfoBar/InfoBar";
 import heart from "../../images/HeartInactive.svg";
 import HomeUserList from '../../components/HomeUserList/HomeUserList';
@@ -10,7 +9,6 @@ const Home = () => {
   return (
     <>
       <InfoBar />
-      {/* <MoreMenu /> */}
       <div className="home-section-top">
         <div className="home-section-top-left">
           <img src={Logo} alt="logo" className="toktok-logo" />

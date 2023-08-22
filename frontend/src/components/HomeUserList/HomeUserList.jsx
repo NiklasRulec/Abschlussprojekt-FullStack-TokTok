@@ -11,6 +11,12 @@ const HomeUserList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get("/api/post/");
+      console.log(data);
+      const sortedData = [...data].sort((a, b) => {
+        // b.time - a.time
+        // a.time.localeCompare(b.time)
+      })
+      console.log(sortedData);
       setPostData(data);
     };
     fetchData();
