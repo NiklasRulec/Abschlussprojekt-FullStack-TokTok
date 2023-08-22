@@ -1,15 +1,15 @@
 .upload-page {
   animation: fade-in 1s;
 }
-
 .new-post {
   display: flex;
   justify-content: left;
   align-items: center;
   margin: 2rem 0;
+  padding: 0rem 0rem 0rem 0rem;
 }
 .cancelBtn {
-  padding-right: 2rem;
+  padding: 0 2rem
 }
 
 .upload-window {
@@ -20,6 +20,7 @@
   border-radius: 32px;
   display: flex;
   margin-bottom: 1rem;
+  margin-top: 12rem;
 }
 .custom-file-upload {
   display: flex;
@@ -62,7 +63,7 @@ input[type="file"]::file-selector-button {
 .gallery-top {
   display: flex;
   justify-content: space-between;
-  padding: 0 2.5rem;
+  padding: 0 0.5rem;
   align-items: center;
   margin-top: 2rem;
 }
@@ -103,10 +104,10 @@ input[type="file"]::file-selector-button {
 .backBtn-popup {
   display: flex;
   justify-content: center;
-  padding-right: 2rem;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0rem 2rem;
 }
 
 .hidden-upload {
@@ -115,19 +116,20 @@ input[type="file"]::file-selector-button {
 
 .caption-upload-img {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   /* align-items: center; */
+  margin-top: 12rem;
 }
 .profile-upload-img {
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 1rem;
 }
 
 .caption-input {
-  width: 20rem;
+  width: 23rem;
   background-color: rgba(128, 128, 128, 0.074);
   border-radius: 1.5rem;
   border: 0;
@@ -140,14 +142,16 @@ input[type="file"]::file-selector-button {
   min-height: 6rem;
   overflow: hidden;
   resize: none;
+  height: 1rem;
 }
 
 .caption-input:focus {
-  border: 2px solid rgba(128, 128, 128, 0.074);
+  border: 2px solid var(--color-pink);
+  background-color: #e9809018;
 }
 .new-post-img {
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 1rem;
   object-fit: cover;
   margin-left: 0.5rem;

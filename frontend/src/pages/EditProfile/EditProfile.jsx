@@ -10,12 +10,14 @@ const EditProfile = () => {
     <>
       <InfoBar />
       <section className="edit-profile-section">
-        <article className="edit-profile-section-top">
-          <Link to="/profile">
-            <img src={arrowleft} alt="arrowleft-icon" />
-          </Link>
-          <h2>Edit Profile</h2>
-        </article>
+        <div className="nav-fixed-wrapper">
+          <article className="edit-profile-section-top">
+            <Link to="/profile">
+              <img src={arrowleft} alt="arrowleft-icon" />
+            </Link>
+            <h2>Edit Profile</h2>
+          </article>
+        </div>
         <EditProfileImage />
         <EditProfileInfo />
       </section>

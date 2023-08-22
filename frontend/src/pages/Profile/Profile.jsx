@@ -29,13 +29,15 @@ const Profile = () => {
     <InfoBar />
       {userData ? (
           <section className="profile-section">
-            <article className="profile-top">
-              <div className="profile-header-left">
-              <BackBtn/>
-              <h2>{userData.nickname}</h2>
-              </div>
-              <img src={moremenu} alt="moremenu-icon" />
-            </article>
+            <div className="nav-fixed-wrapper">
+              <article className="profile-top">
+                <div className="profile-header-left">
+                <BackBtn/>
+                <h2>{userData.nickname}</h2>
+                </div>
+                <img src={moremenu} alt="moremenu-icon" />
+              </article>
+            </div>
             <img src={userData.image.url} alt="profilepic" className="profile-image"/>
             <h2>{userData.name}</h2>
             <h4>{userData.profession}</h4>

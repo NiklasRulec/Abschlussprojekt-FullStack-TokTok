@@ -3,14 +3,12 @@ import InfoBar from "../../components/InfoBar/InfoBar";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../../user/UserContext";
-import follow from "../../images/Follow.svg";
 import feeds from "../../images/Feeds.svg";
 import arrowleft from "../../images/ArrowLeft.svg";
 import moremenu from "../../images/MoreMenu.svg";
 import edit from "../../images/Edit.svg";
 import plus from "../../images/Plus.svg";
 import { Link, useNavigate } from "react-router-dom";
-import BackBtn from "../../components/BackBtn/BackBtn";
 import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import Navbar from "../../components/Navbar/Navbar";
 
@@ -30,8 +28,9 @@ const UserProfile = () => {
 
   const toggleMoreMenu = () => {
     setShowMoreMenu(!showMoreMenu);
-  };
 
+  };
+  
   const closeMoreMenu = () => {
     setShowMoreMenu(false);
   };
@@ -50,29 +49,32 @@ const UserProfile = () => {
       {loggedUser ? (
         <>
           <section className="user-profile-section">
-            <article className="user-profile-top">
-              <div className="user-profile-header-left">
-              <img
-                src={arrowleft}
-                alt="arrow-left-icon"
-                onClick={arrowHome}
-              />
-              <h2>{loggedUser.nickname}</h2>
-              </div>
-              <div className="user-profile-top-buttons">
-                <Link to="/upload">
-                <img src={plus} alt="plus-icon"/>
-                </Link>
-                <Link to="edit">
-                <img src={edit} alt="edit-icon" />
-                </Link>
+            <div className="nav-fixed-wrapper">
+              <article className="user-profile-top">
+                <div className="user-profile-header-left">
                 <img
-                  src={moremenu}
-                  alt="moremenu-icon"
-                  onClick={toggleMoreMenu}
+                  src={arrowleft}
+                  alt="arrow-left-icon"
+                  onClick={arrowHome}
                 />
-              </div>
-            </article>
+                <h2>{loggedUser.nickname}</h2>
+                </div>
+                <div className="user-profile-top-buttons">
+                  <Link to="/upload">
+                  <img src={plus} alt="plus-icon"/>
+                  </Link>
+                  <Link to="edit">
+                  <img src={edit} alt="edit-icon" />
+                  </Link>
+                  <img
+                    src={moremenu}
+                    alt="moremenu-icon"
+                    onClick={toggleMoreMenu}
+                  />
+                </div>
+              </article>
+
+            </div>
             <img
               src={loggedUser.image.url}
               alt=""
