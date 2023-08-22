@@ -15,34 +15,20 @@ const Profile = () => {
   const params = useParams();
   const [userData, setUserData] = useState();
   const nav = useNavigate();
-  const [following, setFollowing] = useState(false);
+  const [following, setFollowing] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
-
-  const follow = async () => {
-    const userId = params.id
-    const { data } = await axios.put(`/api/user/profile/following/${userId}`)
-    setRefresh(prev => !prev)
-  }
-
-  const unFollow = async () => {
-    const userId = params.id
-    const { data } = await axios.delete(`/api/user/profile/following/${userId}`)
-    setRefresh(prev => !prev)
-  }
 
   // get data of logged in user and save the state whether he/she is already following that other user
   useEffect(() => {
-    setFollowing(false)
-        const fetchData = async () => {
-            const { data } = await axios.get("/api/user/profile")
-            let isFollowing = data.isFollowing.filter((userId) =>  userId == params.id)
-            if(isFollowing.length > 0){
-              setFollowing(true)
-            }
+    const fetchData = async () => {
+        const { data } = await axios.get("/api/user/profile")
+        let isFollowing = data.isFollowing.filter((userId) =>  userId == params.id)
+        if(isFollowing.length > 0){
+          setFollowing(true)
         }
-        fetchData()
+    }
+    fetchData()
   },[refresh])
-
 
   // get data of userprofile by id
   useEffect(() => {
@@ -52,6 +38,20 @@ const Profile = () => {
     };
     fetchUser();
   }, []);
+
+  const follow = async () => {
+    const userId = params.id
+    const { data } = await axios.put(`/api/user/profile/following/${userId}`)
+    setFollowing(true)
+    setRefresh(prev => !prev)
+  }
+
+  const unFollow = async () => {
+    const userId = params.id
+    const { data } = await axios.delete(`/api/user/profile/following/${userId}`)
+    setFollowing(false)
+    setRefresh(prev => !prev)
+  }
 
   return (
     <>

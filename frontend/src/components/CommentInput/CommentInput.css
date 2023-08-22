@@ -47,4 +47,5 @@
   border: none;
   background-color: white;
   color: var(--color-pink-bright);
+  cursor: pointer;
 }

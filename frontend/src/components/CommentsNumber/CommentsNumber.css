@@ -9,4 +9,5 @@
 .comments-wrapper .comments-icon {
   margin-right: 1rem;
   width: 2.4rem;
+  cursor: pointer;
 }
