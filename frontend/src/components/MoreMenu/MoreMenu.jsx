@@ -54,7 +54,7 @@ const MoreMenu = ({ onClose }) => {
         <h5 className="semibold-18">Close Friends</h5>
       </div>
       <div className="heart">
-        <img src={HeartInactive} alt="favorite" />
+        <img className="more-menu-icon" src={HeartInactive} alt="favorite" />
         <h5 className="semibold-18">Favorites</h5>
       </div>
       <div className="info">
