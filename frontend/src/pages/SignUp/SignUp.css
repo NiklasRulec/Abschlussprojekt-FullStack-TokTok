@@ -79,3 +79,10 @@ form {
   color: white;
   cursor: pointer;
 }
+
+.sign-up-info-text {
+  width: 80%;
+  text-align: center;
+  color: var(--color-grey-profession);
+  margin: 1rem auto;
+}
