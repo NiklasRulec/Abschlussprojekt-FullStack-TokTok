@@ -11,14 +11,14 @@ const HomeUserList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get("/api/post/");
-      setPostData(data);
+      setPostData(data.reverse());
     };
     fetchData();
   }, [refresh]);
 
   return (
     <section className="home-user-list-section">
-      {postData ? (
+      {postData.length > 0 ? (
         postData.map((post, index) => {
           return <HomeUserItem post={post} key={index} />;
         })
