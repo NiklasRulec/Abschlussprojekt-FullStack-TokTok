@@ -4,7 +4,7 @@ import UserInfoBar from "../UserInfoBar/UserInfoBar";
 import { useState, useEffect, useContext } from "react";
 import { RefreshContext } from "../../user/RefreshContext";
 import axios from "axios";
-import Likes from "../Likes/Likes";
+import LikesPosts from "../Likes/LikesPosts";
 import CommentsNumber from "../CommentsNumber/CommentsNumber";
 
 const HomeUserItem = (props) => {
@@ -27,8 +27,8 @@ const HomeUserItem = (props) => {
         <img className="post-image" src={props.post.image.url} alt="" />
       </Link>
       <div className="home-user-item-bottom">
-        <Likes amountOfLikes={props.post.amountOfLikes} />
-        <CommentsNumber amountOfComments={props.post.amountOfComments} />
+        <LikesPosts amountOfLikes={props.post.amountOfLikes} postId={postId} />
+        <CommentsNumber amountOfComments={props.post.amountOfComments} postId={postId} />
       </div>
     </article>
   );

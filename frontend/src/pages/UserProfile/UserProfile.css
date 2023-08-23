@@ -10,6 +10,9 @@
 .user-profile-top {
   padding: 0 2rem;
 }
+.user-profile-top-buttons {
+  cursor: pointer;
+}
 
 .user-profile-section .user-profile-top {
   width: 100%;
@@ -164,6 +167,9 @@
   display: flex;
   gap: 1rem;
 }
+.user-profile-header-left img {
+  cursor: pointer;
+}
 
 .gray-background {
   background-color: rgba(0, 0, 0, 0.5);
@@ -176,4 +182,8 @@
   z-index: 4;
   animation: fade-in 0.5s;
   z-index: 11;
+}
+
+.more-menu-icon {
+  cursor: pointer;
 }

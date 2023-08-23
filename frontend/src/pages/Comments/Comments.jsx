@@ -9,14 +9,13 @@ import UserInfoBar from "../../components/UserInfoBar/UserInfoBar";
 import Message from "../../images/Message.svg";
 import CommentInput from "../../components/CommentInput/CommentInput";
 import CommentList from "../../components/CommentList/CommentList";
-import Likes from "../../components/Likes/Likes";
+import LikesPosts from "../../components/Likes/LikesPosts";
 import CommentsNumber from "../../components/CommentsNumber/CommentsNumber";
 
 const Comments = () => {
   const params = useParams();
   const [postData, setPostData] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
-
   const [postText, setPostText] = useState();
   const [hashtags, setHashtags] = useState();
 
@@ -63,7 +62,7 @@ const Comments = () => {
               )}
               <p className="profession">{postData.time}</p>
               <figure className="post-detail-likes-and-comments">
-                <Likes amountOfLikes={postData.amountOfLikes} />
+                <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
                 <CommentsNumber amountOfComments={postData.amountOfComments} />
               </figure>
             </article>

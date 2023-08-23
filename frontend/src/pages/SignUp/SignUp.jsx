@@ -69,7 +69,7 @@ export default function SignUp() {
     const signUpTimer = setTimeout(() => {
       setShowSignUp(true);
       setShowLoading(false);
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearTimeout(signUpTimer);
@@ -93,7 +93,10 @@ export default function SignUp() {
 
     <form onSubmit={submit}>
       <input name="email" type="text" placeholder="Email" id="email" onChange={(e) => setEmail(e.target.value)}/>
+      <div className="password-hide">
       <input name="password" type="password" placeholder="Password" id="password" onChange={(e) => setPassword(e.target.value)}/>
+
+      </div>
       <div className="hide">
           <img src={Hide} />
         </div>

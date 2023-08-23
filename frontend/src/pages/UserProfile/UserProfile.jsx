@@ -68,6 +68,7 @@ const UserProfile = () => {
                   <img
                     src={moremenu}
                     alt="moremenu-icon"
+                    className="more-menu-icon"
                     onClick={toggleMoreMenu}
                   />
                 </div>
