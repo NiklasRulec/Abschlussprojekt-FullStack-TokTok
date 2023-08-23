@@ -78,7 +78,7 @@ const Profile = () => {
           <a href={userData.domain}>{userData.domain}</a>
           <article className="profile-numbers">
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfPosts}</h2>
+              <h2>{userData.posts.length}</h2>
               <p>Posts</p>
             </div>
             <div className="small-vertical-line"></div>
