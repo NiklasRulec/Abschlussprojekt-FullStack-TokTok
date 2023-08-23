@@ -22,7 +22,7 @@ const EditProfile = () => {
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       <section className="edit-profile-section">
         <div className="nav-fixed-wrapper">
         <article className="edit-profile-section-top">

@@ -16,8 +16,6 @@ const Comments = () => {
   const params = useParams();
   const [postData, setPostData] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
-  const [postText, setPostText] = useState();
-  const [hashtags, setHashtags] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +27,7 @@ const Comments = () => {
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       <div className="nav-fixed-wrapper">
         <div className="comments-header">
           <div className="comments-header-left">

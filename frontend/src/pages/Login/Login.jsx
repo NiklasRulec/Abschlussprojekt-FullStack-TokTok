@@ -38,7 +38,7 @@ export default function Login() {
 
   return (
     <>
-    <InfoBar />
+    {/* <InfoBar /> */}
     <div className="headline">
         <h1>
           Login to your Account

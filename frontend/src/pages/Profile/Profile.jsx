@@ -55,7 +55,7 @@ const Profile = () => {
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       {userData ? (
         <section className="profile-section">
           <div className="nav-fixed-wrapper">

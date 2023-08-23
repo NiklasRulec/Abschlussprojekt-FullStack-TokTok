@@ -8,7 +8,7 @@ import Logo from '../../images/Logo.svg'
 const Home = () => {
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       <div className="nav-fixed-wrapper">
         <div className="home-section-top">
           <div className="home-section-top-left">

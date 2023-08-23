@@ -47,7 +47,7 @@ const UserProfile = () => {
   return (
     <>
       <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
-      <InfoBar />
+      {/* <InfoBar /> */}
 
       {loggedUser ? (
         <>
