@@ -8,7 +8,8 @@ import Bookmark from "../../images/Bookmark.svg";
 import Friends from "../../images/Friends.svg";
 import HeartInactive from "../../images/HeartInactive.svg";
 import Info from "../../images/Info.svg";
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
+import { UserContext } from '../../user/UserContext';
 
 const MoreMenu = ({ onClose }) => {
   const [slideOut, setSlideOut] = useState(false);
@@ -24,6 +25,11 @@ const MoreMenu = ({ onClose }) => {
 
   const handleStrokeClick = () => {
     setSlideOut(true);
+  };
+  const { logout } = useContext(UserContext);
+
+  const userLogout = () => {
+    logout();
   };
 
   return (
@@ -61,6 +67,7 @@ const MoreMenu = ({ onClose }) => {
         <img className="more-menu-icon" src={Info} alt="information" />
         <h5 className="semibold-18">Information Center</h5>
       </div>
+      <p className="semibold-18 logout-btn" onClick={userLogout}>Logout</p>
     </section>
   );
 };
