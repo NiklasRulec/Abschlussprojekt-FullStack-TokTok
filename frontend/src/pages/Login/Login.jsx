@@ -6,6 +6,7 @@ import './Login.css'
 import Logo from "../../images/Logo.svg";
 import Hide from "../../images/Hide.svg";
 import InfoBar from "../../components/InfoBar/InfoBar";
+import { AmountOfFollowingContext } from '../../user/AmountOfFollowingContext'
 
 export default function Login() {
   const { refresh, setRefresh } = useContext(RefreshContext);
@@ -13,7 +14,7 @@ export default function Login() {
   const [error, setError] = useState(null);
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
+  const { amountOfFollowing, setAmountOfFollowing } = useContext(AmountOfFollowingContext)
 
   const submit = async (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ export default function Login() {
       const { data } = await axios.post("/api/user/login", loginInput);
       if (data) {
         setRefresh((prev) => !prev);
+        setAmountOfFollowing(data.data.amountOfFollowing)
         navigate("/home");
       }
     } catch (e) {

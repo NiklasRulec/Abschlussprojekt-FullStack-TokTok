@@ -13,19 +13,20 @@ import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import Navbar from "../../components/Navbar/Navbar";
 import Avatar from '../../images/Avatar.svg'
 import { RefreshContext } from "../../user/RefreshContext";
+import { AmountOfFollowingContext } from '../../user/AmountOfFollowingContext'
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
   const { user } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const { amountOfFollowing, setAmountOfFollowing } = useContext(AmountOfFollowingContext)
   const nav = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedUser(data);
-      console.log(user);
       setRefresh(prev => !prev)
     };
     fetchUser();
@@ -33,7 +34,6 @@ const UserProfile = () => {
 
   const toggleMoreMenu = () => {
     setShowMoreMenu(!showMoreMenu);
-
   };
   
   const closeMoreMenu = () => {
@@ -108,7 +108,8 @@ const UserProfile = () => {
               </div>
               <div className="small-vertical-line"></div>
               <div className="user-profile-numbers-block">
-                <h2>{loggedUser.amountOfFollowing}</h2>
+                <h2>{amountOfFollowing}</h2>
+                {/* <h2>{loggedUser.amountOfFollowing}</h2> */}
                 <p>Following</p>
               </div>
             </article>

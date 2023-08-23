@@ -3,11 +3,13 @@ import "./SearchItem.css";
 import { Link } from 'react-router-dom'
 import Avatar from '../../images/Avatar.svg'
 import { RefreshContext } from "../../user/RefreshContext";
+import { AmountOfFollowingContext } from '../../user/AmountOfFollowingContext'
 import axios from "axios";
 
 const SearchItem = (props) => {
   const [following, setFollowing] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const { amountOfFollowing, setAmountOfFollowing } = useContext(AmountOfFollowingContext)
 
   // get data of logged in user and save the state whether he/she is already following that other user
   useEffect(() => {
@@ -19,17 +21,20 @@ const SearchItem = (props) => {
             }
         }
         fetchData()
+        // console.log(amountOfFollowing);
   },[refresh])
 
   const follow = async () => {
     const { data } = await axios.put(`/api/user/profile/following/${props.id}`)
     setFollowing(true)
+    setAmountOfFollowing(prev => prev + 1)
     setRefresh(prev => !prev)
   }
 
   const unFollow = async () => {
     const { data } = await axios.delete(`/api/user/profile/following/${props.id}`)
     setFollowing(false)
+    setAmountOfFollowing(prev => prev - 1)
     setRefresh(prev => !prev)
   }
 

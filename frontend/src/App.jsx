@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RefreshContext } from "./user/RefreshContext";
+import { AmountOfFollowingContext } from './user/AmountOfFollowingContext'
 import Home from "./pages/Home/Home";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import ResetPassword from "./user/ResetPassword";
@@ -17,6 +18,7 @@ import SignUp from "./pages/SignUp/SignUp";
 
 function App() {
   const [refresh, setRefresh] = useState(true);
+  const [amountOfFollowing, setAmountOfFollowing] = useState()
 
   return (
     <>
@@ -25,6 +27,7 @@ function App() {
       </div>
       <div className="wrapper" >
         <BrowserRouter>
+          <AmountOfFollowingContext.Provider value={{ amountOfFollowing, setAmountOfFollowing }}>
           <RefreshContext.Provider value={{ refresh, setRefresh }}>
             <UserProvider>
               <Routes>
@@ -41,6 +44,7 @@ function App() {
               </Routes>
             </UserProvider>
           </RefreshContext.Provider>
+          </AmountOfFollowingContext.Provider>
         </BrowserRouter>
       </div>
     </>
