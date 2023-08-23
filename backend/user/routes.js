@@ -461,7 +461,7 @@ userRouter.post("/resetPassword-confirm", async (req, res) => {
 
 // logout ---------------------------------------------------------------------------------------------
 
-userRouter.get("/logout", (req, res) => {
+userRouter.get("/profile/logout", (req, res) => {
   res.clearCookie("auth");
   res.send("OK");
 });

@@ -12,17 +12,21 @@ import { Link, useNavigate } from "react-router-dom";
 import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import Navbar from "../../components/Navbar/Navbar";
 import Avatar from '../../images/Avatar.svg'
+import { RefreshContext } from "../../user/RefreshContext";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const { refresh, setRefresh } = useContext(RefreshContext);
   const nav = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedUser(data);
+      console.log(user);
+      setRefresh(prev => !prev)
     };
     fetchUser();
   }, []);
