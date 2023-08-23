@@ -292,15 +292,136 @@ userRouter.put("/profile", authenticateToken, async (req, res) => {
   }
 });
 
-// add likes to account of logged in user
+// add POST likes to account of logged in user ------------------------------------------------------------------------
 
-// delete likes from account of logged in user
+userRouter.put(
+  "/profile/posts/:postId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const postId = req.params.postId;
+      const user = await User.findOne({ email: req.userEmail });
+      user.isLikingPosts.push(postId);
+      await user.save();
+      res.send("post was added to 'isLikingPosts'");
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
 
-// add following to account of logged in user
+// delete POST likes from account of logged in user -------------------------------------------------------------------
 
-// delete following from account of logged in user
+userRouter.delete(
+  "/profile/posts/:postId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const postId = req.params.postId;
+      const user = await User.findOne({ email: req.userEmail });
+      let index = user.isLikingPosts.indexOf(postId);
+      if (index >= 0) {
+        user.isLikingPosts.splice(index, 1);
+        await user.save();
+        res.send("post was deleted from 'isLikingPosts'");
+      } else {
+        res.send("item not found");
+      }
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
 
-// reset Password ---------------------------------------------------------------------------------------------
+// add COMMENTS likes to account of logged in user ------------------------------------------------------------------------
+
+userRouter.put(
+  "/profile/comments/:commentId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const commentId = req.params.commentId;
+      const user = await User.findOne({ email: req.userEmail });
+      user.isLikingComments.push(commentId);
+      await user.save();
+      res.send("comment was added to 'isLikingComments'");
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
+
+// delete COMMENT likes from account of logged in user -------------------------------------------------------------------
+
+userRouter.delete(
+  "/profile/comments/:commentId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const commentId = req.params.commentId;
+      const user = await User.findOne({ email: req.userEmail });
+      let index = user.isLikingComments.indexOf(commentId);
+      if (index >= 0) {
+        user.isLikingComments.splice(index, 1);
+        await user.save();
+        res.send("comment was deleted from 'isLikingComments'");
+      } else {
+        res.send("item not found");
+      }
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
+
+// add following to account of logged in user --------------------------------------------------------------------
+
+userRouter.put(
+  "/profile/following/:userId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findOne({ email: req.userEmail });
+      user.isFollowing.push(userId);
+      await user.save();
+      res.send("user was added to 'isFollowing'");
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
+
+// delete following from account of logged in user ---------------------------------------------------------------
+
+userRouter.delete(
+  "/profile/following/:userId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findOne({ email: req.userEmail });
+      let index = user.isFollowing.indexOf(userId);
+      if (index >= 0) {
+        user.isFollowing.splice(index, 1);
+        await user.save();
+        res.send("user was deleted from 'isFollowing'");
+      } else {
+        res.send("item not found");
+      }
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
+
+// reset Password ------------------------------------------------------------------------------------------------
 
 userRouter.post("/resetPassword", async (req, res) => {
   const { email } = req.body;

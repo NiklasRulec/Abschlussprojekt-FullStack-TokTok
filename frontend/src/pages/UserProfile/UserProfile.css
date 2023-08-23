@@ -183,3 +183,7 @@
   animation: fade-in 0.5s;
   z-index: 11;
 }
+
+.more-menu-icon {
+  cursor: pointer;
+}

@@ -19,15 +19,7 @@ const EditProfileInfo = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      // console.log(data);
-      // setName(data.name);
-      // setUsername(data.username);
-      // setProfession(data.profession);
-      // setBirthday(data.birthday);
       setEmail(data.email);
-      // setPhone(data.phone);
-      // setGender(data.gender);
-      // setWebsite(data.domain);
       if (data.nickname){
         setHasNickname(true)
       }
@@ -112,12 +104,6 @@ const EditProfileInfo = () => {
             id="birthday"
             onChange={(e) => setBirthday(e.target.value)}
           />
-          {/* <input
-            type="text"
-            placeholder="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-          /> */}
           <input
             type="text"
             placeholder="phone"
@@ -135,7 +121,7 @@ const EditProfileInfo = () => {
             id="website"
             onChange={(e) => setWebsite(e.target.value)}
           />
-          <input type="submit" value="Update" className="update-btn" />
+          <button typeof="submit" className="update-btn">Update</button>
         </form>
       </article>
     </>

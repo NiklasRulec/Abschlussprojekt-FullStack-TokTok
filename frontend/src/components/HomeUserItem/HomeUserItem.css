@@ -18,4 +18,5 @@
   align-items: center;
   justify-content: flex-start;
   padding-left: 1rem;
+  gap: 2rem;
 }
