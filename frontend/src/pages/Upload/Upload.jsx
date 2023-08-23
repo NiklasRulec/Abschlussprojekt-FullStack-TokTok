@@ -88,12 +88,15 @@ const handleFileUpload = (event) => {
 
             </div>
             <article className="upload-window">
-              <input
-                type="file"
-                className="custom-file-upload semibold-18"
-                title="Upload"
-                onChange={handleFileUpload}
-              />
+              <div className="custom-upload-btn">
+                <input
+                  type="file"
+                  id="custom-file-upload"
+                  name="file-input"
+                  onChange={handleFileUpload}
+                />
+                <label id="file-input-label" htmlFor="custom-file-upload">Upload</label>
+              </div>
             </article>
 
             <article className="gallery-list">

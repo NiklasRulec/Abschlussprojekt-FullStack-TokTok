@@ -24,7 +24,7 @@
   padding-left: 1rem;
   resize: none;
   overflow-y: auto;
-  padding: 1.5rem 1rem;
+  padding: 1.3rem 1rem;
   outline: none;
   font-family: "UrbanistMedium";
 }
@@ -47,4 +47,5 @@
   border: none;
   background-color: white;
   color: var(--color-pink-bright);
+  cursor: pointer;
 }

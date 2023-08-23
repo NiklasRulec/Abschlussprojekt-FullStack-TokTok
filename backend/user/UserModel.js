@@ -64,10 +64,16 @@ export const userSchema = new mongoose.Schema({
       },
     },
   ],
-  isLiking: [
+  isLikingPosts: [
     {
       type: mongoose.Types.ObjectId,
       ref: "Post",
+    },
+  ],
+  isLikingComments: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Comment",
     },
   ],
   isFollowing: [
