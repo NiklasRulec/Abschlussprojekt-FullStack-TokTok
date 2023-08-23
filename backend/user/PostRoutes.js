@@ -58,8 +58,6 @@ postRouter.post(
               time: "1 minute ago",
               image: { url: result.secure_url, imageId: result.public_id },
             });
-            // console.log(await Post.find());
-            // user.posts.push(dbRes);
             user.posts.splice(0, 0, dbRes);
             user.amountOfPosts = user.posts.length;
             await user.save();

@@ -63,7 +63,7 @@ const Comments = () => {
               <p className="profession">{postData.time}</p>
               <figure className="post-detail-likes-and-comments">
                 <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
-                <CommentsNumber amountOfComments={postData.amountOfComments} />
+                <CommentsNumber post={postData} postId={params.id} />
               </figure>
             </article>
           </section>
