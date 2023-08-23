@@ -1,6 +1,6 @@
 import "./CommentItem.css";
 import UserInfoComments from "../UserInfoComments/UserInfoComments";
-import Likes from "../Likes/Likes";
+import LikesComments from "../Likes/LikesComments";
 
 const CommentItem = ({ comment }) => {
   return (
@@ -8,7 +8,7 @@ const CommentItem = ({ comment }) => {
       <UserInfoComments user={comment.user} />
       <p className="comment-text">{comment.comment}</p>
       <figure className="comment-info">
-        <Likes amountOfLikes={comment.amountOfLikes} />
+        <LikesComments amountOfLikes={comment.amountOfLikes} commentId={comment._id} />
         <p>Reply</p>
         <p className="profession">{comment.time}</p>
       </figure>

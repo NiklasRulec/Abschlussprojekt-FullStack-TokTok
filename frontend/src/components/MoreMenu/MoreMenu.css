@@ -14,8 +14,8 @@
 .stroke {
   display: flex;
   margin: 1.5rem auto;
-  width: 12%;
-  height: 3px;
+  width: 9rem;
+  cursor: pointer;
 }
 
 .set,
