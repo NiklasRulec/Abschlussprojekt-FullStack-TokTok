@@ -7,7 +7,6 @@ import { RefreshContext } from "../../user/RefreshContext";
 import Logo from "../../images/Logo.svg";
 import Hide from "../../images/Hide.svg";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
-import { AmountOfFollowingContext } from '../../user/AmountOfFollowingContext'
 
 export default function SignUp() {
   const { refresh, setRefresh } = useContext(RefreshContext);
@@ -18,7 +17,6 @@ export default function SignUp() {
   const [success, setSuccess] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const { amountOfFollowing, setAmountOfFollowing } = useContext(AmountOfFollowingContext)
   let waitForNavigation;
 
   const goToEditProfile = () => {
@@ -38,7 +36,6 @@ export default function SignUp() {
           const { data } = await axios.post("/api/user/login", loginInput);
           if (data) {
             setRefresh((prev) => !prev);
-            setAmountOfFollowing(data.data.amountOfFollowing)
             waitForNavigation = setTimeout(goToEditProfile, 3000);
           }
         } catch (e) {

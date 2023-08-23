@@ -3,14 +3,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import followIcon from "../../images/Follow.svg";
 import feeds from "../../images/Feeds.svg";
-import arrowleft from "../../images/ArrowLeft.svg";
 import moremenu from "../../images/MoreMenu.svg";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import { RefreshContext } from "../../user/RefreshContext";
-import { AmountOfFollowingContext } from '../../user/AmountOfFollowingContext'
 
 const Profile = () => {
   const params = useParams();
@@ -18,7 +16,6 @@ const Profile = () => {
   const nav = useNavigate();
   const [following, setFollowing] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
-  const { amountOfFollowing, setAmountOfFollowing } = useContext(AmountOfFollowingContext)
 
   // get data of logged in user and save the state whether he/she is already following that other user
   useEffect(() => {
@@ -30,7 +27,6 @@ const Profile = () => {
         }
     }
     fetchData()
-    // console.log(amountOfFollowing);
   },[refresh])
 
   // get data of userprofile by id
@@ -46,7 +42,6 @@ const Profile = () => {
     const userId = params.id
     const { data } = await axios.put(`/api/user/profile/following/${userId}`)
     setFollowing(true)
-    setAmountOfFollowing(prev => prev + 1)
     setRefresh(prev => !prev)
   }
 
@@ -54,7 +49,6 @@ const Profile = () => {
     const userId = params.id
     const { data } = await axios.delete(`/api/user/profile/following/${userId}`)
     setFollowing(false)
-    setAmountOfFollowing(prev => prev - 1)
     setRefresh(prev => !prev)
   }
 
