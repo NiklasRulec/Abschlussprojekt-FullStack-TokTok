@@ -78,6 +78,7 @@ const UserProfile = () => {
                 </div>
             </article>
             </div>
+            
             {loggedUser.image ? (
               <img
                 src={loggedUser.image.url}

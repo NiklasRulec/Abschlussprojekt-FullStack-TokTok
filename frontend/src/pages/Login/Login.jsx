@@ -19,16 +19,15 @@ export default function Login() {
   const submit = async (e) => {
     e.preventDefault();
     setError(null);
-
     const loginInput = {
       email: email,
       password: password,
     };
-
     try {
       const { data } = await axios.post("/api/user/login", loginInput);
       if (data) {
         setRefresh((prev) => !prev);
+        console.log(data.data.amountOfFollowing);
         setAmountOfFollowing(data.data.amountOfFollowing)
         navigate("/home");
       }
