@@ -57,38 +57,43 @@ const Profile = () => {
     <>
       <InfoBar />
       {userData ? (
-          <section className="profile-section">
-            <div className="nav-fixed-wrapper">
-              <article className="profile-top">
-                <div className="profile-header-left">
-                <BackBtn/>
+        <section className="profile-section">
+          <div className="nav-fixed-wrapper">
+            <article className="profile-top">
+              <div className="profile-header-left">
+                <BackBtn />
                 <h2>{userData.nickname}</h2>
-                </div>
-                <img src={moremenu} alt="moremenu-icon" />
-              </article>
-            </div>
-            <img src={userData.image.url} alt="profilepic" className="profile-image"/>
-            <h2>{userData.name}</h2>
-            <h4>{userData.profession}</h4>
-            <p>{userData.description}</p>
-            <a href={userData.domain}>{userData.domain}</a>
-            <article className="profile-numbers">
-              <div className="profile-numbers-block">
-                <h2>{userData.amountOfPosts}</h2>
-                <p>Posts</p>
               </div>
-              <div className="small-vertical-line"></div>
-              <div className="profile-numbers-block">
-                <h2>{userData.amountOfFollowers}</h2>
-                <p>Followers</p>
-              </div>
-              <div className="small-vertical-line"></div>
-              <div className="profile-numbers-block">
-                <h2>{userData.amountOfFollowing}</h2>
-                <p>Following</p>
-              </div>
+              <img src={moremenu} alt="moremenu-icon" />
             </article>
-          
+
+          </div>
+          <img
+            src={userData.image.url}
+            alt="profilepic"
+            className="profile-image"
+          />
+          <h2>{userData.name}</h2>
+          <h4>{userData.profession}</h4>
+          <p>{userData.description}</p>
+          <a href={userData.domain}>{userData.domain}</a>
+          <article className="profile-numbers">
+            <div className="profile-numbers-block">
+              <h2>{userData.amountOfPosts}</h2>
+              <p>Posts</p>
+            </div>
+            <div className="small-vertical-line"></div>
+            <div className="profile-numbers-block">
+              <h2>{userData.amountOfFollowers}</h2>
+              <p>Followers</p>
+            </div>
+            <div className="small-vertical-line"></div>
+            <div className="profile-numbers-block">
+              <h2>{userData.amountOfFollowing}</h2>
+              <p>Following</p>
+            </div>
+          </article>
+
             {following ? (
             <button className="following-btn" onClick={unFollow}>
               Following

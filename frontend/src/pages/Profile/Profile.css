@@ -73,7 +73,7 @@
 }
 
 .profile-section .follow-btn {
-  width: 38rem;
+  width: 95%;
   height: 4.5rem;
   margin-bottom: 2rem;
   background-color: var(--color-pink-bright);
@@ -89,7 +89,7 @@
 }
 
 .profile-section .following-btn {
-  width: 38rem;
+  width: 95%;
   height: 4.5rem;
   margin-bottom: 2rem;
   background-color: white;
