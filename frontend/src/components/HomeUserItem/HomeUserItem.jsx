@@ -29,10 +29,7 @@ const HomeUserItem = (props) => {
       </Link>
       <div className="home-user-item-bottom">
         <LikesPosts amountOfLikes={props.post.amountOfLikes} postId={postId} />
-        <CommentsNumber
-          amountOfComments={props.post.amountOfComments}
-          postId={postId}
-        />
+        <CommentsNumber postId={postId} post={postData} />
       </div>
     </article>
   );

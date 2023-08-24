@@ -12,14 +12,15 @@ const Search = () => {
     setSearchQuery(query);
   };
 
-  return (
-    <>
-      <InfoBar />
-      <SearchInput onSearch={handleSearch} />
-      <SearchList searchQuery={searchQuery} />
-      <Navbar />
-    </>
-  );
-};
+    return ( 
+        <>
+        {/* <InfoBar /> */}
+        <SearchInput onSearch={handleSearch} />
+        <SearchList searchQuery={searchQuery} />
+        <Navbar />
+        </>
+    )
+}
+
 
 export default Search;

@@ -18,10 +18,10 @@ const Home = () => {
   };
   return (
     <>
-      <InfoBar />
       <div
         className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
       >
+      {/* <InfoBar /> */}
         <div className="home-section-top">
           <div className="home-section-top-left">
             <img src={Logo} alt="logo" className="toktok-logo" />
@@ -52,6 +52,7 @@ const Home = () => {
       </div>
       <HomeUserList />
       <Navbar />
+   
     </>
   );
 };

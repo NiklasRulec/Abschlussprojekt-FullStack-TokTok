@@ -23,6 +23,7 @@ import infolight from "../../images/info-light.svg";
 const MoreMenu = ({ onClose }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [slideOut, setSlideOut] = useState(false);
+  const { logout, isLoggedIn } = useContext(UserContext)
 
   useEffect(() => {
     if (slideOut) {
@@ -36,7 +37,6 @@ const MoreMenu = ({ onClose }) => {
   const handleStrokeClick = () => {
     setSlideOut(true);
   };
-  const { logout } = useContext(UserContext);
 
   const userLogout = () => {
     logout();

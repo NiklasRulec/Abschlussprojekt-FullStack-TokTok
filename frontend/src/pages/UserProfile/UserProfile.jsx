@@ -17,18 +17,22 @@ import { ThemeContext } from "../../user/ThemeContext";
 import addlight from "../../images/add-light.svg";
 import editlight from "../../images/edit-light.svg";
 import moremenulight from "../../images/moremenu-light.svg";
+import { RefreshContext } from "../../user/RefreshContext";
+
 
 const UserProfile = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [loggedUser, setLoggedUser] = useState();
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const { refresh, setRefresh } = useContext(RefreshContext);
   const nav = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedUser(data);
+      setRefresh(prev => !prev)
     };
     fetchUser();
   }, []);
@@ -48,7 +52,7 @@ const UserProfile = () => {
   return (
     <>
       <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
-      <InfoBar />
+      {/* <InfoBar /> */}
 
       {loggedUser ? (
         <>
@@ -109,6 +113,7 @@ const UserProfile = () => {
                 </div>
               </article>
             </div>
+            
             {loggedUser.image ? (
               <img
                 src={loggedUser.image.url}
@@ -137,7 +142,7 @@ const UserProfile = () => {
               </div>
               <div className="small-vertical-line"></div>
               <div className="user-profile-numbers-block">
-                <h2>{loggedUser.amountOfFollowing}</h2>
+                <h2>{loggedUser.isFollowing.length}</h2>
                 <p>Following</p>
               </div>
             </article>

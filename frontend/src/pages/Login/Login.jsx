@@ -14,16 +14,13 @@ export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-
   const submit = async (e) => {
     e.preventDefault();
     setError(null);
-
     const loginInput = {
       email: email,
       password: password,
     };
-
     try {
       const { data } = await axios.post("/api/user/login", loginInput);
       if (data) {
@@ -38,14 +35,14 @@ export default function Login() {
 
   return (
     <>
-    <InfoBar />
+    <div className="login-page">
+    {/* <InfoBar /> */}
     <div className="headline">
         <h1>
           Login to your Account
         </h1>
       </div>
       <img src={Logo} className="logo" />
-
 
     <form onSubmit={submit}>
       <input name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} id="email"/>
@@ -59,10 +56,11 @@ export default function Login() {
 
     <div className="sign-in-user">
         <p className="login-signup-question">Don't have an account?</p>
-        <Link to="/" className="sign-in">
+        <Link to="/signup" className="sign-in">
           Sign up
         </Link>
       </div>
+    </div>
     </>
   );
 }

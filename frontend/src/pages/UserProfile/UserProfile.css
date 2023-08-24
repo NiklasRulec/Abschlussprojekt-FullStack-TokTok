@@ -5,19 +5,18 @@
   justify-content: center;
   flex-direction: column;
   animation: fade-in 1s;
-  margin-top: 12rem;
+  margin-top: 9rem;
+  /* margin-top: 12rem; --> without mobile simulator */
+  padding-bottom: 8rem;
 }
 .user-profile-top {
   padding: 0 2rem;
-}
-.user-profile-top-buttons {
-  cursor: pointer;
 }
 
 .user-profile-section .user-profile-top {
   width: 100%;
   height: 4.8rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; --> without mobile simulator */
   display: flex;
   align-items: center;
   justify-content: space-between;
