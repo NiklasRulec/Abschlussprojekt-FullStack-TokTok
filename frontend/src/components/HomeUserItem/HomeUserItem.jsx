@@ -6,6 +6,7 @@ import { RefreshContext } from "../../user/RefreshContext";
 import axios from "axios";
 import LikesPosts from "../Likes/LikesPosts";
 import CommentsNumber from "../CommentsNumber/CommentsNumber";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const HomeUserItem = (props) => {
   const postId = props.post._id;

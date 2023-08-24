@@ -1,5 +1,5 @@
 import "./Upload.css";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import InfoBar from "../../components/InfoBar/InfoBar";
 import CancelBtn from "../../components/CancelBtn/CancelBtn";
@@ -11,7 +11,11 @@ import Location from "../../images/Location.svg";
 import ToggleActive from "../../images/ToggleActive.svg";
 import ToggleInactive from "../../images/ToggleInactive.svg";
 import Settings from "../../images/Settings.svg";
-import Avatar from '../../images/Avatar.svg'
+import Avatar from "../../images/Avatar.svg";
+import { ThemeContext } from "../../user/ThemeContext";
+import categorylight from "../../images/category-light.svg";
+import cameralight from "../../images/camera-light.svg";
+import arrowdownlight from "../../images/arrow-down-light.svg";
 
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -20,7 +24,8 @@ const Upload = () => {
   const [facebookToggle, setFacebookToggle] = useState(false);
   const [twitterToggle, setTwitterToggle] = useState(false);
   const [tumblrToggle, setTumblrToggle] = useState(false);
-  const caption = useRef()
+  const caption = useRef();
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleClick = (toggleType) => {
     if (toggleType === "facebook") {
@@ -43,33 +48,33 @@ const Upload = () => {
 
   const postImage = async () => {
     const formData = new FormData();
-    formData.append("image", uploadedImage)
-    formData.append("caption", caption.current.value)
+    formData.append("image", uploadedImage);
+    formData.append("caption", caption.current.value);
     try {
       const response = await axios.post("/api/post", formData, {
         headers: {
-          "Content-Type": "multipart/form-data"
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
       // console.log(response.data);
       window.location.href = "/home";
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-const handleFileUpload = (event) => {
-  const uploadedFile = event.target.files[0];
-  setUploadedImage(uploadedFile);
-  setShowPopup(true);
-}
+  const handleFileUpload = (event) => {
+    const uploadedFile = event.target.files[0];
+    setUploadedImage(uploadedFile);
+    setShowPopup(true);
+  };
 
   const closePopup = () => {
     setShowPopup(false);
   };
 
   const closeBtnClick = () => {
-    setUploadedImage()
+    setUploadedImage();
     closePopup();
     window.location.reload();
   };
@@ -80,12 +85,15 @@ const handleFileUpload = (event) => {
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">
-            <div className="nav-fixed-wrapper">
+            <div
+              className={
+                theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
+              }
+            >
               <article className="new-post">
                 <CancelBtn />
                 <h2>New Post</h2>
               </article>
-
             </div>
             <article className="upload-window">
               <div className="custom-upload-btn">
@@ -95,7 +103,9 @@ const handleFileUpload = (event) => {
                   name="file-input"
                   onChange={handleFileUpload}
                 />
-                <label id="file-input-label" htmlFor="custom-file-upload">Upload</label>
+                <label id="file-input-label" htmlFor="custom-file-upload">
+                  Upload
+                </label>
               </div>
             </article>
 
@@ -103,20 +113,28 @@ const handleFileUpload = (event) => {
               <div className="gallery-top">
                 <div className="gallery-arrow">
                   <h3>Gallery</h3>
-                  <img src={Arrowdown} alt="" />
+                  {theme ? (
+                    <img src={arrowdownlight} alt="" />
+                  ) : (
+                    <img src={Arrowdown} alt="" />
+                  )}
                 </div>
                 <div className="cam-category">
-                  <img src={Category} alt="" />
-                  <img src={Cam} alt="" />
+                  {theme ? (
+                    <img src={categorylight} alt="" />
+                  ) : (
+                    <img src={Category} alt="" />
+                  )}
+                  {theme ? (
+                    <img src={cameralight} alt="" />
+                  ) : (
+                    <img src={Cam} alt="" />
+                  )}
                 </div>
               </div>
               <div className="img-gallery">
                 {loggedUser?.gallery?.map((pic, index) => (
-                  <img
-                    key={index}
-                    src={pic.url}
-                    alt={`{pic ${index}}`}
-                  />
+                  <img key={index} src={pic.url} alt={`{pic ${index}}`} />
                 ))}
               </div>
             </article>
@@ -127,15 +145,20 @@ const handleFileUpload = (event) => {
       )}
       {showPopup && (
         <section className="popup">
-          <div className="nav-fixed-wrapper">
+            <div
+              className={
+                theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
+              }
+            >
             <article className="new-post">
               <button className="backBtn-popup" onClick={closeBtnClick}>
                 <img src={BackArrow} alt="back" />
               </button>
               <h2>New Post</h2>
             </article>
-
           </div>
+
+
           <article className="caption-upload-img">
             {loggedUser.image ? (
               <img
@@ -144,11 +167,7 @@ const handleFileUpload = (event) => {
                 alt=""
               />
             ) : (
-            <img
-              className="profile-upload-img"
-              src={Avatar}
-              alt=""
-            />
+              <img className="profile-upload-img" src={Avatar} alt="" />
             )}
             <textarea
               type="text"
@@ -162,7 +181,11 @@ const handleFileUpload = (event) => {
               }}
             />
             {uploadedImage && (
-              <img src={URL.createObjectURL(uploadedImage)} alt="" className="new-post-img" />
+              <img
+                src={URL.createObjectURL(uploadedImage)}
+                alt=""
+                className="new-post-img"
+              />
             )}
           </article>
           <div className="stroke-upload"></div>
@@ -205,7 +228,9 @@ const handleFileUpload = (event) => {
             <p className="semibold-18">Advanced Settings</p>
           </div>
           <div className="post-upload-button">
-              <button className="semibold-18 post-btn-upload" onClick={postImage}>Post</button>
+            <button className="semibold-18 post-btn-upload" onClick={postImage}>
+              Post
+            </button>
           </div>
         </section>
       )}

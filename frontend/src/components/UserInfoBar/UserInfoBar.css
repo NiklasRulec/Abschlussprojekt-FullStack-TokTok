@@ -22,7 +22,10 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .more-menu {
   width: 3rem;
+  height: 3rem;
+  object-fit: none;
   margin-right: 0.1rem;
 }

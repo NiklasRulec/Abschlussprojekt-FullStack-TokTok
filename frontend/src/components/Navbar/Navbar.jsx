@@ -1,16 +1,18 @@
-import './Navbar.css'
-import { useState, useEffect } from "react"
-import { NavLink, useLocation } from "react-router-dom"
-import HomeActive from "../../images/HomeActive.svg"
-import HomeInactive from "../../images/HomeInactive.svg"
-import SearchActive from "../../images/SearchActive.svg"
-import SearchInactive from "../../images/SearchInactive.svg"
-import UploadActive from "../../images/UploadActive.svg"
-import UploadInactive from "../../images/UploadInactive.svg"
-import ProfileActive from "../../images/ProfileActive.svg"
-import ProfileInactive from "../../images/ProfileInactive.svg"
+import "./Navbar.css";
+import { useState, useEffect, useContext } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import HomeActive from "../../images/HomeActive.svg";
+import HomeInactive from "../../images/HomeInactive.svg";
+import SearchActive from "../../images/SearchActive.svg";
+import SearchInactive from "../../images/SearchInactive.svg";
+import UploadActive from "../../images/UploadActive.svg";
+import UploadInactive from "../../images/UploadInactive.svg";
+import ProfileActive from "../../images/ProfileActive.svg";
+import ProfileInactive from "../../images/ProfileInactive.svg";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const Navbar = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   const [active, setActive] = useState("");
   const location = useLocation();
 
@@ -29,7 +31,7 @@ const Navbar = () => {
 
   return (
     <section className="navBar">
-      <nav>
+      <nav className={theme ? "nav-dark" : "nav-light"}>
         <article className="navHome">
           <NavLink to="/home">
             <img src={active === "home" ? HomeActive : HomeInactive} alt="" />

@@ -2,10 +2,12 @@ import "./CommentInput.css";
 import { RefreshContext } from "../../user/RefreshContext";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import Avatar from '../../images/Avatar.svg'
+import Avatar from "../../images/Avatar.svg";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const CommentInput = ({ postId }) => {
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const [commentInput, setCommentInput] = useState();
   const [userData, setUserData] = useState();
 
@@ -32,7 +34,12 @@ const CommentInput = ({ postId }) => {
 
   return (
     <>
-      <form onSubmit={PostComment} className="comment-input-form">
+      <form
+        onSubmit={PostComment}
+        className={
+          theme ? "comment-input-form-dark" : "comment-input-form-light"
+        }
+      >
         {userData?.image ? (
           <img
             src={userData?.image?.url}
@@ -40,11 +47,7 @@ const CommentInput = ({ postId }) => {
             className="profile-avatar"
           />
         ) : (
-          <img
-          src={Avatar}
-          alt="profile-avatar"
-          className="profile-avatar"
-        />
+          <img src={Avatar} alt="profile-avatar" className="profile-avatar" />
         )}
         <textarea
           className="comment-input"
