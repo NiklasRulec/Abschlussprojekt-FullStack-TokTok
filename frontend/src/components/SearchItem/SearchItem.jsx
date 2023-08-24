@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from "react";
 import "./SearchItem.css";
+import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'
 import Avatar from '../../images/Avatar.svg'
 import { RefreshContext } from "../../user/RefreshContext";

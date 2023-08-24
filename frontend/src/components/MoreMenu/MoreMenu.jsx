@@ -13,6 +13,7 @@ import { UserContext } from '../../user/UserContext';
 
 const MoreMenu = ({ onClose }) => {
   const [slideOut, setSlideOut] = useState(false);
+  const { logout, isLoggedIn } = useContext(UserContext)
 
   useEffect(() => {
     if (slideOut) {
@@ -26,7 +27,6 @@ const MoreMenu = ({ onClose }) => {
   const handleStrokeClick = () => {
     setSlideOut(true);
   };
-  const { logout } = useContext(UserContext);
 
   const userLogout = () => {
     logout();

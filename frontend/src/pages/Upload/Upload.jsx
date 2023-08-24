@@ -51,7 +51,7 @@ const Upload = () => {
           "Content-Type": "multipart/form-data"
         }
       });
-      console.log(response.data);
+      // console.log(response.data);
       window.location.href = "/home";
     } catch (error) {
       console.log(error);
@@ -76,7 +76,7 @@ const handleFileUpload = (event) => {
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">

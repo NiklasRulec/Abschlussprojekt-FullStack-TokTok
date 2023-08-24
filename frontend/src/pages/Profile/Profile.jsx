@@ -3,10 +3,9 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import followIcon from "../../images/Follow.svg";
 import feeds from "../../images/Feeds.svg";
-import arrowleft from "../../images/ArrowLeft.svg";
 import moremenu from "../../images/MoreMenu.svg";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import { RefreshContext } from "../../user/RefreshContext";
@@ -55,7 +54,7 @@ const Profile = () => {
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       {userData ? (
         <section className="profile-section">
           <div className="nav-fixed-wrapper">
@@ -79,7 +78,7 @@ const Profile = () => {
           <a href={userData.domain}>{userData.domain}</a>
           <article className="profile-numbers">
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfPosts}</h2>
+              <h2>{userData.posts.length}</h2>
               <p>Posts</p>
             </div>
             <div className="small-vertical-line"></div>

@@ -14,7 +14,7 @@ const Search = () => {
 
     return ( 
         <>
-        <InfoBar />
+        {/* <InfoBar /> */}
         <SearchInput onSearch={handleSearch} />
         <SearchList searchQuery={searchQuery} />
         <Navbar />

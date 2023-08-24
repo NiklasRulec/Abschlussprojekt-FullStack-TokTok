@@ -12,24 +12,26 @@ import { Link, useNavigate } from "react-router-dom";
 import MoreMenu from "../../components/MoreMenu/MoreMenu";
 import Navbar from "../../components/Navbar/Navbar";
 import Avatar from '../../images/Avatar.svg'
+import { RefreshContext } from "../../user/RefreshContext";
 
 const UserProfile = () => {
   const [loggedUser, setLoggedUser] = useState();
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const { refresh, setRefresh } = useContext(RefreshContext);
   const nav = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedUser(data);
+      setRefresh(prev => !prev)
     };
     fetchUser();
   }, []);
 
   const toggleMoreMenu = () => {
     setShowMoreMenu(!showMoreMenu);
-
   };
   
   const closeMoreMenu = () => {
@@ -43,7 +45,7 @@ const UserProfile = () => {
   return (
     <>
       <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
-      <InfoBar />
+      {/* <InfoBar /> */}
 
       {loggedUser ? (
         <>
@@ -74,6 +76,7 @@ const UserProfile = () => {
                 </div>
             </article>
             </div>
+            
             {loggedUser.image ? (
               <img
                 src={loggedUser.image.url}
@@ -104,7 +107,7 @@ const UserProfile = () => {
               </div>
               <div className="small-vertical-line"></div>
               <div className="user-profile-numbers-block">
-                <h2>{loggedUser.amountOfFollowing}</h2>
+                <h2>{loggedUser.isFollowing.length}</h2>
                 <p>Following</p>
               </div>
             </article>
