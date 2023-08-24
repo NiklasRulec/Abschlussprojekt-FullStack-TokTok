@@ -137,7 +137,12 @@ const UserProfile = () => {
               </div>
               <div className="small-vertical-line"></div>
               <div className="user-profile-numbers-block">
-                <h2>{loggedUser.amountOfFollowers}</h2>
+                {loggedUser.followers? (
+                  <h2>{loggedUser.followers.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                // <h2>{loggedUser.amountOfFollowers}</h2>
+                )}
                 <p>Followers</p>
               </div>
               <div className="small-vertical-line"></div>

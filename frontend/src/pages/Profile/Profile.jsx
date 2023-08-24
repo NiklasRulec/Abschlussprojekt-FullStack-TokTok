@@ -42,20 +42,18 @@ const Profile = () => {
       setUserData(data[0]);
     };
     fetchUser();
-  }, []);
+  }, [refresh]);
 
   const follow = async () => {
-    const userId = params.id;
-    const { data } = await axios.put(`/api/user/profile/following/${userId}`);
+    const otherUserId = params.id;
+    const { data } = await axios.put(`/api/user/profile/follow/${otherUserId}`)
     setFollowing(true);
     setRefresh((prev) => !prev);
   };
 
   const unFollow = async () => {
-    const userId = params.id;
-    const { data } = await axios.delete(
-      `/api/user/profile/following/${userId}`
-    );
+    const otherUserId = params.id;
+    const { data } = await axios.delete(`/api/user/profile/follow/${otherUserId}`)
     setFollowing(false);
     setRefresh((prev) => !prev);
   };
@@ -104,7 +102,12 @@ const Profile = () => {
             </div>
             <div className="small-vertical-line"></div>
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfFollowers}</h2>
+                {userData.followers? (
+                  <h2>{userData.followers.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                // <h2>{userData.amountOfFollowers}</h2>
+                )}
               <p>Followers</p>
             </div>
             <div className="small-vertical-line"></div>

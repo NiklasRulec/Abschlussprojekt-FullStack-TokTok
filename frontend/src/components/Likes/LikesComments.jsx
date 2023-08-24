@@ -36,17 +36,6 @@ const LikesComments = ({ amountOfLikes, commentId }) => {
     fetchData();
   }, [refresh]);
 
-
-
-
-  // useEffect(() => {
-  //   if (isLiking === true) {
-  //     setNumberOfLikes(numberOfLikes + 1);
-  //   } else if (isLiking === false) {
-  //     setNumberOfLikes(amountOfLikes);
-  //   }
-  // }, [isLiking]);
-
   const likeComment = async () => {
     const { dataUser } = await axios.put(`/api/user/profile/comments/${commentId}`);
     const { dataComment } = await axios.put(`/api/comment/likes/${commentId}`)
@@ -102,7 +91,6 @@ const LikesComments = ({ amountOfLikes, commentId }) => {
       ) : (
         <p className="semibold-14">0</p>
       )}
-      {/* <p className="semibold-14">{numberOfLikes}</p> */}
     </div>
   );
 };
