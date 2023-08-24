@@ -27,7 +27,7 @@ const CommentInput = ({ postId }) => {
       time: "1 minute ago",
       amountOfLikes: 0,
     };
-    const { data } = await axios.put(`/api/post/${postId}`, commentData);
+    const { data } = await axios.put(`/api/post/comments/${postId}`, commentData);
     setRefresh((prev) => !prev);
     e.target.reset();
 

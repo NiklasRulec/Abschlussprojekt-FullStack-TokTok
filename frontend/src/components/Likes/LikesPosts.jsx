@@ -12,6 +12,7 @@ const LikesPosts = ({ amountOfLikes, postId }) => {
   const [isLiking, setIsLiking] = useState();
   const [numberOfLikes, setNumberOfLikes] = useState(amountOfLikes);
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const [postData, setPostData] = useState();
 
   // get data of logged in user and save the state whether he/she is already liking that post
   useEffect(() => {
@@ -26,6 +27,18 @@ const LikesPosts = ({ amountOfLikes, postId }) => {
   }, [refresh]);
 
   useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get(`/api/post/${postId}`);
+      // console.log(data);
+      setPostData(data);
+    };
+    fetchData();
+  }, [refresh]);
+
+
+
+
+  useEffect(() => {
     if (isLiking === true) {
       setNumberOfLikes(numberOfLikes + 1);
     } else if (isLiking === false) {
@@ -33,14 +46,18 @@ const LikesPosts = ({ amountOfLikes, postId }) => {
     }
   }, [isLiking]);
 
+
+
   const likePost = async () => {
-    const { data } = await axios.put(`/api/user/profile/posts/${postId}`);
+    const { dataUser } = await axios.put(`/api/user/profile/posts/${postId}`);
+    const { dataPost } = await axios.put(`/api/post/likes/${postId}`)
     setIsLiking(true);
     setRefresh((prev) => !prev);
   };
 
   const unLikePost = async () => {
-    const { data } = await axios.delete(`/api/user/profile/posts/${postId}`);
+    const { dataUser } = await axios.delete(`/api/user/profile/posts/${postId}`);
+    const { dataPost } = await axios.delete(`/api/post/likes/${postId}`)
     setIsLiking(false);
     setRefresh((prev) => !prev);
   };
@@ -79,7 +96,13 @@ const LikesPosts = ({ amountOfLikes, postId }) => {
         />
       )}
 
-      <p className="semibold-14">{numberOfLikes}</p>
+      {postData?.likes ? (
+        <p className="semibold-14">{postData.likes?.length}</p>
+      ) : (
+        <p className="semibold-14">0</p>
+      ) }
+      
+      {/* <p className="semibold-14">{numberOfLikes}</p> */}
     </div>
   );
 };

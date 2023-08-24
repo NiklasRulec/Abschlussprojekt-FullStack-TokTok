@@ -78,13 +78,50 @@ postRouter.post(
 // jeder User darf Kommentare bei Posts von anderen Usern hinzufügen
 // dafür muss zuerst ein Kommentar nach dem Comment Schema erstellt werden
 // dann den Kommentar in den Post einfügen mit der objectId
-postRouter.put("/:id", async (req, res) => {
+postRouter.put("/comments/:id", async (req, res) => {
   try {
     const comment = await Comment.create(req.body);
     const post = await Post.findById(req.params.id);
     post.comments.push(comment);
     await Promise.all([comment.save(), post.save()]);
     res.json(post);
+  } catch (err) {
+    console.log(err);
+    res.send("there was an error");
+  }
+});
+
+// update post by id -> add likes ----------------------------------------------------------------------------------------------
+
+postRouter.put("/likes/:id", authenticateToken, async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.userEmail });
+    const userId = user._id;
+    const post = await Post.findById(req.params.id);
+    post.likes.push(userId);
+    await post.save();
+    res.json(post);
+  } catch (err) {
+    console.log(err);
+    res.send("there was an error");
+  }
+});
+
+// update post by id -> delete likes ----------------------------------------------------------------------------------------------
+
+postRouter.delete("/likes/:id", authenticateToken, async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.userEmail });
+    const userId = user._id;
+    const post = await Post.findById(req.params.id);
+    const index = post.likes.indexOf(userId);
+    if (index >= 0) {
+      post.likes.splice(index, 1);
+      await post.save();
+      res.send("like was deleted");
+    } else {
+      res.send("item not found");
+    }
   } catch (err) {
     console.log(err);
     res.send("there was an error");

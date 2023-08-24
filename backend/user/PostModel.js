@@ -35,6 +35,12 @@ export const postSchema = new mongoose.Schema({
       ref: "Comment",
     },
   ],
+  likes: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   time: {
     type: String,
     // type: Date,
