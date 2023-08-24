@@ -106,13 +106,16 @@ const Profile = () => {
                   <h2>{userData.followers.length}</h2>
                 ) : (
                     <h2>0</h2>
-                // <h2>{userData.amountOfFollowers}</h2>
                 )}
               <p>Followers</p>
             </div>
             <div className="small-vertical-line"></div>
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfFollowing}</h2>
+            {userData.isFollowing? (
+                  <h2>{userData.isFollowing.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                )}
               <p>Following</p>
             </div>
           </article>
