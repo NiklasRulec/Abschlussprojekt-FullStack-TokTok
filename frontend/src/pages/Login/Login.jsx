@@ -36,7 +36,6 @@ export default function Login() {
   return (
     <>
     <div className="login-page">
-
     {/* <InfoBar /> */}
     <div className="headline">
         <h1>
@@ -57,7 +56,7 @@ export default function Login() {
 
     <div className="sign-in-user">
         <p className="login-signup-question">Don't have an account?</p>
-        <Link to="/" className="sign-in">
+        <Link to="/signup" className="sign-in">
           Sign up
         </Link>
       </div>

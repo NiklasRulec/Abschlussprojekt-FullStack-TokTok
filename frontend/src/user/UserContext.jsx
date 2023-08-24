@@ -13,8 +13,8 @@ export const UserProvider = ({ children }) => {
   const logout = async () => {
     await axios.get("/api/user/profile/logout");
     setUser(null);
+    nav("/signup");
     setRefresh(prev => !prev)
-    nav("/");
   };
 
   useEffect(() => {

@@ -30,6 +30,15 @@ const CommentInput = ({ postId }) => {
     const { data } = await axios.put(`/api/post/${postId}`, commentData);
     setRefresh((prev) => !prev);
     e.target.reset();
+
+    const commentElements = document.querySelectorAll('.single-comment');
+
+    if (commentElements.length > 0) {
+      const lastCommentElement = commentElements[commentElements.length - 2];
+      setTimeout(() => {
+        lastCommentElement.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    }
   };
 
   return (

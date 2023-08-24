@@ -14,6 +14,7 @@ import Upload from "./pages/Upload/Upload";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import LoadingScreen from "./pages/LoadingScreen/LoadingScreen";
 
 function App() {
   const [refresh, setRefresh] = useState(true);
@@ -31,7 +32,8 @@ function App() {
               <RefreshContext.Provider value={{ refresh, setRefresh }}>
                 <UserProvider>
                   <Routes>
-                    <Route path="/" element={<SignUp />} />
+                    <Route path="/" element={<LoadingScreen />} />
+                    <Route path="/signup" element={<SignUp />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/home/:id" element={<Comments />} />
