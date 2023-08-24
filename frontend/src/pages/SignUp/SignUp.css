@@ -1,15 +1,18 @@
 .sign-up-page {
   animation: fade-in 1s;
+  height: 96vh;
+  padding: 4vh 0 0 0;
 }
 .headline {
   width: 80%;
-  margin: 6rem 0 12rem 1rem;
+  margin: 0 0 8vh 0;
 }
 
 .logo {
   display: block;
   margin: auto;
-  margin-bottom: 10rem;
+  margin-bottom: 10vh;
+  width: 12rem;
 }
 
 form {
@@ -57,7 +60,6 @@ form {
 }
 .hide img {
   width: 2.5rem;
-  /* height: 4rem; */
 }
 
 .sign-in-user {
@@ -65,7 +67,7 @@ form {
   justify-content: center;
   text-align: center;
   gap: 1rem;
-  margin-top: 10rem;
+  margin-top: 12vh;
 }
 
 .sign-in {
@@ -93,6 +95,7 @@ form {
   font-family: "UrbanistRegular";
   font-size: 1.6rem;
 }
+
 .sign-in-user p {
   color: #bdbdbd;
   font-size: 1.6rem;

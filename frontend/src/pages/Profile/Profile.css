@@ -5,6 +5,7 @@
   justify-content: center;
   flex-direction: column;
   animation: fade-in 1s;
+  padding-bottom: 8rem;
 }
 .profile-top {
   padding: 0 2rem;

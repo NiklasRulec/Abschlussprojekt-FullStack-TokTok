@@ -2,6 +2,7 @@
   width: 100%;
   margin: 0 auto;
   animation: fade-in 1s;
+  padding-bottom: 8rem;
 }
 
 .search-list .search-list-top {

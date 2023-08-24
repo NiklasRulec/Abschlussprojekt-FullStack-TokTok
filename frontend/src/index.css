@@ -113,7 +113,8 @@ input {
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
-  padding: 1rem 1.8rem 9rem 1.8rem;
+  /* padding: 1rem 1.8rem 9rem 1.8rem; */
+  padding: 1rem 1.8rem 1rem 1.8rem;
 }
 
 /* without mobile simulator */

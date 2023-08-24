@@ -35,6 +35,8 @@ export default function Login() {
 
   return (
     <>
+    <div className="login-page">
+
     {/* <InfoBar /> */}
     <div className="headline">
         <h1>
@@ -59,6 +61,7 @@ export default function Login() {
           Sign up
         </Link>
       </div>
+    </div>
     </>
   );
 }
