@@ -42,9 +42,7 @@ export const postSchema = new mongoose.Schema({
     },
   ],
   time: {
-    type: String,
-    // type: Date,
-    // required: true,
+    type: Number,
   },
   amountOfLikes: {
     type: Number,

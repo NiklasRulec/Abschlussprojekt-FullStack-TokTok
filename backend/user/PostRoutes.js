@@ -54,7 +54,7 @@ postRouter.post(
               caption: req.body.caption,
               amountOfComments: 0,
               amountOfLikes: 0,
-              time: "1 minute ago",
+              time: new Date().getTime(),
               image: { url: result.secure_url, imageId: result.public_id },
             });
             user.posts.splice(0, 0, dbRes);

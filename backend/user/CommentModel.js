@@ -11,9 +11,7 @@ export const commentSchema = new mongoose.Schema({
     required: true,
   },
   time: {
-    type: String,
-    // type: Date,
-    // required: true,
+    type: Number,
   },
   amountOfLikes: {
     type: Number,
