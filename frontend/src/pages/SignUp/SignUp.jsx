@@ -65,8 +65,7 @@ export default function SignUp() {
 
   return (
     <>
-      <InfoBar />
-        <>
+      {/* <InfoBar /> */}
         <div className="sign-up-page">
         <div className="headline">
         <h1>
@@ -96,9 +95,7 @@ export default function SignUp() {
           Sign in
         </Link>
       </div>
-
       </div>
-        </>
-    </>
+  </>
   );
 }

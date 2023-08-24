@@ -1,10 +1,21 @@
-.info-bar-wrapper {
+.info-bar-wrapper-light {
   position: fixed;
-  top: 0;
   background-color: white;
+  top: 0;
   width: 100%;
   z-index: 10;
   left: 0;
+  transition: all 0.3s;
+}
+
+.info-bar-wrapper-dark {
+  position: fixed;
+  background-color: var(--color-darkmode);
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  left: 0;
+  transition: all 0.3s;
 }
 
 .info-bar {

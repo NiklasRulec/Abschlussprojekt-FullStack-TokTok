@@ -1,4 +1,21 @@
-nav {
+.nav-light {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 2.8rem 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2.5rem 2.5rem 0 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  /* margin-bottom: 1rem; */
+  transition: all 0.3s;
+}
+
+.nav-dark {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,11 +25,14 @@ nav {
   left: 0;
   width: 100%;
   height: 5px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-darkmode);
+  color: white;
   border-radius: 2.5rem 2.5rem 0 0;
   box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
   /* margin-bottom: 1rem; */
+  transition: all 0.3s;
 }
+
 .navSearch,
 .navHome,
 .navUpload,
