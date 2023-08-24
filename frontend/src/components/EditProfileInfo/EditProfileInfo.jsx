@@ -8,6 +8,7 @@ const EditProfileInfo = () => {
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [profession, setProfession] = useState();
+  const [description, setDescription] = useState();
   const [birthday, setBirthday] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
@@ -37,6 +38,7 @@ const EditProfileInfo = () => {
       name: name,
       nickname: username,
       profession: profession,
+      description: description,
       birthday: birthday,
       email: email,
       phone: phone,
@@ -97,6 +99,12 @@ const EditProfileInfo = () => {
             placeholder="profession"
             id="profession"
             onChange={(e) => setProfession(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="description"
+            id="description"
+            onChange={(e) => setDescription(e.target.value)}
           />
           <input
             type="date"

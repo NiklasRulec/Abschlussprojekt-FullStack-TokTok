@@ -11,6 +11,7 @@ import moremenulight from "../../images/moremenu-light.svg";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import { RefreshContext } from "../../user/RefreshContext";
 import { ThemeContext } from "../../user/ThemeContext";
+import Avatar from "../../images/Avatar.svg";
 
 const Profile = () => {
   const params = useParams();
@@ -81,11 +82,17 @@ const Profile = () => {
               )}
             </article>
           </div>
-          <img
-            src={userData.image.url}
-            alt="profilepic"
-            className="profile-image"
-          />
+          
+          {userData.image ? (
+              <img
+                src={userData.image.url}
+                alt="profilepic"
+                className="profile-image"
+              />
+            ) : (
+              <img src={Avatar} alt="" className="profile-image" />
+            )}
+
           <h2>{userData.name}</h2>
           <h4>{userData.profession}</h4>
           <p>{userData.description}</p>

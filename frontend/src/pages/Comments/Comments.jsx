@@ -34,7 +34,6 @@ const Comments = () => {
         className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
       >
       {/* <InfoBar /> */}
-      <div className="nav-fixed-wrapper">
         <div className="comments-header">
           <div className="comments-header-left">
             <BackBtn />
@@ -81,7 +80,6 @@ const Comments = () => {
       ) : (
         <p></p>
       )}
-      </div>
     </>
   );
 };

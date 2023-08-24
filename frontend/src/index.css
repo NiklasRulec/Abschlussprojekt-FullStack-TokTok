@@ -37,7 +37,8 @@ html {
   --color-blue-hashtag: #3f51b2;
   --color-text: #212121;
   --color-stroke: #eeeeee;
-  --color-darkmode: rgb(15, 15, 15);
+  --color-darkmode: rgb(28 26 26);
+  /* --color-darkmode: rgb(15, 15, 15); */
 }
 
 h1,
@@ -112,7 +113,6 @@ input {
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
-  /* padding: 1rem 1.8rem 9rem 1.8rem; */
   padding: 1rem 1.8rem 1rem 1.8rem;
 }
 
@@ -124,15 +124,14 @@ input {
 } */
 
 .dark {
-  /* min-width: 100vw; */
   min-height: 100vh;
   background-color: var(--color-darkmode);
-  color: white;
+  /* color: white; */
+  color: #dedede;
   transition: all 0.3s;
 }
 
 .light {
-  /* min-width: 100vw; */
   min-height: 100vh;
   background-color: white;
   color: black;
@@ -162,21 +161,6 @@ input {
 .nav-fixed-wrapper-dark {
   background-color: var(--color-darkmode);
 }
-
-/* .nav-fixed-wrapper {
-  position: fixed;
-  background-color: white;
-  height: 10rem;
-  top: -0.2rem;
-  top: 50px;
-  width: 100%;
-  background-color: white;
-  left: 0;
-  z-index: 5;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.031);
-  animation: fade-in 1s;
-  transition: all 0.3s;
-} */
 
 @keyframes fade-in {
   0% {

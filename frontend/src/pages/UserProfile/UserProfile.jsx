@@ -127,7 +127,7 @@ const UserProfile = () => {
             <h2>{loggedUser.name}</h2>
             {loggedUser.profession && <h4>{loggedUser.profession}</h4>}
             {loggedUser.description && <p>{loggedUser.description}</p>}
-            {loggedUser.description && (
+            {loggedUser.domain && (
               <a href={loggedUser.domain}>{loggedUser.domain}</a>
             )}
             <article className="user-profile-numbers">
