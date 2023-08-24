@@ -10,7 +10,7 @@ const SearchList = ({ searchQuery }) => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user`);
-      // console.log(data);
+      console.log(data);
       setUsersData(data);
     };
     fetchUser();

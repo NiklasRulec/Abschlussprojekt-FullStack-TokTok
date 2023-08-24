@@ -31,6 +31,7 @@ const UserProfile = () => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedUser(data);
+      console.log(data);
       setRefresh((prev) => !prev);
     };
     fetchUser();
