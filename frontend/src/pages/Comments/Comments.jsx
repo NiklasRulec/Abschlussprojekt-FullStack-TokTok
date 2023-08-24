@@ -7,12 +7,15 @@ import { RefreshContext } from "../../user/RefreshContext";
 import axios from "axios";
 import UserInfoBar from "../../components/UserInfoBar/UserInfoBar";
 import Message from "../../images/Message.svg";
+import messagelight from "../../images/message-light.svg";
 import CommentInput from "../../components/CommentInput/CommentInput";
 import CommentList from "../../components/CommentList/CommentList";
 import LikesPosts from "../../components/Likes/LikesPosts";
 import CommentsNumber from "../../components/CommentsNumber/CommentsNumber";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const Comments = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   const params = useParams();
   const [postData, setPostData] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
@@ -30,13 +33,19 @@ const Comments = () => {
   return (
     <>
       <InfoBar />
-      <div className="nav-fixed-wrapper">
+      <div
+        className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
+      >
         <div className="comments-header">
           <div className="comments-header-left">
             <BackBtn />
             <h2>Comments</h2>
           </div>
-          <img src={Message} alt="Message" className="share-img" />
+          {theme ? (
+            <img src={messagelight} alt="Message" className="share-img" />
+          ) : (
+            <img src={Message} alt="Message" className="share-img" />
+          )}
         </div>
       </div>
 
@@ -62,7 +71,10 @@ const Comments = () => {
               )}
               <p className="profession">{postData.time}</p>
               <figure className="post-detail-likes-and-comments">
-                <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
+                <LikesPosts
+                  amountOfLikes={postData.amountOfLikes}
+                  postId={params.id}
+                />
                 <CommentsNumber amountOfComments={postData.amountOfComments} />
               </figure>
             </article>

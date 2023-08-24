@@ -1,4 +1,4 @@
-.comment-input-form {
+.comment-input-form-light {
   width: 100%;
   height: 10rem;
   padding: 4rem 2rem 5rem 2rem;
@@ -15,7 +15,25 @@
   animation: fade-in 1s;
 }
 
-.comment-input-form .comment-input {
+.comment-input-form-dark {
+  width: 100%;
+  height: 10rem;
+  padding: 4rem 2rem 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2.5rem 2.5rem 0 0;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-darkmode);
+  margin-left: 0rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  animation: fade-in 1s;
+}
+
+.comment-input-form-light .comment-input,
+.comment-input-form-dark .comment-input {
   width: 70%;
   height: 4.6rem;
   border: none;
@@ -28,6 +46,7 @@
   outline: none;
   font-family: "UrbanistMedium";
 }
+
 .post-btn {
   font-family: "UrbanistBold";
 }
@@ -37,7 +56,7 @@
   background-color: #e9809018;
 }
 
-.comment-input-form .post-btn {
+.comment-input-form-light .post-btn {
   width: 3.5rem;
   height: 2.5rem;
   font-size: 1.8rem;
@@ -46,6 +65,19 @@
   justify-content: center;
   border: none;
   background-color: white;
+  color: var(--color-pink-bright);
+  cursor: pointer;
+}
+
+.comment-input-form-dark .post-btn {
+  width: 3.5rem;
+  height: 2.5rem;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: rgb(70, 70, 70);
   color: var(--color-pink-bright);
   cursor: pointer;
 }

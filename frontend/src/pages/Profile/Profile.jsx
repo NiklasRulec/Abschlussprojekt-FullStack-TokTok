@@ -8,8 +8,10 @@ import followIcon from "../../images/Follow.svg";
 import feeds from "../../images/Feeds.svg";
 import arrowleft from "../../images/ArrowLeft.svg";
 import moremenu from "../../images/MoreMenu.svg";
+import moremenulight from "../../images/moremenu-light.svg";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import { RefreshContext } from "../../user/RefreshContext";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const Profile = () => {
   const params = useParams();
@@ -17,18 +19,21 @@ const Profile = () => {
   const nav = useNavigate();
   const [following, setFollowing] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   // get data of logged in user and save the state whether he/she is already following that other user
   useEffect(() => {
     const fetchData = async () => {
-        const { data } = await axios.get("/api/user/profile")
-        let isFollowing = data.isFollowing.filter((userId) =>  userId == params.id)
-        if(isFollowing.length > 0){
-          setFollowing(true)
-        }
-    }
-    fetchData()
-  },[refresh])
+      const { data } = await axios.get("/api/user/profile");
+      let isFollowing = data.isFollowing.filter(
+        (userId) => userId == params.id
+      );
+      if (isFollowing.length > 0) {
+        setFollowing(true);
+      }
+    };
+    fetchData();
+  }, [refresh]);
 
   // get data of userprofile by id
   useEffect(() => {
@@ -40,33 +45,42 @@ const Profile = () => {
   }, []);
 
   const follow = async () => {
-    const userId = params.id
-    const { data } = await axios.put(`/api/user/profile/following/${userId}`)
-    setFollowing(true)
-    setRefresh(prev => !prev)
-  }
+    const userId = params.id;
+    const { data } = await axios.put(`/api/user/profile/following/${userId}`);
+    setFollowing(true);
+    setRefresh((prev) => !prev);
+  };
 
   const unFollow = async () => {
-    const userId = params.id
-    const { data } = await axios.delete(`/api/user/profile/following/${userId}`)
-    setFollowing(false)
-    setRefresh(prev => !prev)
-  }
+    const userId = params.id;
+    const { data } = await axios.delete(
+      `/api/user/profile/following/${userId}`
+    );
+    setFollowing(false);
+    setRefresh((prev) => !prev);
+  };
 
   return (
     <>
       <InfoBar />
       {userData ? (
         <section className="profile-section">
-          <div className="nav-fixed-wrapper">
+          <div
+            className={
+              theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
+            }
+          >
             <article className="profile-top">
               <div className="profile-header-left">
                 <BackBtn />
                 <h2>{userData.nickname}</h2>
               </div>
-              <img src={moremenu} alt="moremenu-icon" />
+              {theme ? (
+                <img src={moremenulight} alt="moremenu-icon" />
+              ) : (
+                <img src={moremenu} alt="moremenu-icon" />
+              )}
             </article>
-
           </div>
           <img
             src={userData.image.url}
@@ -94,7 +108,7 @@ const Profile = () => {
             </div>
           </article>
 
-            {following ? (
+          {following ? (
             <button className="following-btn" onClick={unFollow}>
               Following
             </button>

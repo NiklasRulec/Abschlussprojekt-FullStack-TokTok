@@ -1,8 +1,10 @@
+import { ThemeContext } from "../../user/ThemeContext";
 import "./SearchInput.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const SearchInput = ({ onSearch }) => {
   const [safeSearch, setSafeSearch] = useState("");
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const search = (e) => {
     const safeSearch = e.target.value;
@@ -12,17 +14,19 @@ const SearchInput = ({ onSearch }) => {
 
   return (
     <>
-    <div className="nav-fixed-wrapper">
-      <div className="searchBar">
-        <input
-          className="searchInput"
-          type="text"
-          placeholder="Search..."
-          value={safeSearch}
-          onChange={search}
-        />
+      <div
+        className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
+      >
+        <div className="searchBar">
+          <input
+            className="searchInput"
+            type="text"
+            placeholder="Search..."
+            value={safeSearch}
+            onChange={search}
+          />
+        </div>
       </div>
-    </div>
     </>
   );
 };

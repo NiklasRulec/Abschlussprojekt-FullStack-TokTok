@@ -8,10 +8,20 @@ import Bookmark from "../../images/Bookmark.svg";
 import Friends from "../../images/Friends.svg";
 import HeartInactive from "../../images/HeartInactive.svg";
 import Info from "../../images/Info.svg";
-import {useState, useEffect, useContext} from "react"
-import { UserContext } from '../../user/UserContext';
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../user/UserContext";
+import { ThemeContext } from "../../user/ThemeContext";
+import settingslight from "../../images/settings-light.svg";
+import archivelight from "../../images/archive-light.svg";
+import activitylight from "../../images/activity-light.svg";
+import qrlight from "../../images/qr-light.svg";
+import savedlight from "../../images/saved-light.svg";
+import friendslight from "../../images/friends-light.svg";
+import favoriteslight from "../../images/favorites-light.svg";
+import infolight from "../../images/info-light.svg";
 
 const MoreMenu = ({ onClose }) => {
+  const { theme, setTheme } = useContext(ThemeContext);
   const [slideOut, setSlideOut] = useState(false);
 
   useEffect(() => {
@@ -33,41 +43,94 @@ const MoreMenu = ({ onClose }) => {
   };
 
   return (
-    <section className={`more-menu-menu ${slideOut ? 'slide-out-menu' : ''}`}>
-      <img src={Vector} alt="vector" className="stroke" onClick={handleStrokeClick} />
+    <section
+      className={
+        theme
+          ? `more-menu-menu-dark ${slideOut ? "slide-out-menu" : ""}`
+          : `more-menu-menu-light ${slideOut ? "slide-out-menu" : ""}`
+      }
+    >
+      <img
+        src={Vector}
+        alt="vector"
+        className="stroke"
+        onClick={handleStrokeClick}
+      />
       <div className="set">
-        <img className="more-menu-icon" src={Settings} alt="setting" />
+        {theme ? (
+          <img className="more-menu-icon" src={settingslight} alt="setting" />
+        ) : (
+          <img className="more-menu-icon" src={Settings} alt="setting" />
+        )}
+
         <h5 className="semibold-18">Settings</h5>
       </div>
       <div className="archive">
-        <img className="more-menu-icon" src={ArrowDown} alt="down" />
+        {theme ? (
+          <img className="more-menu-icon" src={archivelight} alt="down" />
+        ) : (
+          <img className="more-menu-icon" src={ArrowDown} alt="down" />
+        )}
+
         <h5 className="semibold-18">Archive</h5>
       </div>
       <div className="activity">
-        <img className="more-menu-icon" src={Time} alt="time" />
+        {theme ? (
+          <img className="more-menu-icon" src={activitylight} alt="time" />
+        ) : (
+          <img className="more-menu-icon" src={Time} alt="time" />
+        )}
+
         <h5 className="semibold-18">Your Activity</h5>
       </div>
       <div className="code-scan">
-        <img className="more-menu-icon" src={Scan} alt="qr" />
+        {theme ? (
+          <img className="more-menu-icon" src={qrlight} alt="qr" />
+        ) : (
+          <img className="more-menu-icon" src={Scan} alt="qr" />
+        )}
+
         <h5 className="semibold-18">QR Code</h5>
       </div>
       <div className="mark">
-        <img className="more-menu-icon" src={Bookmark} alt="save" />
+        {theme ? (
+          <img className="more-menu-icon" src={savedlight} alt="save" />
+        ) : (
+          <img className="more-menu-icon" src={Bookmark} alt="save" />
+        )}
+
         <h5 className="semibold-18">Saved</h5>
       </div>
       <div className="closing">
-        <img className="more-menu-icon" src={Friends} alt="close" />
+        {theme ? (
+          <img className="more-menu-icon" src={friendslight} alt="close" />
+        ) : (
+          <img className="more-menu-icon" src={Friends} alt="close" />
+        )}
+
         <h5 className="semibold-18">Close Friends</h5>
       </div>
       <div className="heart">
-        <img className="more-menu-icon" src={HeartInactive} alt="favorite" />
+        {theme ? (
+          <img className="more-menu-icon" src={favoriteslight} alt="favorite" />
+        ) : (
+          <img className="more-menu-icon" src={HeartInactive} alt="favorite" />
+        )}
+
         <h5 className="semibold-18">Favorites</h5>
       </div>
       <div className="info">
-        <img className="more-menu-icon" src={Info} alt="information" />
+        {theme ? (
+          <img className="more-menu-icon" src={infolight} alt="information" />
+        ) : (
+          <img className="more-menu-icon" src={Info} alt="information" />
+        )}
+
         <h5 className="semibold-18">Information Center</h5>
       </div>
-      <p className="semibold-18 logout-btn" onClick={userLogout}>Logout</p>
+      <p className="semibold-18 logout-btn" onClick={userLogout}>
+        Logout
+      </p>
     </section>
   );
 };

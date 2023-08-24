@@ -15,7 +15,7 @@
 .comments-header .share-img {
   width: 3.5rem;
   height: 3.5rem;
-  object-fit: contain;
+  object-fit: none;
   margin-right: 2rem;
 }
 

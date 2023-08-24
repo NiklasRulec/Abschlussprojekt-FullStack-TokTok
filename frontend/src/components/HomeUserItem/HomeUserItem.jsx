@@ -6,6 +6,7 @@ import { RefreshContext } from "../../user/RefreshContext";
 import axios from "axios";
 import LikesPosts from "../Likes/LikesPosts";
 import CommentsNumber from "../CommentsNumber/CommentsNumber";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const HomeUserItem = (props) => {
   const postId = props.post._id;
@@ -28,7 +29,10 @@ const HomeUserItem = (props) => {
       </Link>
       <div className="home-user-item-bottom">
         <LikesPosts amountOfLikes={props.post.amountOfLikes} postId={postId} />
-        <CommentsNumber amountOfComments={props.post.amountOfComments} postId={postId} />
+        <CommentsNumber
+          amountOfComments={props.post.amountOfComments}
+          postId={postId}
+        />
       </div>
     </article>
   );
