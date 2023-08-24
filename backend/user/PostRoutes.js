@@ -4,7 +4,6 @@ import multer from "multer";
 import { Post } from "./PostModel.js";
 import { Comment } from "./CommentModel.js";
 import { v2 as cloudinary } from "cloudinary";
-
 import { authenticateToken, generateAccessToken } from "./authToken.js";
 import User from "./UserModel.js";
 

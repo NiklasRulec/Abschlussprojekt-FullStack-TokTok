@@ -29,23 +29,10 @@ const LikesPosts = ({ amountOfLikes, postId }) => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(`/api/post/${postId}`);
-      // console.log(data);
       setPostData(data);
     };
     fetchData();
   }, [refresh]);
-
-
-
-
-  useEffect(() => {
-    if (isLiking === true) {
-      setNumberOfLikes(numberOfLikes + 1);
-    } else if (isLiking === false) {
-      setNumberOfLikes(amountOfLikes);
-    }
-  }, [isLiking]);
-
 
 
   const likePost = async () => {
@@ -100,9 +87,7 @@ const LikesPosts = ({ amountOfLikes, postId }) => {
         <p className="semibold-14">{postData.likes?.length}</p>
       ) : (
         <p className="semibold-14">0</p>
-      ) }
-      
-      {/* <p className="semibold-14">{numberOfLikes}</p> */}
+      )}
     </div>
   );
 };

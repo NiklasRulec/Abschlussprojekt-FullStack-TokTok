@@ -421,6 +421,49 @@ userRouter.delete(
   }
 );
 
+// add followers to account of logged in user --------------------------------------------------------------------
+
+userRouter.put(
+  "/profile/followers/:userId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findOne({ email: req.userEmail });
+      user.followers.push(userId);
+      await user.save();
+      res.send("user was added to 'followers'");
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
+
+// delete followers from account of logged in user ---------------------------------------------------------------
+
+userRouter.delete(
+  "/profile/followers/:userId",
+  authenticateToken,
+  async (req, res) => {
+    try {
+      const userId = req.params.userId;
+      const user = await User.findOne({ email: req.userEmail });
+      let index = user.followers.indexOf(userId);
+      if (index >= 0) {
+        user.followers.splice(index, 1);
+        await user.save();
+        res.send("user was deleted from 'followers'");
+      } else {
+        res.send("item not found");
+      }
+    } catch (err) {
+      console.log(err);
+      res.send("there was an error");
+    }
+  }
+);
+
 // reset Password ------------------------------------------------------------------------------------------------
 
 userRouter.post("/resetPassword", async (req, res) => {
