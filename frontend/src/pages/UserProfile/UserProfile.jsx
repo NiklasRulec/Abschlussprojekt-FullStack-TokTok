@@ -19,7 +19,6 @@ import editlight from "../../images/edit-light.svg";
 import moremenulight from "../../images/moremenu-light.svg";
 import { RefreshContext } from "../../user/RefreshContext";
 
-
 const UserProfile = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [loggedUser, setLoggedUser] = useState();
@@ -32,7 +31,7 @@ const UserProfile = () => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedUser(data);
-      setRefresh(prev => !prev)
+      setRefresh((prev) => !prev);
     };
     fetchUser();
   }, []);
@@ -113,7 +112,7 @@ const UserProfile = () => {
                 </div>
               </article>
             </div>
-            
+
             {loggedUser.image ? (
               <img
                 src={loggedUser.image.url}

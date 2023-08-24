@@ -165,7 +165,6 @@ const Upload = () => {
             </article>
           </div>
 
-
           <article className="caption-upload-img">
             {loggedUser.image ? (
               <img
