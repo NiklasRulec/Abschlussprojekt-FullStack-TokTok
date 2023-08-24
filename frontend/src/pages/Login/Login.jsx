@@ -39,6 +39,7 @@ export default function Login() {
   return (
     <>
     <InfoBar />
+    <div className="login-page">
     <div className="headline">
         <h1>
           Login to your Account
@@ -59,10 +60,12 @@ export default function Login() {
 
     <div className="sign-in-user">
         <p className="login-signup-question">Don't have an account?</p>
-        <Link to="/" className="sign-in">
+        <Link to="/signup" className="sign-in">
           Sign up
         </Link>
       </div>
+
+    </div>
     </>
   );
 }

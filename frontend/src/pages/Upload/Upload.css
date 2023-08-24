@@ -43,9 +43,10 @@
   color: white;
   text-align: center;
   padding-top: 1.7rem;
+  padding-left: 1.5rem;
   cursor: pointer;
   background: url(../../images/WhiteCamera.svg) no-repeat left;
-  background-position: 8.5rem;
+  background-position: 9rem;
   background-color: var(--color-pink-bright);
 }
 
