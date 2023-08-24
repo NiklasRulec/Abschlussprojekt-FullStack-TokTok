@@ -11,8 +11,8 @@ import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 export default function SignUp() {
   const { refresh, setRefresh } = useContext(RefreshContext);
   const [error, setError] = useState(null);
-  const [showSignUp, setShowSignUp] = useState(true);
-  const [showLoading, setShowLoading] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
   const nav = useNavigate();
   const [success, setSuccess] = useState(false)
   const [email, setEmail] = useState("")
@@ -65,17 +65,17 @@ export default function SignUp() {
     }
   };
 
-  // useEffect(() => {
-  //   const signUpTimer = setTimeout(() => {
-  //     setShowSignUp(true);
-  //     setShowLoading(false);
-  //   }, 3000);
+  useEffect(() => {
+    const signUpTimer = setTimeout(() => {
+      setShowSignUp(true);
+      setShowLoading(false);
+    }, 3000);
 
-  //   return () => {
-  //     clearTimeout(signUpTimer);
-  //     setShowLoading(true);
-  //   };
-  // }, []);
+    return () => {
+      clearTimeout(signUpTimer);
+      setShowLoading(true);
+    };
+  }, []);
 
   return (
     <>
