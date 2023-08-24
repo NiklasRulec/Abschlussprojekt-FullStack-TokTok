@@ -11,13 +11,15 @@ export const UserProvider = ({ children }) => {
   const { refresh, setRefresh } = useContext(RefreshContext);
 
   const logout = async () => {
-    await axios.get("/api/user/logout");
+    await axios.get("/api/user/profile/logout");
     setUser(null);
+    setRefresh(prev => !prev)
     nav("/");
   };
 
   useEffect(() => {
     axios.get("/api/user/secure")
+    // secure route gibt email: req.userEmail zurück
       .then(({ data }) => setUser(data))
       .catch((e) => {
         setUser(null);

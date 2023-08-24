@@ -80,7 +80,7 @@ export default function SignUp() {
   return (
     <>
       {showLoading && <LoadingScreen />}
-      <InfoBar />
+      {/* <InfoBar /> */}
       {showSignUp && (
         <>
         <div className="sign-up-page">

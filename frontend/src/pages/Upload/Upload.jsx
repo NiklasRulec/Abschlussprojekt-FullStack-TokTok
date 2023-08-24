@@ -56,7 +56,7 @@ const Upload = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response.data);
+      // console.log(response.data);
       window.location.href = "/home";
     } catch (error) {
       console.log(error);
@@ -81,7 +81,7 @@ const Upload = () => {
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       {loggedUser ? (
         <section className={`upload-page ${showPopup ? "hidden-upload" : " "}`}>
           <div className="upload-wrapper">
@@ -145,7 +145,11 @@ const Upload = () => {
       )}
       {showPopup && (
         <section className="popup">
-          <div className="nav-fixed-wrapper">
+            <div
+              className={
+                theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
+              }
+            >
             <article className="new-post">
               <button className="backBtn-popup" onClick={closeBtnClick}>
                 <img src={BackArrow} alt="back" />
@@ -153,6 +157,8 @@ const Upload = () => {
               <h2>New Post</h2>
             </article>
           </div>
+
+
           <article className="caption-upload-img">
             {loggedUser.image ? (
               <img

@@ -19,8 +19,6 @@ const Comments = () => {
   const params = useParams();
   const [postData, setPostData] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
-  const [postText, setPostText] = useState();
-  const [hashtags, setHashtags] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,10 +30,11 @@ const Comments = () => {
 
   return (
     <>
-      <InfoBar />
       <div
         className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
       >
+      {/* <InfoBar /> */}
+      <div className="nav-fixed-wrapper">
         <div className="comments-header">
           <div className="comments-header-left">
             <BackBtn />
@@ -71,11 +70,8 @@ const Comments = () => {
               )}
               <p className="profession">{postData.time}</p>
               <figure className="post-detail-likes-and-comments">
-                <LikesPosts
-                  amountOfLikes={postData.amountOfLikes}
-                  postId={params.id}
-                />
-                <CommentsNumber amountOfComments={postData.amountOfComments} />
+                <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
+                <CommentsNumber post={postData} postId={params.id} />
               </figure>
             </article>
           </section>
@@ -85,6 +81,7 @@ const Comments = () => {
       ) : (
         <p></p>
       )}
+      </div>
     </>
   );
 };

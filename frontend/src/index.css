@@ -108,14 +108,23 @@ input {
   font-family: "UrbanistRegular";
 }
 
+/* wrapper for mobile simulator extension */
 .wrapper {
   max-width: 428px;
   margin: 0 auto;
-  padding: 1rem 1.8rem 7rem 1.8rem;
+  /* padding: 1rem 1.8rem 9rem 1.8rem; */
+  padding: 1rem 1.8rem 1rem 1.8rem;
 }
 
+/* without mobile simulator */
+/* .wrapper {
+  max-width: 428px;
+  margin: 0 auto;
+  padding: 1rem 1.8rem 7rem 1.8rem;
+} */
+
 .dark {
-  min-width: 100vw;
+  /* min-width: 100vw; */
   min-height: 100vh;
   background-color: var(--color-darkmode);
   color: white;
@@ -123,36 +132,51 @@ input {
 }
 
 .light {
-  min-width: 100vw;
+  /* min-width: 100vw; */
   min-height: 100vh;
   background-color: white;
   color: black;
   transition: all 0.3s;
 }
 
-.nav-fixed-wrapper-light {
+.nav-fixed-wrapper-light,
+.nav-fixed-wrapper-dark {
   position: fixed;
+  z-index: 5;
+  left: 0;
+  top: -0.2rem;
+  /* top: 50px; --> without mobile simulator */
+  height: 10rem;
+  width: 100%;
+  animation: fade-in 1s;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-fixed-wrapper-light {
+  background-color: white;
+}
+
+.nav-fixed-wrapper-dark {
+  background-color: var(--color-darkmode);
+}
+
+/* .nav-fixed-wrapper {
+  position: fixed;
+  background-color: white;
+  height: 10rem;
+  top: -0.2rem;
   top: 50px;
   width: 100%;
   background-color: white;
   left: 0;
   z-index: 5;
-  /* box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.031); */
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.031);
   animation: fade-in 1s;
   transition: all 0.3s;
-}
-
-.nav-fixed-wrapper-dark {
-  position: fixed;
-  top: 50px;
-  width: 100%;
-  background-color: var(--color-darkmode);
-  left: 0;
-  z-index: 5;
-  /* box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.031); */
-  animation: fade-in 1s;
-  transition: all 0.3s;
-}
+} */
 
 @keyframes fade-in {
   0% {
