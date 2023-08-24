@@ -2,7 +2,7 @@ import "./EditProfileImage.css";
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import edit from "../../images/EditSquare.svg";
+import edit from "../../images/edit-img.svg";
 import { RefreshContext } from "../../user/RefreshContext";
 import Avatar from "../../images/Avatar.svg";
 
