@@ -41,7 +41,7 @@ const Upload = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      console.log(data);
+      // console.log(data);
       setLoggedUser(data);
     };
     fetchUser();
