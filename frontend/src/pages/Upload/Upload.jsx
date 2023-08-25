@@ -24,6 +24,7 @@ const Upload = () => {
   const [facebookToggle, setFacebookToggle] = useState(false);
   const [twitterToggle, setTwitterToggle] = useState(false);
   const [tumblrToggle, setTumblrToggle] = useState(false);
+  const [isPosting, setIsPosting] = useState(false);
   const caption = useRef();
   const { theme, setTheme } = useContext(ThemeContext);
 
@@ -47,6 +48,12 @@ const Upload = () => {
   }, []);
 
   const postImage = async () => {
+    if (isPosting) {
+      return;
+    }
+  
+    setIsPosting(true);
+    
     const formData = new FormData();
     formData.append("image", uploadedImage);
     formData.append("caption", caption.current.value);
@@ -60,6 +67,8 @@ const Upload = () => {
       window.location.href = "/home";
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsPosting(false);
     }
   };
 
@@ -228,8 +237,9 @@ const Upload = () => {
             <p className="semibold-18">Advanced Settings</p>
           </div>
           <div className="post-upload-button">
-            <button className="semibold-18 post-btn-upload" onClick={postImage}>
-              Post
+            <button className="semibold-18 post-btn-upload" onClick={postImage} disabled={isPosting}>
+            {isPosting ? "Posting..." : "Post"}
+              {/* Post */}
             </button>
           </div>
         </section>
