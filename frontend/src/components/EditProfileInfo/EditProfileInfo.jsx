@@ -59,7 +59,8 @@ const EditProfileInfo = () => {
   return (
     <>
       <article className="edit-profile-info-section">
-        {!hasName && <p className="edit-profile-info-text">Please enter username and name.</p>}
+        {!hasName && <p className="edit-profile-info-text">Please complete your Profile</p>}
+        {!hasName && <p className="edit-profile-info-text">* username and name are required.</p>}
         <form onSubmit={submitFunction}>
           {hasName ? (
             <input
@@ -72,7 +73,7 @@ const EditProfileInfo = () => {
           ) : (
             <input
               type="text"
-              placeholder="name"
+              placeholder="name *"
               id="name"
               onChange={(e) => setName(e.target.value)}
               required
@@ -88,7 +89,7 @@ const EditProfileInfo = () => {
           ) : (
             <input
               type="text"
-              placeholder="username"
+              placeholder="username *"
               id="username"
               onChange={(e) => setUsername(e.target.value)}
               required
