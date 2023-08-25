@@ -49,10 +49,40 @@
   padding: 0 2rem;
 }
 
+.search-item .followdark {
+  width: 10rem;
+  height: 3.2rem;
+  background-color: var(--color-pink-bright);
+  color: var(--color-darkmode);
+  border: none;
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  letter-spacing: 0.05rem;
+  padding: 0 2rem;
+}
+
 .search-item .following {
   width: 14rem;
   height: 3.2rem;
   background-color: rgba(255, 255, 255, 0);
+  color: var(--color-pink-bright);
+  border: 2px solid var(--color-pink-bright);
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  padding: 0 2rem;
+  letter-spacing: 0.05rem;
+}
+
+.search-item .followingdark {
+  width: 14rem;
+  height: 3.2rem;
+  background-color: var(--color-darkmode);
   color: var(--color-pink-bright);
   border: 2px solid var(--color-pink-bright);
   border-radius: 5rem;

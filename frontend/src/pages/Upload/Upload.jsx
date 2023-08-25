@@ -16,6 +16,9 @@ import { ThemeContext } from "../../user/ThemeContext";
 import categorylight from "../../images/category-light.svg";
 import cameralight from "../../images/camera-light.svg";
 import arrowdownlight from "../../images/arrow-down-light.svg";
+import arrowbacklight from "../../images/arrow-back-light.svg";
+import settingslight from "../../images/settings-light.svg";
+import locationlight from "../../images/location-light.svg";
 
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -41,7 +44,7 @@ const Upload = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
-      console.log(data);
+      // console.log(data);
       setLoggedUser(data);
     };
     fetchUser();
@@ -154,19 +157,22 @@ const Upload = () => {
       )}
       {showPopup && (
         <section className="popup">
-            <div
-              className={
-                theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
-              }
-            >
+          <div
+            className={
+              theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
+            }
+          >
             <article className="new-post">
               <button className="backBtn-popup" onClick={closeBtnClick}>
-                <img src={BackArrow} alt="back" />
+                {theme ? (
+                  <img src={arrowbacklight} alt="back" />
+                ) : (
+                  <img src={BackArrow} alt="back" />
+                )}
               </button>
               <h2>New Post</h2>
             </article>
           </div>
-
 
           <article className="caption-upload-img">
             {loggedUser.image ? (
@@ -199,7 +205,12 @@ const Upload = () => {
           </article>
           <div className="stroke-upload"></div>
           <article className="location-upload">
-            <img src={Location} alt="" className="location-img" />
+            {theme ? (
+              <img src={locationlight} alt="" className="location-img" />
+            ) : (
+              <img src={Location} alt="" className="location-img" />
+            )}
+
             <h2 className="semibold-18">Add Location</h2>
           </article>
           <div className="stroke-upload"></div>
@@ -233,7 +244,12 @@ const Upload = () => {
           </div>
           <div className="stroke-upload"></div>
           <div className="advanced-settings">
-            <img src={Settings} alt="" />
+            {theme ? (
+              <img src={settingslight} alt="" />
+            ) : (
+              <img src={Settings} alt="" />
+            )}
+
             <p className="semibold-18">Advanced Settings</p>
           </div>
           <div className="post-upload-button">
