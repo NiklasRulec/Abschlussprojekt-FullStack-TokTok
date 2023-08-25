@@ -6,20 +6,28 @@ import { useEffect, useState } from "react";
 
 const SearchList = ({ searchQuery }) => {
   const [usersData, setUsersData] = useState();
+  const [loggedInUserId, setLoggedInUserId] = useState();
 
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await axios.get(`/api/user`);
-      // console.log(data);
       setUsersData(data);
     };
+
+    const fetchLoggedInUser = async () => {
+      const { data } = await axios.get(`/api/user/profile`);
+      setLoggedInUserId(data._id);
+    };
+
     fetchUser();
+    fetchLoggedInUser();
   }, []);
 
   const filteredUsers = usersData?.filter(
     (item) =>
-      item.nickname?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
-      item.profession?.toLowerCase().includes(searchQuery?.toLowerCase())
+      item._id !== loggedInUserId &&
+      (item.nickname?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
+        item.profession?.toLowerCase().includes(searchQuery?.toLowerCase()))
   );
 
   return (

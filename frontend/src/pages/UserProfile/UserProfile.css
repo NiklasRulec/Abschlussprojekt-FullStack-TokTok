@@ -165,10 +165,12 @@
 
 .user-profile-header-left {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 .user-profile-header-left img {
   cursor: pointer;
+  padding-top: 2.5rem;
 }
 
 .gray-background {

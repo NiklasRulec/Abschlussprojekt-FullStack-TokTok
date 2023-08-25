@@ -45,10 +45,6 @@ const UserProfile = () => {
     setShowMoreMenu(false);
   };
 
-  const arrowHome = () => {
-    window.location.href = "/home";
-  };
-
   return (
     <>
       <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
@@ -64,20 +60,19 @@ const UserProfile = () => {
             >
               <article className="user-profile-top">
                 <div className="user-profile-header-left">
+                  <Link to="/home">
                   {theme ? (
                     <img
                       src={arrowleftlight}
                       alt="arrow-left-icon"
-                      onClick={arrowHome}
                     />
                   ) : (
                     <img
                       src={arrowleft}
                       alt="arrow-left-icon"
-                      onClick={arrowHome}
                     />
                   )}
-
+                    </Link >
                   <h2>{loggedUser.nickname}</h2>
                 </div>
                 <div className="user-profile-top-buttons">
