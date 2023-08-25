@@ -126,3 +126,23 @@ postRouter.delete("/likes/:id", authenticateToken, async (req, res) => {
     res.send("there was an error");
   }
 });
+
+// delete post by id and comments of this post --------------------------------------------------------------------------------------
+
+postRouter.delete("/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    const commentIdArray = post.comments;
+    commentIdArray.map(
+      async (commentId) => await Comment.findByIdAndDelete(commentId)
+    );
+    const dbRes = await Post.findByIdAndDelete(req.params.id);
+    cloudinary.uploader.destroy(dbRes.image?.imageId, (err) =>
+      console.log(err)
+    );
+    res.send("post and comments were deleted");
+  } catch (err) {
+    console.log(err);
+    res.send("there was an error");
+  }
+});
