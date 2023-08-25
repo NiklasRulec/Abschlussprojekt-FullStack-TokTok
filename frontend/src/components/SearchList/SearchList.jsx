@@ -18,7 +18,6 @@ const SearchList = ({ searchQuery }) => {
       const { data } = await axios.get(`/api/user/profile`);
       setLoggedInUserId(data._id);
     };
-
     fetchUser();
     fetchLoggedInUser();
   }, []);

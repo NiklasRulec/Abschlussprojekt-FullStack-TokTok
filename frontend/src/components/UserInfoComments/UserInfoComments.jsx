@@ -47,11 +47,11 @@ const UserInfoComments = (props) => {
               <p className="profession">{userData[0].profession}</p>
             </div>
           </div>
-          {theme ? (
+          {/* {theme ? (
             <img className="more-menu" src={moremenulight} alt="MoreMenu" />
           ) : (
             <img className="more-menu" src={MoreMenu} alt="MoreMenu" />
-          )}
+          )} */}
         </figure>
       ) : (
         <p>Lädt..</p>

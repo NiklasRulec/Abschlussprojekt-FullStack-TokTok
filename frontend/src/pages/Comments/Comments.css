@@ -8,6 +8,36 @@
   animation: fade-in 1s;
 }
 
+.comments-header .delete-btn-light {
+  width: 10rem;
+  height: 3.2rem;
+  background-color: var(--color-pink-bright);
+  color: white;
+  border: none;
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  letter-spacing: 0.05rem;
+  padding: 0 2rem;
+}
+
+.comments-header .delete-btn-dark {
+  width: 10rem;
+  height: 3.2rem;
+  background-color: var(--color-pink-bright);
+  color: var(--color-darkmode);
+  border: none;
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  letter-spacing: 0.05rem;
+  padding: 0 2rem;
+}
+
 .comments-header-left {
   padding: 0 2rem;
 }
@@ -39,6 +69,20 @@
   /* margin-top: 12rem; --> without mobile simulator */
 }
 
+.post-detail-section .post-img {
+  width: 100%;
+  border-radius: 10%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.post-detail-section .horizontal-line {
+  width: 100%;
+  height: 1px;
+  background-color: #eeeeee;
+}
+
 .post-detail-section .post-detail-article {
   width: 100%;
   display: flex;
@@ -64,4 +108,5 @@
   align-items: center;
   justify-content: flex-start;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
