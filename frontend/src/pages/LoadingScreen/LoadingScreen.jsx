@@ -19,7 +19,7 @@ const LoadingScreen = () => {
 
   return (
     <>
-    <InfoBar />
+    {/* <InfoBar /> */}
     <div className="loadingscreen-wrapper">
       <img src={Landing} className="landing" />
       <img src={LoadingAnimation} className="loading" />

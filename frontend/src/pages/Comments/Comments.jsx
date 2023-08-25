@@ -28,13 +28,46 @@ const Comments = () => {
     fetchData();
   }, [refresh]);
 
+  function formatTimeDifference(postTime) {
+    const now = new Date();
+    const postDate = new Date(postTime);
+    const differenceInMilliSec = now - postDate;
+      
+    if (differenceInMilliSec < 60000) {
+      return "now";
+    } else if (differenceInMilliSec < 3600000) {
+      const minutesAgo = Math.floor(differenceInMilliSec / 60000);
+      return `${minutesAgo} minute${minutesAgo > 1 ? 's' : ''} ago`;
+    } else if (differenceInMilliSec < 86400000) {
+      const hoursAgo = Math.floor(differenceInMilliSec / 3600000);
+      return `${hoursAgo} hour${hoursAgo > 1 ? 's' : ''} ago`;
+    } else if (differenceInMilliSec < 604800000) {
+      const daysAgo = Math.floor(differenceInMilliSec / 86400000);
+      return `${daysAgo} day${daysAgo > 1 ? 's' : ''} ago`;
+    } else if (now.getFullYear() === postDate.getFullYear()) {
+      const formattedDate = postDate.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long'
+      });
+      return formattedDate;
+    } else {
+      const formattedDate = postDate.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+      return formattedDate;
+    }
+  }
+    
+  const formattedTimeDifference = formatTimeDifference(postData?.time);
+
   return (
     <>
       <div
         className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
       >
       {/* <InfoBar /> */}
-      <div className="nav-fixed-wrapper">
         <div className="comments-header">
           <div className="comments-header-left">
             <BackBtn />
@@ -68,7 +101,9 @@ const Comments = () => {
                   )}
                 </>
               )}
-              <p className="profession">{postData.time}</p>
+
+              <p className="profession">{formattedTimeDifference}</p>
+
               <figure className="post-detail-likes-and-comments">
                 <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
                 <CommentsNumber post={postData} postId={params.id} />
@@ -81,7 +116,6 @@ const Comments = () => {
       ) : (
         <p></p>
       )}
-      </div>
     </>
   );
 };

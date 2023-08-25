@@ -8,6 +8,7 @@ const EditProfileInfo = () => {
   const [name, setName] = useState();
   const [username, setUsername] = useState();
   const [profession, setProfession] = useState();
+  const [description, setDescription] = useState();
   const [birthday, setBirthday] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
@@ -37,6 +38,7 @@ const EditProfileInfo = () => {
       name: name,
       nickname: username,
       profession: profession,
+      description: description,
       birthday: birthday,
       email: email,
       phone: phone,
@@ -57,7 +59,8 @@ const EditProfileInfo = () => {
   return (
     <>
       <article className="edit-profile-info-section">
-        {!hasName && <p className="edit-profile-info-text">Please enter username and name.</p>}
+        {!hasName && <p className="edit-profile-info-text">Please complete your Profile</p>}
+        {!hasName && <p className="edit-profile-info-text">* username and name are required.</p>}
         <form onSubmit={submitFunction}>
           {hasName ? (
             <input
@@ -70,7 +73,7 @@ const EditProfileInfo = () => {
           ) : (
             <input
               type="text"
-              placeholder="name"
+              placeholder="name *"
               id="name"
               onChange={(e) => setName(e.target.value)}
               required
@@ -86,7 +89,7 @@ const EditProfileInfo = () => {
           ) : (
             <input
               type="text"
-              placeholder="username"
+              placeholder="username *"
               id="username"
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -97,6 +100,12 @@ const EditProfileInfo = () => {
             placeholder="profession"
             id="profession"
             onChange={(e) => setProfession(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="description"
+            id="description"
+            onChange={(e) => setDescription(e.target.value)}
           />
           <input
             type="date"

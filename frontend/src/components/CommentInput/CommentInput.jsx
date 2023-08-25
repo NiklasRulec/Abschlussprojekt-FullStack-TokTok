@@ -21,13 +21,14 @@ const CommentInput = ({ postId }) => {
 
   const PostComment = async (e) => {
     e.preventDefault();
+
     const commentData = {
       user: userData._id,
       comment: commentInput,
-      time: "1 minute ago",
+      time: new Date().getTime(),
       amountOfLikes: 0,
     };
-    const { data } = await axios.put(`/api/post/${postId}`, commentData);
+    const { data } = await axios.put(`/api/post/comments/${postId}`, commentData);
     setRefresh((prev) => !prev);
     e.target.reset();
 
