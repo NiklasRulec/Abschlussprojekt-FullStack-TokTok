@@ -6,13 +6,10 @@ import { useNavigate, Link } from "react-router-dom";
 import { RefreshContext } from "../../user/RefreshContext";
 import Logo from "../../images/Logo.svg";
 import Hide from "../../images/Hide.svg";
-import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 
 export default function SignUp() {
   const { refresh, setRefresh } = useContext(RefreshContext);
   const [error, setError] = useState(null);
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showLoading, setShowLoading] = useState(true);
   const nav = useNavigate();
   const [success, setSuccess] = useState(false)
   const [email, setEmail] = useState("")
@@ -65,24 +62,10 @@ export default function SignUp() {
     }
   };
 
-  useEffect(() => {
-    const signUpTimer = setTimeout(() => {
-      setShowSignUp(true);
-      setShowLoading(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(signUpTimer);
-      setShowLoading(true);
-    };
-  }, []);
 
   return (
     <>
-      {showLoading && <LoadingScreen />}
-      <InfoBar />
-      {showSignUp && (
-        <>
+      {/* <InfoBar /> */}
         <div className="sign-up-page">
         <div className="headline">
         <h1>
@@ -112,10 +95,7 @@ export default function SignUp() {
           Sign in
         </Link>
       </div>
-
       </div>
-        </>
-      )}
-    </>
+  </>
   );
 }

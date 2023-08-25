@@ -7,17 +7,18 @@ import { RefreshContext } from "../../user/RefreshContext";
 import axios from "axios";
 import UserInfoBar from "../../components/UserInfoBar/UserInfoBar";
 import Message from "../../images/Message.svg";
+import messagelight from "../../images/message-light.svg";
 import CommentInput from "../../components/CommentInput/CommentInput";
 import CommentList from "../../components/CommentList/CommentList";
 import LikesPosts from "../../components/Likes/LikesPosts";
 import CommentsNumber from "../../components/CommentsNumber/CommentsNumber";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const Comments = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   const params = useParams();
   const [postData, setPostData] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
-  const [postText, setPostText] = useState();
-  const [hashtags, setHashtags] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,16 +28,56 @@ const Comments = () => {
     fetchData();
   }, [refresh]);
 
+  function formatTimeDifference(postTime) {
+    const now = new Date();
+    const postDate = new Date(postTime);
+    const differenceInMilliSec = now - postDate;
+      
+    if (differenceInMilliSec < 60000) {
+      return "now";
+    } else if (differenceInMilliSec < 3600000) {
+      const minutesAgo = Math.floor(differenceInMilliSec / 60000);
+      return `${minutesAgo} minute${minutesAgo > 1 ? 's' : ''} ago`;
+    } else if (differenceInMilliSec < 86400000) {
+      const hoursAgo = Math.floor(differenceInMilliSec / 3600000);
+      return `${hoursAgo} hour${hoursAgo > 1 ? 's' : ''} ago`;
+    } else if (differenceInMilliSec < 604800000) {
+      const daysAgo = Math.floor(differenceInMilliSec / 86400000);
+      return `${daysAgo} day${daysAgo > 1 ? 's' : ''} ago`;
+    } else if (now.getFullYear() === postDate.getFullYear()) {
+      const formattedDate = postDate.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long'
+      });
+      return formattedDate;
+    } else {
+      const formattedDate = postDate.toLocaleDateString('en-US', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+      return formattedDate;
+    }
+  }
+    
+  const formattedTimeDifference = formatTimeDifference(postData?.time);
+
   return (
     <>
-      <InfoBar />
-      <div className="nav-fixed-wrapper">
+      <div
+        className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
+      >
+      {/* <InfoBar /> */}
         <div className="comments-header">
           <div className="comments-header-left">
             <BackBtn />
             <h2>Comments</h2>
           </div>
-          <img src={Message} alt="Message" className="share-img" />
+          {theme ? (
+            <img src={messagelight} alt="Message" className="share-img" />
+          ) : (
+            <img src={Message} alt="Message" className="share-img" />
+          )}
         </div>
       </div>
 
@@ -60,10 +101,12 @@ const Comments = () => {
                   )}
                 </>
               )}
-              <p className="profession">{postData.time}</p>
+
+              <p className="profession">{formattedTimeDifference}</p>
+
               <figure className="post-detail-likes-and-comments">
                 <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
-                <CommentsNumber amountOfComments={postData.amountOfComments} />
+                <CommentsNumber post={postData} postId={params.id} />
               </figure>
             </article>
           </section>

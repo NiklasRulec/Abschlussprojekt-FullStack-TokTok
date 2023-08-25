@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from "react";
 import "./SearchItem.css";
+import { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'
 import Avatar from '../../images/Avatar.svg'
 import { RefreshContext } from "../../user/RefreshContext";
@@ -22,13 +22,15 @@ const SearchItem = (props) => {
   },[refresh])
 
   const follow = async () => {
-    const { data } = await axios.put(`/api/user/profile/following/${props.id}`)
+    const otherUserId = props.id;
+    const { data } = await axios.put(`/api/user/profile/follow/${otherUserId}`)
     setFollowing(true)
     setRefresh(prev => !prev)
   }
 
   const unFollow = async () => {
-    const { data } = await axios.delete(`/api/user/profile/following/${props.id}`)
+    const otherUserId = props.id;
+    const { data } = await axios.delete(`/api/user/profile/follow/${otherUserId}`)
     setFollowing(false)
     setRefresh(prev => !prev)
   }

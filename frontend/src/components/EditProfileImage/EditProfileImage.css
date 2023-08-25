@@ -5,7 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10rem;
+  margin-top: 7rem;
+  /* margin-top: 10rem; --> without mobile simulator */
 }
 
 .edit-profile-image-section .image-container {
@@ -25,7 +26,7 @@
   width: 3rem;
   height: 3rem;
   border: none;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
   bottom: 0;
   right: 0.7rem;
@@ -38,4 +39,5 @@
   bottom: 0;
   right: 0.7rem;
   opacity: 0;
+  /* cursor: pointer; */
 }

@@ -378,18 +378,24 @@ userRouter.delete(
   }
 );
 
-// add following to account of logged in user --------------------------------------------------------------------
+// add following to account of logged in user & add followers to account of other user ----------------------------------------
+// so if I follow someone else, my userId will be pushed into the other user profile (followers array) and the userId of the other user will be pushed into my user profile (isFollowing array)
 
 userRouter.put(
-  "/profile/following/:userId",
+  "/profile/follow/:otherUserId",
   authenticateToken,
   async (req, res) => {
     try {
-      const userId = req.params.userId;
-      const user = await User.findOne({ email: req.userEmail });
-      user.isFollowing.push(userId);
-      await user.save();
-      res.send("user was added to 'isFollowing'");
+      const otherUser = await User.findById(req.params.otherUserId);
+      const otherUserId = otherUser._id;
+      const loggedInUser = await User.findOne({ email: req.userEmail });
+      const loggedInUserId = loggedInUser._id;
+      loggedInUser.isFollowing.push(otherUserId);
+      otherUser.followers.push(loggedInUserId);
+      await Promise.all([otherUser.save(), loggedInUser.save()]);
+      res.send(
+        "you are now following this account and your userId was added to followers of the other account"
+      );
     } catch (err) {
       console.log(err);
       res.send("there was an error");
@@ -397,23 +403,30 @@ userRouter.put(
   }
 );
 
-// delete following from account of logged in user ---------------------------------------------------------------
+// delete following from account of logged in user & delete followers from account of other user ----------------------------------------
 
 userRouter.delete(
-  "/profile/following/:userId",
+  "/profile/follow/:otherUserId",
   authenticateToken,
   async (req, res) => {
     try {
-      const userId = req.params.userId;
-      const user = await User.findOne({ email: req.userEmail });
-      let index = user.isFollowing.indexOf(userId);
-      if (index >= 0) {
-        user.isFollowing.splice(index, 1);
-        await user.save();
-        res.send("user was deleted from 'isFollowing'");
-      } else {
-        res.send("item not found");
+      const otherUser = await User.findById(req.params.otherUserId);
+      const otherUserId = otherUser._id;
+      const loggedInUser = await User.findOne({ email: req.userEmail });
+      const loggedInUserId = loggedInUser._id;
+
+      let indexOfOtherUserId = loggedInUser.isFollowing.indexOf(otherUserId);
+      if (indexOfOtherUserId >= 0) {
+        loggedInUser.isFollowing.splice(indexOfOtherUserId, 1);
       }
+      let indexOfLoggedInUser = otherUser.followers.indexOf(loggedInUserId);
+      if (indexOfLoggedInUser >= 0) {
+        otherUser.followers.splice(indexOfLoggedInUser, 1);
+      }
+      await Promise.all([otherUser.save(), loggedInUser.save()]);
+      res.send(
+        "you unfollowed this account and your userId was deleted from followers of the other account"
+      );
     } catch (err) {
       console.log(err);
       res.send("there was an error");
@@ -461,7 +474,7 @@ userRouter.post("/resetPassword-confirm", async (req, res) => {
 
 // logout ---------------------------------------------------------------------------------------------
 
-userRouter.get("/logout", (req, res) => {
+userRouter.get("/profile/logout", (req, res) => {
   res.clearCookie("auth");
   res.send("OK");
 });

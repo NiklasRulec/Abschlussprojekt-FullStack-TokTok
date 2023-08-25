@@ -3,13 +3,15 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Profile.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import followIcon from "../../images/Follow.svg";
 import feeds from "../../images/Feeds.svg";
-import arrowleft from "../../images/ArrowLeft.svg";
 import moremenu from "../../images/MoreMenu.svg";
+import moremenulight from "../../images/moremenu-light.svg";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import { RefreshContext } from "../../user/RefreshContext";
+import { ThemeContext } from "../../user/ThemeContext";
+import Avatar from "../../images/Avatar.svg";
 
 const Profile = () => {
   const params = useParams();
@@ -17,18 +19,21 @@ const Profile = () => {
   const nav = useNavigate();
   const [following, setFollowing] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   // get data of logged in user and save the state whether he/she is already following that other user
   useEffect(() => {
     const fetchData = async () => {
-        const { data } = await axios.get("/api/user/profile")
-        let isFollowing = data.isFollowing.filter((userId) =>  userId == params.id)
-        if(isFollowing.length > 0){
-          setFollowing(true)
-        }
-    }
-    fetchData()
-  },[refresh])
+      const { data } = await axios.get("/api/user/profile");
+      let isFollowing = data.isFollowing.filter(
+        (userId) => userId == params.id
+      );
+      if (isFollowing.length > 0) {
+        setFollowing(true);
+      }
+    };
+    fetchData();
+  }, [refresh]);
 
   // get data of userprofile by id
   useEffect(() => {
@@ -37,64 +42,85 @@ const Profile = () => {
       setUserData(data[0]);
     };
     fetchUser();
-  }, []);
+  }, [refresh]);
 
   const follow = async () => {
-    const userId = params.id
-    const { data } = await axios.put(`/api/user/profile/following/${userId}`)
-    setFollowing(true)
-    setRefresh(prev => !prev)
-  }
+    const otherUserId = params.id;
+    const { data } = await axios.put(`/api/user/profile/follow/${otherUserId}`)
+    setFollowing(true);
+    setRefresh((prev) => !prev);
+  };
 
   const unFollow = async () => {
-    const userId = params.id
-    const { data } = await axios.delete(`/api/user/profile/following/${userId}`)
-    setFollowing(false)
-    setRefresh(prev => !prev)
-  }
+    const otherUserId = params.id;
+    const { data } = await axios.delete(`/api/user/profile/follow/${otherUserId}`)
+    setFollowing(false);
+    setRefresh((prev) => !prev);
+  };
 
   return (
     <>
-      <InfoBar />
+      {/* <InfoBar /> */}
       {userData ? (
         <section className="profile-section">
-          <div className="nav-fixed-wrapper">
+          <div
+            className={
+              theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"
+            }
+          >
             <article className="profile-top">
               <div className="profile-header-left">
                 <BackBtn />
                 <h2>{userData.nickname}</h2>
               </div>
-              <img src={moremenu} alt="moremenu-icon" />
+              {theme ? (
+                <img src={moremenulight} alt="moremenu-icon" />
+              ) : (
+                <img src={moremenu} alt="moremenu-icon" />
+              )}
             </article>
-
           </div>
-          <img
-            src={userData.image.url}
-            alt="profilepic"
-            className="profile-image"
-          />
+          
+          {userData.image ? (
+              <img
+                src={userData.image.url}
+                alt="profilepic"
+                className="profile-image"
+              />
+            ) : (
+              <img src={Avatar} alt="" className="profile-image" />
+            )}
+
           <h2>{userData.name}</h2>
           <h4>{userData.profession}</h4>
           <p>{userData.description}</p>
           <a href={userData.domain}>{userData.domain}</a>
           <article className="profile-numbers">
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfPosts}</h2>
+              <h2>{userData.posts.length}</h2>
               <p>Posts</p>
             </div>
             <div className="small-vertical-line"></div>
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfFollowers}</h2>
+                {userData.followers? (
+                  <h2>{userData.followers.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                )}
               <p>Followers</p>
             </div>
             <div className="small-vertical-line"></div>
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfFollowing}</h2>
+            {userData.isFollowing? (
+                  <h2>{userData.isFollowing.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                )}
               <p>Following</p>
             </div>
           </article>
 
-            {following ? (
+          {following ? (
             <button className="following-btn" onClick={unFollow}>
               Following
             </button>

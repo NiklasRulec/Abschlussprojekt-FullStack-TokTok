@@ -1,10 +1,12 @@
 import "./InfoBar.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Empfang from "../../images/Empfang.svg";
 import Wifi from "../../images/Wifi.svg";
 import Accu from "../../images/Accu.svg";
+import { ThemeContext } from "../../user/ThemeContext";
 
 const InfoBar = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   const [time, setTime] = useState();
 
   useEffect(() => {
@@ -18,7 +20,9 @@ const InfoBar = () => {
 
   return (
     <>
-      <div className="info-bar-wrapper">
+      <div
+        className={theme ? "info-bar-wrapper-dark" : "info-bar-wrapper-light"}
+      >
         <div className="info-bar">
           <p className="semibold-16">{time}</p>
           <div className="info-bar-right">

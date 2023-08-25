@@ -2,6 +2,7 @@ import "./CommentList.css";
 import CommentItem from "../CommentItem/CommentItem";
 
 const CommentList = ({ postData }) => {
+
   return (
     <>
       {postData ? (
