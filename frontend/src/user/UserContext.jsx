@@ -14,12 +14,13 @@ export const UserProvider = ({ children }) => {
     await axios.get("/api/user/profile/logout");
     setUser(null);
     nav("/signup");
-    setRefresh(prev => !prev)
+    setRefresh((prev) => !prev);
   };
 
   useEffect(() => {
-    axios.get("/api/user/secure")
-    // secure route gibt email: req.userEmail zurück
+    axios
+      .get("/api/user/secure")
+      // secure route gibt email: req.userEmail zurück
       .then(({ data }) => setUser(data))
       .catch((e) => {
         setUser(null);

@@ -1,0 +1,80 @@
+.small-more-menu-menu-light {
+  position: fixed;
+  transition: bottom 0.04s ease-in-out;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  height: 10rem;
+  border-radius: 5% 5% 0 0;
+  z-index: 12;
+  animation: fade-in 0.5s;
+}
+
+.small-more-menu-menu-dark {
+  position: fixed;
+  transition: bottom 0.04s ease-in-out;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-darkmode);
+  color: white;
+  width: 100%;
+  height: 10rem;
+  border-radius: 5% 5% 0 0;
+  z-index: 12;
+  animation: fade-in 0.5s;
+}
+
+.stroke {
+  display: flex;
+  margin: 1.5rem auto;
+  width: 9rem;
+  cursor: pointer;
+}
+
+.small-more-menu-menu-light .delete,
+.small-more-menu-menu-dark .delete {
+  width: 100%;
+  height: 2.8rem;
+  margin-left: 2rem;
+  margin-bottom: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.small-more-menu-menu-light .delete img,
+.small-more-menu-menu-dark .delete img {
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: contain;
+  margin-right: 2rem;
+}
+
+.small-more-menu-menu-light,
+.small-more-menu-menu-dark {
+  animation: slideIn ease-in-out 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    bottom: -800px;
+  }
+  100% {
+    bottom: -25px;
+  }
+}
+.slide-out-menu {
+  animation: slideOut ease-in-out 0.35s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideOut {
+  0% {
+    bottom: -25px;
+  }
+  100% {
+    bottom: -500px;
+  }
+}

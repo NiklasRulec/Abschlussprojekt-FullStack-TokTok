@@ -13,10 +13,11 @@ import CommentList from "../../components/CommentList/CommentList";
 import LikesPosts from "../../components/Likes/LikesPosts";
 import CommentsNumber from "../../components/CommentsNumber/CommentsNumber";
 import { ThemeContext } from "../../user/ThemeContext";
-
+import { useNavigate } from "react-router-dom";
 const Comments = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const params = useParams();
+  const navigate = useNavigate();
   const [postData, setPostData] = useState();
   const { refresh, setRefresh } = useContext(RefreshContext);
 
@@ -30,11 +31,10 @@ const Comments = () => {
 
   return (
     <>
+      {/* <InfoBar /> */}
       <div
         className={theme ? "nav-fixed-wrapper-dark" : "nav-fixed-wrapper-light"}
       >
-      {/* <InfoBar /> */}
-      <div className="nav-fixed-wrapper">
         <div className="comments-header">
           <div className="comments-header-left">
             <BackBtn />
@@ -51,6 +51,7 @@ const Comments = () => {
       {postData ? (
         <>
           <section className="post-detail-section">
+            <img src={postData.image.url} alt="post-img" className="post-img" />
             <UserInfoBar post={postData} />
             <article className="post-detail-article">
               {postData.caption && (
@@ -70,9 +71,13 @@ const Comments = () => {
               )}
               <p className="profession">{postData.time}</p>
               <figure className="post-detail-likes-and-comments">
-                <LikesPosts amountOfLikes={postData.amountOfLikes} postId={params.id} />
+                <LikesPosts
+                  amountOfLikes={postData.amountOfLikes}
+                  postId={params.id}
+                />
                 <CommentsNumber post={postData} postId={params.id} />
               </figure>
+              <div className="horizontal-line"></div>
             </article>
           </section>
           <CommentList postData={postData} />
@@ -81,7 +86,6 @@ const Comments = () => {
       ) : (
         <p></p>
       )}
-      </div>
     </>
   );
 };
