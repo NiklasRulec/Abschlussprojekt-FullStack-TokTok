@@ -11,13 +11,17 @@ export const commentSchema = new mongoose.Schema({
     required: true,
   },
   time: {
-    type: String,
-    // type: Date,
-    // required: true,
+    type: Number,
   },
   amountOfLikes: {
     type: Number,
   },
+  likes: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 export const Comment = mongoose.model("Comment", commentSchema);

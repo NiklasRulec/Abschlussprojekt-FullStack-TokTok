@@ -45,10 +45,6 @@ const UserProfile = () => {
     setShowMoreMenu(false);
   };
 
-  const arrowHome = () => {
-    window.location.href = "/home";
-  };
-
   return (
     <>
       <div className={` ${showMoreMenu ? "gray-background" : ""}`}></div>
@@ -64,20 +60,19 @@ const UserProfile = () => {
             >
               <article className="user-profile-top">
                 <div className="user-profile-header-left">
+                  <Link to="/home">
                   {theme ? (
                     <img
                       src={arrowleftlight}
                       alt="arrow-left-icon"
-                      onClick={arrowHome}
                     />
                   ) : (
                     <img
                       src={arrowleft}
                       alt="arrow-left-icon"
-                      onClick={arrowHome}
                     />
                   )}
-
+                    </Link >
                   <h2>{loggedUser.nickname}</h2>
                 </div>
                 <div className="user-profile-top-buttons">
@@ -127,7 +122,7 @@ const UserProfile = () => {
             <h2>{loggedUser.name}</h2>
             {loggedUser.profession && <h4>{loggedUser.profession}</h4>}
             {loggedUser.description && <p>{loggedUser.description}</p>}
-            {loggedUser.description && (
+            {loggedUser.domain && (
               <a href={loggedUser.domain}>{loggedUser.domain}</a>
             )}
             <article className="user-profile-numbers">
@@ -137,7 +132,12 @@ const UserProfile = () => {
               </div>
               <div className="small-vertical-line"></div>
               <div className="user-profile-numbers-block">
-                <h2>{loggedUser.amountOfFollowers}</h2>
+                {loggedUser.followers? (
+                  <h2>{loggedUser.followers.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                // <h2>{loggedUser.amountOfFollowers}</h2>
+                )}
                 <p>Followers</p>
               </div>
               <div className="small-vertical-line"></div>

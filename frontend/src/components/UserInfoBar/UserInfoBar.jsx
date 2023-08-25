@@ -18,10 +18,7 @@ const UserInfoBar = (props) => {
 
   useEffect(() => {
     if (
-      window.location.href.startsWith(
-        "https://abschlussprojekt-toktok.onrender.com/home" ||
-          "http://localhost:3000/home"
-      )
+      window.location.href.startsWith("https://abschlussprojekt-toktok.onrender.com/home/") || window.location.href.startsWith("http://localhost:3000/home/")
     ) {
       // console.log("Richtiger Link");
       const fetchUser = async () => {
@@ -30,7 +27,7 @@ const UserInfoBar = (props) => {
         setLoggedUser(data);
         // console.log(data);
         // console.log(post.data.user._id);
-        if (data._id == post.data.user._id) {
+        if (data?._id == post?.data.user._id) {
           setAllowDelete(true);
           // console.log("Ja gleicher User");
         } else {

@@ -50,6 +50,12 @@ export const userSchema = new mongoose.Schema({
       ref: "Post",
     },
   ],
+  followers: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   image: {
     type: {
       url: String,

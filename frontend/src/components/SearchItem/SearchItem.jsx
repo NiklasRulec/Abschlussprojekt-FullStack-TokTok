@@ -24,18 +24,18 @@ const SearchItem = (props) => {
   }, [refresh]);
 
   const follow = async () => {
-    const { data } = await axios.put(`/api/user/profile/following/${props.id}`);
-    setFollowing(true);
-    setRefresh((prev) => !prev);
-  };
+    const otherUserId = props.id;
+    const { data } = await axios.put(`/api/user/profile/follow/${otherUserId}`)
+    setFollowing(true)
+    setRefresh(prev => !prev)
+  }
 
   const unFollow = async () => {
-    const { data } = await axios.delete(
-      `/api/user/profile/following/${props.id}`
-    );
-    setFollowing(false);
-    setRefresh((prev) => !prev);
-  };
+    const otherUserId = props.id;
+    const { data } = await axios.delete(`/api/user/profile/follow/${otherUserId}`)
+    setFollowing(false)
+    setRefresh(prev => !prev)
+  }
 
   return (
     <>

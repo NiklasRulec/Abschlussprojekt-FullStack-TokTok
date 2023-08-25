@@ -19,7 +19,7 @@ const SearchInput = ({ onSearch }) => {
       >
         <div className="searchBar">
           <input
-            className="searchInput"
+            className={theme ? "input-dark" :  "input-light"}
             type="text"
             placeholder="Search..."
             value={safeSearch}

@@ -11,6 +11,7 @@ import moremenulight from "../../images/moremenu-light.svg";
 import BackBtn from "../../components/BackBtn/BackBtn";
 import { RefreshContext } from "../../user/RefreshContext";
 import { ThemeContext } from "../../user/ThemeContext";
+import Avatar from "../../images/Avatar.svg";
 
 const Profile = () => {
   const params = useParams();
@@ -41,20 +42,18 @@ const Profile = () => {
       setUserData(data[0]);
     };
     fetchUser();
-  }, []);
+  }, [refresh]);
 
   const follow = async () => {
-    const userId = params.id;
-    const { data } = await axios.put(`/api/user/profile/following/${userId}`);
+    const otherUserId = params.id;
+    const { data } = await axios.put(`/api/user/profile/follow/${otherUserId}`)
     setFollowing(true);
     setRefresh((prev) => !prev);
   };
 
   const unFollow = async () => {
-    const userId = params.id;
-    const { data } = await axios.delete(
-      `/api/user/profile/following/${userId}`
-    );
+    const otherUserId = params.id;
+    const { data } = await axios.delete(`/api/user/profile/follow/${otherUserId}`)
     setFollowing(false);
     setRefresh((prev) => !prev);
   };
@@ -81,11 +80,17 @@ const Profile = () => {
               )}
             </article>
           </div>
-          <img
-            src={userData.image.url}
-            alt="profilepic"
-            className="profile-image"
-          />
+          
+          {userData.image ? (
+              <img
+                src={userData.image.url}
+                alt="profilepic"
+                className="profile-image"
+              />
+            ) : (
+              <img src={Avatar} alt="" className="profile-image" />
+            )}
+
           <h2>{userData.name}</h2>
           <h4>{userData.profession}</h4>
           <p>{userData.description}</p>
@@ -97,12 +102,20 @@ const Profile = () => {
             </div>
             <div className="small-vertical-line"></div>
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfFollowers}</h2>
+                {userData.followers? (
+                  <h2>{userData.followers.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                )}
               <p>Followers</p>
             </div>
             <div className="small-vertical-line"></div>
             <div className="profile-numbers-block">
-              <h2>{userData.amountOfFollowing}</h2>
+            {userData.isFollowing? (
+                  <h2>{userData.isFollowing.length}</h2>
+                ) : (
+                    <h2>0</h2>
+                )}
               <p>Following</p>
             </div>
           </article>

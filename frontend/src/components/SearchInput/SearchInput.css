@@ -1,4 +1,3 @@
-
 .searchBar {
   display: flex;
   justify-content: center;
@@ -7,7 +6,8 @@
   padding-bottom: 1rem;
 }
 
-.searchInput {
+.input-light,
+.input-dark {
   border: 0;
   border-radius: 1.5rem;
   height: 5rem;
@@ -18,9 +18,16 @@
   background-color: rgba(128, 128, 128, 0.136);
   font-family: "UrbanistSemiBold";
   font-size: 1.4rem;
-  color: var(--color-text);
   outline: none;
   margin: 0 0 1rem 0;
+}
+
+.input-light {
+  color: var(--color-text);
+}
+
+.input-dark {
+  color: var(--color-grey-upload);
 }
 
 .searchInput[type="text"]:focus {

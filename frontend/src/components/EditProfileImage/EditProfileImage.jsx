@@ -29,8 +29,9 @@ const EditProfileImage = () => {
   const imageFunction = async (formData) => {
     try {
       const { data } = await axios.put("/api/user/profile/img", formData);
-      // setRefresh((prev) => !prev);
-      navigate("/profile");
+      setRefresh((prev) => !prev);
+      if (hasProfileInfo){ navigate("/profile"); }
+      else { return } 
     } catch (err) {
       console.log(err);
     }
@@ -57,8 +58,6 @@ const EditProfileImage = () => {
               ) : (
                 <img src={Avatar} alt="user-image" className="user-image" />
               )}
-              {hasProfileInfo ? (
-                <>
                   <img src={edit} alt="edit-icon" className="image-edit-btn" />
                   <input
                     type="file"
@@ -68,10 +67,6 @@ const EditProfileImage = () => {
                     ref={fileInputRef}
                     onChange={handleFileChange}
                   />
-                </>
-              ) : (
-                <></>
-              )}
             </form>
           </div>
         </article>
