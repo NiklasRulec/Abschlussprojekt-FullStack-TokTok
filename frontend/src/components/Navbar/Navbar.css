@@ -30,3 +30,9 @@
   justify-content: center;
   object-fit: cover;
 }
+
+.navUpload img {
+  width: 7.7rem;
+  height: 3.8rem;
+  object-fit: contain;
+}

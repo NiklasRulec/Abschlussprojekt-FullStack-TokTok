@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import followIcon from "../../images/Follow.svg";
+import FollowDark from "../../images/FollowDark.svg";
 import feeds from "../../images/Feeds.svg";
 import moremenu from "../../images/MoreMenu.svg";
 import moremenulight from "../../images/moremenu-light.svg";
@@ -120,16 +121,29 @@ const Profile = () => {
             </div>
           </article>
 
-          {following ? (
-            <button className="following-btn" onClick={unFollow}>
+
+          {theme ? (
+          following ? (
+            <button className="following-btn-dark" onClick={unFollow}>
               Following
             </button>
           ) : (
-            <button className="follow-btn" onClick={follow}>
-              <img src={followIcon} alt="follow-icon" />
+            <button className="follow-btn-dark" onClick={follow}>
+              <img src={FollowDark} alt="follow-icon" />
               Follow
             </button>
-          )}
+          )
+        ) : following ? (
+          <button className="following-btn-light" onClick={unFollow}>
+            Following
+          </button>
+        ) : (
+          <button className="follow-btn-light" onClick={follow}>
+            <img src={followIcon} alt="follow-icon" />
+            Follow
+          </button>
+        )}
+
 
           <div className="horizontal-line"></div>
           <article className="profile-bottom">
