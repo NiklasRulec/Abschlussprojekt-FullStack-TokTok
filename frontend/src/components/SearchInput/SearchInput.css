@@ -30,6 +30,8 @@
   color: var(--color-grey-upload);
 }
 
-.searchInput[type="text"]:focus {
-  border: 3px solid var(--color-pink);
+.input-dark:focus,
+.input-light:focus {
+  border: 2px solid var(--color-pink);
+  background-color: #e9809018;
 }
