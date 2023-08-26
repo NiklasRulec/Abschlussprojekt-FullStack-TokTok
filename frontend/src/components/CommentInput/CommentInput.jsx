@@ -59,11 +59,20 @@ const CommentInput = ({ postId }) => {
         ) : (
           <img src={Avatar} alt="profile-avatar" className="profile-avatar" />
         )}
+        
+        {theme ? (
         <textarea
-          className="comment-input"
+        className="comment-input-dark"
+        placeholder="Your comment..."
+        onChange={(e) => setCommentInput(e.target.value)}
+      />
+        ) : (
+        <textarea
+          className="comment-input-light"
           placeholder="Your comment..."
           onChange={(e) => setCommentInput(e.target.value)}
         />
+        )}
         <button type="submit" className="post-btn">
           Post
         </button>
