@@ -16,10 +16,12 @@ const SearchList = ({ searchQuery }) => {
 
     const fetchLoggedInUser = async () => {
       const { data } = await axios.get(`/api/user/profile`);
+      
       setLoggedInUserId(data._id);
     };
     fetchUser();
     fetchLoggedInUser();
+
   }, []);
 
   const filteredUsers = usersData?.filter(
@@ -44,6 +46,7 @@ const SearchList = ({ searchQuery }) => {
               profession={item.profession}
               img={item.image?.url}
               id={item._id}
+              item={item}
             />
           ))}
         </div>
