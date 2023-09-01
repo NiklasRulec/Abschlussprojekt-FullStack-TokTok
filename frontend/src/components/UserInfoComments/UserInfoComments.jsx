@@ -18,6 +18,7 @@ const UserInfoComments = (props) => {
     const fetchData = async () => {
       const { data } = await axios.get(`/api/user/${userId}`);
       setUserData(data);
+      // console.log(data);
     };
     fetchData();
   }, [refresh]);

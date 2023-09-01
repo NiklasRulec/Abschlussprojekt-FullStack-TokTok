@@ -86,7 +86,7 @@ const Comments = () => {
       {postData ? (
         <>
           <section className="post-detail-section">
-            <img src={postData.image.url} alt="post-img" className="post-img" />
+            <img src={postData?.image?.url} alt="post-img" className="post-img" />
             <UserInfoBar post={postData} />
             <article className="post-detail-article">
               {postData.caption && (
