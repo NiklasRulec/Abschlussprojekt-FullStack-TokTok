@@ -3,13 +3,16 @@ import Navbar from "../../components/Navbar/Navbar";
 import "./Search.css";
 import SearchInput from "../../components/SearchInput/SearchInput";
 import SearchList from "../../components/SearchList/SearchList";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { RefreshContext } from "../../user/RefreshContext";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const { refresh, setRefresh } = useContext(RefreshContext);
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+    // setRefresh(prev => !prev)
   };
 
     return ( 

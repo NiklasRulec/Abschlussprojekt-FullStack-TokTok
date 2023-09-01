@@ -19,6 +19,7 @@ import arrowdownlight from "../../images/arrow-down-light.svg";
 import arrowbacklight from "../../images/arrow-back-light.svg";
 import settingslight from "../../images/settings-light.svg";
 import locationlight from "../../images/location-light.svg";
+import { useNavigate } from "react-router-dom";
 
 const Upload = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -30,6 +31,7 @@ const Upload = () => {
   const [isPosting, setIsPosting] = useState(false);
   const caption = useRef();
   const { theme, setTheme } = useContext(ThemeContext);
+  const nav = useNavigate()
 
   const toggleClick = (toggleType) => {
     if (toggleType === "facebook") {
@@ -67,7 +69,8 @@ const Upload = () => {
         },
       });
       // console.log(response.data);
-      window.location.href = "/home";
+      nav("/home")
+      // window.location.href = "/home";
     } catch (error) {
       console.log(error);
     } finally {
@@ -186,7 +189,7 @@ const Upload = () => {
             )}
             <textarea
               type="text"
-              className="caption-input"
+              className={ theme ? "caption-input-dark" : "caption-input-light"}
               placeholder="Write a caption..."
               ref={caption}
               onChange={(e) => {
@@ -195,7 +198,7 @@ const Upload = () => {
                 element.style.height = `${element.scrollHeight}px`;
               }}
             />
-            {uploadedImage && (
+           {uploadedImage && (
               <img
                 src={URL.createObjectURL(uploadedImage)}
                 alt=""
